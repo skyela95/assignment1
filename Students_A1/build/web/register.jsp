@@ -38,7 +38,7 @@
                 <tr>
                     <td>Student/Tutor</td>
                     <td>
-                        <select name="sot">
+                        <select name="usertype">
                             <option value="student">Student</option>
                             <option value="tutor">Tutor</option>
                         </select>

@@ -12,7 +12,7 @@ public class Student implements Serializable {
     private String name;
     private String password;
     private String dob;
-    private String sot;
+    private String usertype;
 
     public Student() {
     }
@@ -22,7 +22,7 @@ public class Student implements Serializable {
         this.name = name;
         this.password = password;
         this.dob = dob;
-        this.sot = sot;
+        this.usertype = usertype;
     }
 
     public String getEmail() {
@@ -57,11 +57,11 @@ public class Student implements Serializable {
         this.dob = dob;
     }
     
-    public String getSot() {
-        return sot;
+    public String getUsertype() {
+        return usertype;
     }
     
-    public void setSot() {
-        this.sot = sot;
+    public void setUsertype() {
+        this.usertype = usertype;
     }
 }

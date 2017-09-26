@@ -11,8 +11,8 @@
     String email = request.getParameter("email");
     String password = request.getParameter("password");
     String dob = request.getParameter("dob");
-    String sot = request.getParameter("sot");
-    Student student = new Student(name, email, password, dob, sot);
+    String usertype = request.getParameter("usertype");
+    Student student = new Student(name, email, password, dob, usertype);
     session.setAttribute("student", student);
 %>
 
@@ -22,7 +22,7 @@
         <title>Main</title>
     </head>
 
-    <% if (sot == "student") {%>    
+    <% if (usertype == "student") {%>    
     <p>Welcome! <%=name%>.</p>
 
     <%} else {%>
