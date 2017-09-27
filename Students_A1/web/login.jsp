@@ -14,7 +14,7 @@
     <body>
         <h1>Login</h1>
          
-            <form method="post" action="loginAction.jsp">
+            <form method="post" action="main.jsp">
                 <table>
                 <tr>
                     <td>Email</td>

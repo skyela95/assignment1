@@ -4,7 +4,10 @@
     Author     : Skye
 --%>
 
-<%@page import="uts.wsd.Student" import="uts.wsd.Tutor" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.wsd.Student" contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="student" class="uts.wsd.Student" scope="session" />
+<jsp:setProperty name="student" property="*" />
+
 <!DOCTYPE html>
 <%
     String name = request.getParameter("name");
@@ -12,8 +15,6 @@
     String password = request.getParameter("password");
     String dob = request.getParameter("dob");
     String usertype = request.getParameter("usertype");
-    Student student = new Student(name, email, password, dob, usertype);
-    session.setAttribute("student", student);
 %>
 
 <html>

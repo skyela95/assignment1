@@ -7,15 +7,22 @@ package uts.wsd;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Skye
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "students")
 public class Students implements Serializable {
 
     private ArrayList<Student> list = new ArrayList<Student>();
 
+    @XmlElement(name = "student")
     public ArrayList<Student> getList() {
         return list;
     }
@@ -35,5 +42,15 @@ public class Students implements Serializable {
             }
         }
         return null;
+    }
+
+    public Student look(String email) {
+        // For each user in the list...
+        for (Student student : list) {
+            if (student.getEmail().equals(email)) {
+                return student; // Login correct. Return this user.
+            }
+        }
+        return null; // Login incorrect. Return null.
     }
 }
