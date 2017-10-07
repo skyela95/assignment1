@@ -19,12 +19,29 @@ and open the template in the editor.
                             <xs:element name="email" type="emailType"/>
                             <xs:element name="password" type="passwordType"/>
                             <xs:element name="dob" type ="dobType"/>
-                            <xs:element name ="userType" type="string"/>
-                            <xs:element name="tutorSpecialty" type="string"/>
+                            <xs:element name ="userType" type="userTypeEnum"/>
+                            <xs:element name="tutorSpecialty" type="tutorSpecialtyEnum"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    
+    <xs:simpleType name="userTypeEnum">
+        <xs:restriction base="xsd:string">
+            <xs:enumeration value="STUDENT"/>
+            <xs:enumeration value="TUTOR"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="tutorSpecialtyEnum">
+        <xs:restriction base="xsd:string">
+            <xs:enumeration value="WSD"/>
+            <xs:enumeration value="USP"/>
+            <xs:enumeration value="SEP"/>
+            <xs:enumeration value="AppProg"/>
+            <xs:enumeration value="MobileApp"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

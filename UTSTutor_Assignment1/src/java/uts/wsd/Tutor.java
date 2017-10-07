@@ -5,21 +5,43 @@
  */
 package uts.wsd;
 
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author Adam
  */
-public class Tutor extends User {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "tutor")
+public class Tutor extends User implements Serializable {
 
+    @XmlType(name = "tutorSpecialtyEnum")
+    @XmlEnum
     public enum TutorSpecialty {
         WSD,
         USP,
         SEP,
         AppProg,
-        MobileApp
+        MobileApp;
+
+        public String value() {
+            return name();
+        }
+
+        public static TutorSpecialty fromValue(String v) {
+            return valueOf(v);
+        }
     }
-    
+
+    @XmlElement(name = "tutorSpecialty", required = true)
     private TutorSpecialty specialty;
+    @XmlElement(name = "avaliable")
     private boolean avaliable = true;
     //private Booking booking;
 
@@ -28,6 +50,8 @@ public class Tutor extends User {
         
         this.specialty = specialty;
     }
+    
+    public Tutor() {}
     
         /**
      * @return the tutor's specialty

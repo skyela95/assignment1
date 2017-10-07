@@ -11,7 +11,16 @@ and open the template in the editor.
         <name>Steve Jobs</name>
         <email>steve.jobs@apple.com</email>
         <dob>27/03/78</dob>
-        <tutorSpecialty> WSD </tutorSpecialty>
-        <userType>Tutor</userType>
+        <tutorSpecialty>WSD</tutorSpecialty>
+        <userType>TUTOR</userType>
+        <avaliable>1</avaliable>
+    </tutor>
+    <tutor>
+        <name>Bill Gates</name>
+        <email>bill.gates@microsoft.com</email>
+        <dob>05/06/64</dob>
+        <tutorSpecialty>MobileApp</tutorSpecialty>
+        <userType>TUTOR</userType>
+        <avaliable>1</avaliable>
     </tutor>
 </tutors>
