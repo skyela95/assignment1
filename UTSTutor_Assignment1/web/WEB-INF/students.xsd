@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
+<<<<<<< HEAD
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
@@ -36,3 +37,38 @@ and open the template in the editor.
     </xsd:simpleType>
         
 </xs:schema>
+=======
+
+<!-- I don't really know what goes in the target namspace but this
+was in the lecture slides so...... -->
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://learnt.it.uts.edu.au/wsd"
+    xmlns="http://learnt.it.uts.edu.au/wsd"
+    elementFormDefault="qualified">
+
+    <xs:simpleType name="name">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([A-Z][a-z]+)\s*)*([A-Z][a-z]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="email">
+        <xs:restriction base="xs:string">
+            <!-- Any number|letter followed by any special characters followed
+            by any letter|number followed by an @ followed by any letters|characters 
+            followed by a dot and then any character -->
+            <xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])+@([0-9a-zA-Z]
+            [-\w]*[0-9a-zA-Z]\.)+[a-zA-Z])"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="dateOfBirth">
+        <xs:restriction base="xs:string">
+            <!-- Very simple DoB -->
+            <xs:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>
+>>>>>>> d9c44b847ab6f5851bdd21846155c1bf9dd64a8b

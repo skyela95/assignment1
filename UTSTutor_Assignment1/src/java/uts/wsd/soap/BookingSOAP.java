@@ -34,7 +34,9 @@ public class BookingSOAP {
         BookingApplication bookingApp = (BookingApplication)application.getAttribute("bookingApp");
         if (bookingApp == null) {
             System.out.println("Instantiating new Booking App...");
-            bookingApp = new BookingApplication(application);
+            //bookingApp = new BookingApplication(application);
+            bookingApp = new BookingApplication();
+            bookingApp.setFilePath(application.getRealPath("\\"));
         }
         application.setAttribute("bookingApp", bookingApp);
         
@@ -43,11 +45,20 @@ public class BookingSOAP {
     
     @WebMethod
     public ArrayList<Tutor> fetchTutors() {
-        return getBookingApp().getTutors();
+        return getBookingApp().getTutorList();
     }
     
     public User login(String email, String password) {
-        
-        return new User(); // temp
+        /*
+        User user;
+        user = getBookingApp().getTutorsObject().login(email, password);
+        if (user != null) {
+            return user;
+        } else {
+            user = getBookingApp().getStudentsObject().login(email, password); 
+            return user;
+        }
+        */
+        return getBookingApp().login(email, password);
     }
 }

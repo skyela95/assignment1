@@ -9,11 +9,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
 
 /**
  *
@@ -21,53 +25,70 @@ import javax.xml.bind.Unmarshaller;
  */
 public class BookingApplication {
 
-    private final String PATH_SUFFIX = "WEB-INF/%1$s.xml";
+    private final String PATH_SUFFIX = "%1$sWEB-INF/%2$s.xml";
+    private String filePath;
     
-    private String usersFilePath;
+    private String studentsFilePath;
     private String tutorsFilePath;
     private String bookingsFilePath;
     
-    //private Students students;
+    private Students students;
     private Tutors tutors;
     private Bookings bookings;
+
     
-    public BookingApplication(ServletContext sc) {
+    
+    public void setFilePath(String path) {
+        filePath = path;
         try {
-        setPathsAndObjects(sc);
-        } catch (IOException | JAXBException e) {
+        setPathsAndObjects();
+        } catch (JAXBException | IOException e) {
             e.printStackTrace();
         }
     }
     
-    private void setPathsAndObjects(ServletContext sc) throws JAXBException, IOException {
+    
+    private void setPathsAndObjects() throws JAXBException, IOException {
+        //System.out.println("Initialising Students...");
         //students = setPathAndObect(sc, studentsFilePath, Students.class);
-        tutors = setPathAndObect(sc, tutorsFilePath, Tutors.class);
-        bookings = setPathAndObect(sc, bookingsFilePath, Bookings.class);
-        
+        System.out.println("Initialising Tutors...");
+        tutors = setPathAndObect(tutorsFilePath, Tutors.class);
+        System.out.println("Initialising Bookings...");
+        bookings = setPathAndObect(bookingsFilePath, Bookings.class);       
     }
     
-    private <T> T setPathAndObect(ServletContext sc, String filePath, Class<T> c) throws JAXBException, IOException {
+    private <T> T setPathAndObect(String realPath, Class<T> c) throws JAXBException, IOException {
         JAXBContext jc = JAXBContext.newInstance(c);
         Unmarshaller u = jc.createUnmarshaller();
-        filePath = sc.getRealPath(String.format(PATH_SUFFIX, c.getSimpleName().toLowerCase()));
-        FileInputStream fin = new FileInputStream(filePath);
+        System.out.println("Test2: " + String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase()));
+        realPath = String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase());
+        FileInputStream fin = new FileInputStream(realPath);
         T t = (T)u.unmarshal(fin);                 
         fin.close();
-        
         return t;
     }
-    
-    /*
-    public Students getStudents() {
-        return students;
+
+    public User login(String username, String password) {
+        User user;
+        user = tutors.login(username, password);
+        if (user != null) {
+            System.out.println("Found user (Tutor)");
+            return user;
+        } else {
+            user = students.login(username, password);
+            return user;
+        }
     }
+
     
+
+    /*
     public void setStudents(Students students) {
         this.students = students;
     }
     */
     
-    public ArrayList<Tutor> getTutors() {
+    public ArrayList<Tutor> getTutorList() {
         return (ArrayList<Tutor>)(ArrayList<?>)tutors.getList();
     }
     
@@ -76,9 +97,25 @@ public class BookingApplication {
         this.tutors = tutors;
     }
     */
+    
+    public Tutors getTutorsObject() {
+        return tutors;
+    }
 
-    public ArrayList<Booking> getBookings() {
+    public Bookings getBookingsObject() {
+        return bookings;
+    }
+    
+    public Students getStudentsObject() {
+        return students;
+    }
+
+    public ArrayList<Booking> getBookingList() {
         return bookings.getBookings();
+    }    
+    
+    public ArrayList<Student> getStudentList() {
+        return (ArrayList<Student>)(ArrayList<?>)students.getList();
     }
     
     /*
