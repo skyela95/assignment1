@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "students")
-public class Students extends Users {
+public class Students extends Users implements Serializable {
     
     
     public Student getStudentByName(String name) {

@@ -49,19 +49,16 @@ public class BookingApplication {
     
     
     private void setPathsAndObjects() throws JAXBException, IOException {
-        //System.out.println("Initialising Students...");
-        //students = setPathAndObect(sc, studentsFilePath, Students.class);
-        System.out.println("Initialising Tutors...");
+        students = setPathAndObect(studentsFilePath, Students.class);
         tutors = setPathAndObect(tutorsFilePath, Tutors.class);
-        System.out.println("Initialising Bookings...");
         bookings = setPathAndObect(bookingsFilePath, Bookings.class);       
     }
     
     private <T> T setPathAndObect(String realPath, Class<T> c) throws JAXBException, IOException {
         JAXBContext jc = JAXBContext.newInstance(c);
         Unmarshaller u = jc.createUnmarshaller();
-        System.out.println("Test2: " + String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase()));
         realPath = String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase());
+        
         FileInputStream fin = new FileInputStream(realPath);
         T t = (T)u.unmarshal(fin);                 
         fin.close();
