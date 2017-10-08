@@ -18,7 +18,7 @@ public class User {
         STUDENT,
         TUTOR
     }
-    
+   
     protected String name;
     protected String email;
     protected String password;
