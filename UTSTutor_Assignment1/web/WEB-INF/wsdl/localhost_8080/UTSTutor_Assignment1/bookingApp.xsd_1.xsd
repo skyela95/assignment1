@@ -1,34 +1,50 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://soap.wsd.uts/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://soap.wsd.uts/">
 
+<xs:element name="authorizeUser" type="tns:authorizeUser"/>
+
+<xs:element name="authorizeUserResponse" type="tns:authorizeUserResponse"/>
+
 <xs:element name="booking" type="tns:booking"/>
 
-<xs:element name="cancelBookingID" nillable="true" type="tns:cancelBookingObject"/>
+<xs:element name="cancelAccount" type="tns:cancelAccount"/>
 
-<xs:element name="cancelBookingIDResponse" nillable="true" type="tns:cancelBookingObjectResponse"/>
+<xs:element name="cancelAccountResponse" type="tns:cancelAccountResponse"/>
+
+<xs:element name="cancelBookingID" type="tns:cancelBookingID"/>
+
+<xs:element name="cancelBookingIDResponse" type="tns:cancelBookingIDResponse"/>
 
 <xs:element name="cancelBookingObject" type="tns:cancelBookingObject"/>
 
 <xs:element name="cancelBookingObjectResponse" type="tns:cancelBookingObjectResponse"/>
 
-<xs:element name="cancelUserAccount" type="tns:cancelUserAccount"/>
-
-<xs:element name="cancelUserAccountResponse" type="tns:cancelUserAccountResponse"/>
-
 <xs:element name="completeBookingID" type="tns:completeBookingID"/>
 
 <xs:element name="completeBookingIDResponse" type="tns:completeBookingIDResponse"/>
 
-<xs:element name="completeBookingObject" nillable="true" type="tns:completeBookingID"/>
+<xs:element name="completeBookingObject" type="tns:completeBookingObject"/>
 
-<xs:element name="completeBookingObjectResponse" nillable="true" type="tns:completeBookingIDResponse"/>
+<xs:element name="completeBookingObjectResponse" type="tns:completeBookingObjectResponse"/>
 
-<xs:element name="createBooking" type="tns:createBooking"/>
+<xs:element name="createBooking" nillable="true" type="tns:createBookingString"/>
 
-<xs:element name="createBookingResponse" type="tns:createBookingResponse"/>
+<xs:element name="createBookingResponse" nillable="true" type="tns:createBookingStringResponse"/>
 
-<xs:element name="createBookingString" nillable="true" type="tns:createBooking"/>
+<xs:element name="createBookingString" type="tns:createBookingString"/>
 
-<xs:element name="createBookingStringResponse" nillable="true" type="tns:createBookingResponse"/>
+<xs:element name="createBookingStringResponse" type="tns:createBookingStringResponse"/>
+
+<xs:element name="editDOB" type="tns:editDOB"/>
+
+<xs:element name="editDOBResponse" type="tns:editDOBResponse"/>
+
+<xs:element name="editName" type="tns:editName"/>
+
+<xs:element name="editNameResponse" type="tns:editNameResponse"/>
+
+<xs:element name="editPassword" type="tns:editPassword"/>
+
+<xs:element name="editPasswordResponse" type="tns:editPasswordResponse"/>
 
 <xs:element name="getBookingByID" type="tns:getBookingByID"/>
 
@@ -44,15 +60,31 @@
 
 <xs:element name="getBookingsByStudentEmailResponse" type="tns:getBookingsByStudentEmailResponse"/>
 
+<xs:element name="getBookingsByStudentName" type="tns:getBookingsByStudentName"/>
+
+<xs:element name="getBookingsByStudentNameResponse" type="tns:getBookingsByStudentNameResponse"/>
+
 <xs:element name="getBookingsBySubject" type="tns:getBookingsBySubject"/>
 
 <xs:element name="getBookingsBySubjectResponse" type="tns:getBookingsBySubjectResponse"/>
 
 <xs:element name="getBookingsResponse" type="tns:getBookingsResponse"/>
 
+<xs:element name="getLoggedUser" type="tns:getLoggedUser"/>
+
+<xs:element name="getLoggedUserResponse" type="tns:getLoggedUserResponse"/>
+
 <xs:element name="getTutors" type="tns:getTutors"/>
 
 <xs:element name="getTutorsResponse" type="tns:getTutorsResponse"/>
+
+<xs:element name="isBookingOwner" type="tns:isBookingOwner"/>
+
+<xs:element name="isBookingOwnerByID" type="tns:isBookingOwnerByID"/>
+
+<xs:element name="isBookingOwnerByIDResponse" type="tns:isBookingOwnerByIDResponse"/>
+
+<xs:element name="isBookingOwnerResponse" type="tns:isBookingOwnerResponse"/>
 
 <xs:element name="login" type="tns:login"/>
 
@@ -62,19 +94,41 @@
 
 <xs:element name="logoutResponse" type="tns:logoutResponse"/>
 
-<xs:element name="student" type="tns:student"/>
-
 <xs:element name="tutor" type="tns:tutor"/>
 
-<xs:element name="updateStudentAccount" type="tns:updateStudentAccount"/>
-
-<xs:element name="updateStudentAccountResponse" type="tns:updateStudentAccountResponse"/>
-
-<xs:element name="updateTutorAccount" type="tns:updateTutorAccount"/>
-
-<xs:element name="updateTutorAccountResponse" type="tns:updateTutorAccountResponse"/>
-
 <xs:element name="user" type="tns:user"/>
+
+<xs:complexType name="getLoggedUser">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getLoggedUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="dateOfBirth" type="xs:string" minOccurs="0"/>
+<xs:element name="userType" type="tns:userTypeEnum" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeBookingID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeBookingIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="getBookingsByStatus">
 <xs:sequence>
@@ -100,16 +154,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="cancelBookingObject">
-<xs:sequence>
-<xs:element name="arg0" type="tns:booking" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="cancelBookingObjectResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="getBookingByID">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -122,12 +166,41 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="updateTutorAccount">
-<xs:sequence/>
+<xs:complexType name="cancelBookingObject">
+<xs:sequence>
+<xs:element name="arg0" type="tns:booking" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="updateTutorAccountResponse">
-<xs:sequence/>
+<xs:complexType name="cancelBookingObjectResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isBookingOwnerByID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isBookingOwnerByIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="authorizeUser">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="authorizeUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="getTutors">
@@ -151,14 +224,24 @@
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="user">
+<xs:complexType name="getBookingsByStudentName">
 <xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="email" type="xs:string" minOccurs="0"/>
-<xs:element name="password" type="xs:string" minOccurs="0"/>
-<xs:element name="dateOfBirth" type="xs:string" minOccurs="0"/>
-<xs:element name="userType" type="tns:userTypeEnum" minOccurs="0"/>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookingsByStudentNameResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelAccount">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="cancelAccountResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="login">
@@ -174,24 +257,26 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="cancelUserAccount">
+<xs:complexType name="editName">
 <xs:sequence>
-<xs:element name="arg0" type="tns:user" minOccurs="0"/>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="cancelUserAccountResponse">
+<xs:complexType name="editNameResponse">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="completeBookingID">
+<xs:complexType name="completeBookingObject">
 <xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg0" type="tns:booking" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="completeBookingIDResponse">
-<xs:sequence/>
+<xs:complexType name="completeBookingObjectResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="getBookingsByStudentEmail">
@@ -206,6 +291,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="editPassword">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editPasswordResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="getBookings">
 <xs:sequence/>
 </xs:complexType>
@@ -216,14 +311,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="updateStudentAccount">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="updateStudentAccountResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="logout">
 <xs:sequence/>
 </xs:complexType>
@@ -232,22 +319,38 @@
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="createBooking">
+<xs:complexType name="cancelBookingID">
 <xs:sequence>
-<xs:element name="arg0" type="tns:student" minOccurs="0"/>
-<xs:element name="arg1" type="tns:tutor" minOccurs="0"/>
+<xs:element name="arg0" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="student">
-<xs:complexContent>
-<xs:extension base="tns:user">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
+<xs:complexType name="cancelBookingIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="createBookingResponse">
+<xs:complexType name="isBookingOwner">
+<xs:sequence>
+<xs:element name="arg0" type="tns:booking" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isBookingOwnerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createBookingString">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createBookingStringResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:booking" minOccurs="0"/>
 </xs:sequence>
@@ -265,6 +368,23 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="editDOB">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editDOBResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:simpleType name="userTypeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="STUDENT"/>
+<xs:enumeration value="TUTOR"/>
+</xs:restriction>
+</xs:simpleType>
+
 <xs:simpleType name="tutorSpecialtyEnum">
 <xs:restriction base="xs:string">
 <xs:enumeration value="WSD"/>
@@ -280,13 +400,6 @@
 <xs:enumeration value="ACTIVE"/>
 <xs:enumeration value="CANCELLED"/>
 <xs:enumeration value="COMPLETED"/>
-</xs:restriction>
-</xs:simpleType>
-
-<xs:simpleType name="userTypeEnum">
-<xs:restriction base="xs:string">
-<xs:enumeration value="STUDENT"/>
-<xs:enumeration value="TUTOR"/>
 </xs:restriction>
 </xs:simpleType>
 </xs:schema>
