@@ -3,11 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uts.wsd.rest;
 
 import java.io.IOException;
@@ -18,7 +13,7 @@ import javax.ws.rs.core.*;
 import javax.xml.bind.JAXBException;
 import uts.wsd.*;
 
-@Path("/bookinglist")
+@Path("/bookings")
 public class BookingService {
 
     @Context
@@ -33,6 +28,8 @@ public class BookingService {
         //
         // The "synchronized" keyword is used to lock the application object while
         // we're manpulating it.
+        
+       
         synchronized (application) {
             BookingApplication bookingApp = (BookingApplication) application.getAttribute("bookingApp");
             if (bookingApp == null) {
@@ -43,23 +40,50 @@ public class BookingService {
             return bookingApp;
         }
     }
-
-    //@Path("bookings")
-    //@GET
-    //@Produces(MediaType.APPLICATION_XML)
-    //public ArrayList<Booking> getBookings() throws JAXBException, IOException {
-    //    ArrayList<Booking> bookings = getBookingApp().getBookingList();
-    //    return bookings;
-    //}
+  
     
-    
-    
-    @Path("bookings/{ID}")
+    @Path("booking")
     @GET
-    @Produces(MediaType.TEXT_XML)
-    public Booking getBooking(@QueryParam("ID") String ID) throws JAXBException, IOException, Exception{
-        return getBookingApp().getBookingsObject().getByID(ID);
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getAllBookings() throws JAXBException, IOException, Exception{
+        return getBookingApp().getBookingsObject().getBookings();
+    
     }
     
-}
+    // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/bookingID?ID=1
+    @Path("booking/bookingID")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public Booking getBookingID(@QueryParam("ID") int ID) throws JAXBException, IOException, Exception{
+        System.out.println("Getting id: " + ID);
+        return getBookingApp().getBookingsObject().getByID(ID);
+    }    
 
+
+    
+    // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/studEmail?email=lisa.simpson@springfield.com
+    @Path("booking/studEmail")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getBookingStudEmail(@QueryParam("email") String email) throws JAXBException, IOException, Exception{
+        return getBookingApp().getBookingsObject().getbyStudentEmail(email);
+    }    
+    
+    //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/subjectName?subjectName=AppProg
+    @Path("booking/subjectName")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getBookingSubject(@QueryParam("subjectName") String subjectName) throws JAXBException, IOException, Exception{
+        return getBookingApp().getBookingsObject().getBySubject(subjectName);
+    }    
+    
+    
+     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/status?status=ACTIVE
+    @Path("booking/status")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getBookingStatus(@QueryParam("status") String status) throws JAXBException, IOException, Exception{
+        return getBookingApp().getBookingsObject().getByStatus(status);
+    }
+}    
+    

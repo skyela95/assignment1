@@ -40,6 +40,7 @@
                 String searchName = request.getParameter("tutorName");
                 //change to be tutorspecialty type match.
                 String searchSubject = request.getParameter("tutorSubject");
+                //if statements on search.
                 //get list of tutors, use as drop down data fill.
         %>
         <p> DELETE THIS: search form(STUDENT), for tutors using: subj, name, status.
@@ -80,6 +81,7 @@
                 //do search, return list of tutors
                 //marshall the list to xml, pass to inputDoc.
                 Tutors tutors = bookingApp.getTutorsObject();
+                //change to have proper.
                 //ArrayList<Tutor> tutorsList = tutors.getTutors(searchName, searchSubject, searchStatus);
                 ArrayList<Tutor> tutorsListTest = tutors.getAll();
                 //pass through REST to get XML.

@@ -3,6 +3,7 @@
     Created on : 08/10/2017, 7:14:46 PM
     Author     : Madeleine
 --%>
+<%@page import="uts.wsd.Bookings"%>
 <%@page import="uts.wsd.Tutor"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
@@ -35,7 +36,8 @@
             //Tutor tutor = request.getParameter("tutor");
             User user = (User) session.getAttribute("user");
             ArrayList<Booking> bookings = user.getBookings().getByStatus(Booking.StatusType.ACTIVE);
-            BookingService service = new BookingService();            
+            BookingService service = new BookingService();    
+            Bookings bookings2 = bookingApp.getBookingsObject();
           %>
           <c:import url="http://localhost:8080/UTSTutor_Assignment1/rest/bookings/ID?query=12345"
                       var="inputDoc" />

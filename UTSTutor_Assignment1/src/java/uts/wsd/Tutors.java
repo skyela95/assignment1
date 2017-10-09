@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -21,10 +22,29 @@ public class Tutors extends Users implements Serializable{
     
     //private ArrayList<Tutor> list = new ArrayList<Tutor>();
     
+    @XmlElement(name = "tutor", type = Tutor.class)        
+    protected ArrayList<Tutor> list = new ArrayList<Tutor>();
+
+
+    public ArrayList<Tutor> getTutors(){
+        return list;
+    }
+    
+    
     public Tutor getTutorByName(String name) {
         for (User user : list) {
             Tutor tutor = (Tutor)user;
             if (tutor.getName().equals(name)) {
+                return tutor;
+            }
+        }
+        return null;
+    }
+    
+    public Tutor getTutorByEmail(String email) {
+        for (User user : list) {
+            Tutor tutor = (Tutor)user;
+            if (tutor.getEmail().equals(email)) {
                 return tutor;
             }
         }

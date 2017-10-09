@@ -23,13 +23,16 @@ body {
     background: linear-gradient(45deg, #1e5799 0%,#207cca 18%,#207cca 18%,#2989d8 50%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
-.login { 
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -150px 0 0 -150px;
+.login { 	
 	width:300px;
 	height:300px;
+}
+
+.login table {
+        position: absolute;
+    	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -125px;
 }
 .login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
