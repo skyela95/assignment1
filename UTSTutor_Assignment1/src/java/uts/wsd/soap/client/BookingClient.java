@@ -60,7 +60,7 @@ public class BookingClient {
     private static final String ERROR_LOGIN_INVALID = "Invalid login details! Try again.";
 
     // General Bookings
-    private static final String BOOKING_FORMAT = "\nBooking [ID: %1$s]\n"
+    private static final String BOOKING_FORMAT = "\nBooking [ID: %1$d]\n"
             + "Student: %2$s (%3$s) || Tutor: %4$s (%5$s) [%6$s] \n"
             + "Status: %7$s\n";
 
@@ -80,9 +80,9 @@ public class BookingClient {
     // Booking Cancel
     private static final String BOOKING_CANCEL_CONFIRMATION = "CONFIRM";
     private static final String BOOKING_CANCEL_CONFIRMATION_INSTRUCTION = "Type %1$s exactly to cancel account: ";
-    private static final String BOOKING_CANCELLED_SUCCESS = "Booking [ID: %1$s] cancelled!";
+    private static final String BOOKING_CANCELLED_SUCCESS = "Booking [ID: %1$d] cancelled!";
 
-    private static final String ERROR_BOOKING_CANCELLING = "ERROR cancelling Booking [ID: %1$s]";
+    private static final String ERROR_BOOKING_CANCELLING = "ERROR Cancelling Booking [ID: %1$d]";
     private static final String ERROR_CANCEL_NOT_CONFIRMED = "Account cancel not confirmed!";
     private static final String ERROR_BOOKING_OWNER = "ERROR: You are not the owner of this booking";
 
