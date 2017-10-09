@@ -115,6 +115,7 @@ public class BookingClient {
     private static final String MENU_TITLE_CANCEL_ACCOUNT = "- CANCEL ACCOUNT - '%1$s' to exit";
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc=" ${Variables} ">
     // User Variables
     private static String name = "";
@@ -333,6 +334,7 @@ public class BookingClient {
     }
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc=" ${Booking Search} ">
     
     /**
@@ -544,6 +546,7 @@ public class BookingClient {
         }
     }
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc=" ${Booking Completion} ">
     
     /**
@@ -582,6 +585,7 @@ public class BookingClient {
     }
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc=" ${Booking Cancel} ">
     
     /**
@@ -625,6 +629,7 @@ public class BookingClient {
     }
 
     // </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc=" ${Account Edit} ">
     
     /**
@@ -763,5 +768,4 @@ public class BookingClient {
 
     }
     // </editor-fold>
-
 }

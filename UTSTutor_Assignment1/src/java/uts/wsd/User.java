@@ -11,17 +11,18 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import static uts.wsd.Tutor.TutorSpecialty.valueOf;
 
 /**
- *
- * @author Adam
+ * The base user class that all users are derived from. It holds the general
+ * information a user may have, and all getter/setter methods
  */
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "user")
 public class User {
 
+    // <editor-fold defaultstate="collapsed" desc=" ${Enums} ">
+    // Enum for type of user, with methods to retrieve string values for
+    // comparison and XML parsing
     @XmlType(name = "userTypeEnum")
     @XmlEnum
     public enum UserType {
@@ -36,7 +37,9 @@ public class User {
             return valueOf(v);
         }
     }
-    
+// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc=" ${Variables} ">
     @XmlElement(name = "name")
     protected String name;
     @XmlElement(name = "email")
@@ -47,7 +50,18 @@ public class User {
     protected String dateOfBirth;
     @XmlElement(name = "userType")
     protected UserType userType;
+// </editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc=" ${Constructors} ">
+    /**
+     * Constructor with basic parameters for a base User
+     *
+     * @param name Users real name
+     * @param email Users email, also their username
+     * @param password Users password
+     * @param dateOfBirth Users date of birth
+     * @param userType The type of User - Student or Tutor
+     */
     public User(String name, String email, String password, String dateOfBirth, UserType userType) {
         this.name = name;
         this.email = email;
@@ -55,21 +69,20 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.userType = userType;
     }
-    
-    public User() {}
-    
-        /**
+
+    /**
+     * Empty constructor for XML factory creation
+     */
+    public User() {
+    }
+// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc=" ${Getters} ">
+    /**
      * @return The users full name
      */
     public String getName() {
         return name;
-    }
-
-    /**
-     * @param name the users full name to set
-     */
-    public void setName(String name) {
-        this.name = name;
     }
 
     /**
@@ -80,24 +93,10 @@ public class User {
     }
 
     /**
-     * @param email the users email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
      * @return the user's password
      */
     public String getPassword() {
         return password;
-    }
-
-    /**
-     * @param password the user's password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     /**
@@ -108,17 +107,40 @@ public class User {
     }
 
     /**
-     * @param dateOfBirth the user's date of birth to set
-     */
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    /**
      * @return the user's type
      */
     public UserType getUserType() {
         return userType;
+    }
+    // </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc=" ${Setters} ">
+    /**
+     * @param name the users full name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @param email the users email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @param password the user's password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @param dateOfBirth the user's date of birth to set
+     */
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     /**
@@ -127,5 +149,5 @@ public class User {
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
-    
+    // </editor-fold>
 }
