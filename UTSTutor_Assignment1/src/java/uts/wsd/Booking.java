@@ -107,6 +107,5 @@ public class Booking implements Serializable {
         if (statusType.equals(StatusType.ACTIVE)) {
             setStatusType(StatusType.COMPLETED);
         }
-    }
-
+    } 
 }

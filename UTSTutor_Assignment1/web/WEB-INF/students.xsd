@@ -8,7 +8,7 @@ and open the template in the editor.
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
-    
+
     <xs:include schemaLocation="types.xsd"/>
    
     <xs:element name="students">
