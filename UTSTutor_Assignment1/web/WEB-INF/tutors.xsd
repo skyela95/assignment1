@@ -8,13 +8,13 @@ and open the template in the editor.
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
-
+    
     <xs:include schemaLocation="types.xsd"/>
-   
-    <xs:element name="students">
+
+    <xs:element name="tutors">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="student" maxOccurs="unbounded">
+                <xs:element name="tutor" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="name" type="name"/>
@@ -22,12 +22,12 @@ and open the template in the editor.
                             <xs:element name="password" type="passwordType"/>
                             <xs:element name="dob" type ="dateOfBirth"/>
                             <xs:element name ="userType" type="userTypeEnum"/>
+                            <xs:element name="tutorSpecialty" type="tutorSpecialtyEnum"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-        
+    
 </xs:schema>
-

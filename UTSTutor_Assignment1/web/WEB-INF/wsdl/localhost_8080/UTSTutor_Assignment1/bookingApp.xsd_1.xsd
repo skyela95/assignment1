@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://soap.wsd.uts/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://soap.wsd.uts/">
+
+<xs:element name="booking" type="tns:booking"/>
+
+<xs:element name="cancelBookingID" nillable="true" type="tns:cancelBookingObject"/>
+
+<xs:element name="cancelBookingIDResponse" nillable="true" type="tns:cancelBookingObjectResponse"/>
+
+<xs:element name="cancelBookingObject" type="tns:cancelBookingObject"/>
+
+<xs:element name="cancelBookingObjectResponse" type="tns:cancelBookingObjectResponse"/>
+
+<xs:element name="cancelUserAccount" type="tns:cancelUserAccount"/>
+
+<xs:element name="cancelUserAccountResponse" type="tns:cancelUserAccountResponse"/>
+
+<xs:element name="completeBookingID" type="tns:completeBookingID"/>
+
+<xs:element name="completeBookingIDResponse" type="tns:completeBookingIDResponse"/>
+
+<xs:element name="completeBookingObject" nillable="true" type="tns:completeBookingID"/>
+
+<xs:element name="completeBookingObjectResponse" nillable="true" type="tns:completeBookingIDResponse"/>
+
+<xs:element name="createBooking" type="tns:createBooking"/>
+
+<xs:element name="createBookingResponse" type="tns:createBookingResponse"/>
+
+<xs:element name="createBookingString" nillable="true" type="tns:createBooking"/>
+
+<xs:element name="createBookingStringResponse" nillable="true" type="tns:createBookingResponse"/>
+
+<xs:element name="getBookingByID" type="tns:getBookingByID"/>
+
+<xs:element name="getBookingByIDResponse" type="tns:getBookingByIDResponse"/>
+
+<xs:element name="getBookings" type="tns:getBookings"/>
+
+<xs:element name="getBookingsByStatus" type="tns:getBookingsByStatus"/>
+
+<xs:element name="getBookingsByStatusResponse" type="tns:getBookingsByStatusResponse"/>
+
+<xs:element name="getBookingsByStudentEmail" type="tns:getBookingsByStudentEmail"/>
+
+<xs:element name="getBookingsByStudentEmailResponse" type="tns:getBookingsByStudentEmailResponse"/>
+
+<xs:element name="getBookingsBySubject" type="tns:getBookingsBySubject"/>
+
+<xs:element name="getBookingsBySubjectResponse" type="tns:getBookingsBySubjectResponse"/>
+
+<xs:element name="getBookingsResponse" type="tns:getBookingsResponse"/>
+
+<xs:element name="getTutors" type="tns:getTutors"/>
+
+<xs:element name="getTutorsResponse" type="tns:getTutorsResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="logout" type="tns:logout"/>
+
+<xs:element name="logoutResponse" type="tns:logoutResponse"/>
+
+<xs:element name="student" type="tns:student"/>
+
+<xs:element name="tutor" type="tns:tutor"/>
+
+<xs:element name="updateStudentAccount" type="tns:updateStudentAccount"/>
+
+<xs:element name="updateStudentAccountResponse" type="tns:updateStudentAccountResponse"/>
+
+<xs:element name="updateTutorAccount" type="tns:updateTutorAccount"/>
+
+<xs:element name="updateTutorAccountResponse" type="tns:updateTutorAccountResponse"/>
+
+<xs:element name="user" type="tns:user"/>
+
+<xs:complexType name="getBookingsByStatus">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookingsByStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="booking">
+<xs:sequence>
+<xs:element name="bookingID" type="xs:int"/>
+<xs:element name="tutorEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="tutorName" type="xs:string" minOccurs="0"/>
+<xs:element name="subjectName" type="tns:tutorSpecialtyEnum" minOccurs="0"/>
+<xs:element name="studentEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="studentName" type="xs:string" minOccurs="0"/>
+<xs:element name="statusType" type="tns:statusTypeEnum" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelBookingObject">
+<xs:sequence>
+<xs:element name="arg0" type="tns:booking" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelBookingObjectResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getBookingByID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookingByIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateTutorAccount">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateTutorAccountResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTutors">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTutorsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tutor" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tutor">
+<xs:complexContent>
+<xs:extension base="tns:user">
+<xs:sequence>
+<xs:element name="tutorSpecialty" type="tns:tutorSpecialtyEnum"/>
+<xs:element name="avaliable" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="dateOfBirth" type="xs:string" minOccurs="0"/>
+<xs:element name="userType" type="tns:userTypeEnum" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelUserAccount">
+<xs:sequence>
+<xs:element name="arg0" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelUserAccountResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="completeBookingID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeBookingIDResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getBookingsByStudentEmail">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookingsByStudentEmailResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookings">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getBookingsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateStudentAccount">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateStudentAccountResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="logout">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="logoutResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="createBooking">
+<xs:sequence>
+<xs:element name="arg0" type="tns:student" minOccurs="0"/>
+<xs:element name="arg1" type="tns:tutor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="student">
+<xs:complexContent>
+<xs:extension base="tns:user">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="createBookingResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookingsBySubject">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookingsBySubjectResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:booking" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="tutorSpecialtyEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="WSD"/>
+<xs:enumeration value="USP"/>
+<xs:enumeration value="SEP"/>
+<xs:enumeration value="AppProg"/>
+<xs:enumeration value="MobileApp"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="statusTypeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ACTIVE"/>
+<xs:enumeration value="CANCELLED"/>
+<xs:enumeration value="COMPLETED"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="userTypeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="STUDENT"/>
+<xs:enumeration value="TUTOR"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

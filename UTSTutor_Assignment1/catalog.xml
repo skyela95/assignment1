@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/UTSTutor_Assignment1/Booking?wsdl" uri="src/conf/xml-resources/web-service-references/Booking/wsdl/localhost_8080/UTSTutor_Assignment1/Booking.wsdl"/>
+    <system systemId="http://localhost:8080/UTSTutor_Assignment1/Booking?xsd=1" uri="src/conf/xml-resources/web-service-references/Booking/wsdl/localhost_8080/UTSTutor_Assignment1/Booking.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/UTSTutor_Assignment1/bookingApp?wsdl" uri="src/conf/xml-resources/web-service-references/bookingApp/wsdl/localhost_8080/UTSTutor_Assignment1/bookingApp.wsdl"/>
+    <system systemId="http://localhost:8080/UTSTutor_Assignment1/bookingApp?xsd=1" uri="src/conf/xml-resources/web-service-references/bookingApp/wsdl/localhost_8080/UTSTutor_Assignment1/bookingApp.xsd_1.xsd"/>
+</catalog>

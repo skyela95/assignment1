@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/10/2017, 2:10:27 PM
+    Author     : Adam
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html { width: 100%; height:100%; overflow:hidden; }
+
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #c6c6c6; }
+
+body { 
+    width: 100%;
+    height:100%;
+    font-family: 'Open Sans', sans-serif;
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #1e5799 0%, #207cca 18%, #207cca 18%, #2989d8 50%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #1e5799 0%,#207cca 18%,#207cca 18%,#2989d8 50%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #1e5799 0%,#207cca 18%,#207cca 18%,#2989d8 50%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.login { 	
+	width:300px;
+	height:300px;
+}
+
+.login table {
+        position: absolute;
+    	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -125px;
+}
+.login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+}
+
+.subscript {
+    font-size: 12px;
+    text-align: center;
+}
+.subscript a {
+    color: #fff;
+}
+
+.error {
+    background: #1e5799;
+    font-size: 13px;
+    text-align: center;
+    color: red;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }

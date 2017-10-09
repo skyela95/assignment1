@@ -5,23 +5,26 @@
  */
 package uts.wsd;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import uts.wsd.Booking.StatusType;
 
 /**
  *
  * @author Madeleine
  */
-
-@XmlRootElement(name="bookings")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Bookings {
-     protected ArrayList<Booking> list = new ArrayList<Booking>();
+@XmlRootElement(name = "bookings")
+public class Bookings implements Serializable {
+    
+    @XmlElement(name = "booking", type = Booking.class)        
+    protected ArrayList<Booking> list = new ArrayList<Booking>();
 
-    @XmlElement(name = "booking")
+
     public ArrayList<Booking> getBookings(){
         return list;
     }
@@ -34,32 +37,29 @@ public class Bookings {
         list.remove(booking);
     }
 
-    public ArrayList<Booking> getByStatus(Booking.StatusType statType){
+    public ArrayList<Booking> getByStatus(String statType){
         ArrayList<Booking> bookings = new ArrayList<Booking>();
         for (Booking booking : list){
-            if (booking.getStatusType() == statType){
+            if (booking.getStatusType().value().equals(statType)){
                 bookings.add(booking);
             }
-            else{
-                return null;
-            }
         }
-        return bookings.isEmpty() ? null : bookings;
+        //return bookings.isEmpty() ? null : bookings;
+        return bookings;
     }
 
-    public Booking getByID(String ID){
-        Booking book = new Booking();
+    public Booking getByID(int ID){
+        Booking book;
         for (Booking booking : list){
             if(booking.getBookingID() == ID){
                 book = booking;
-            }
-            else{
-                book = null;
+                return book;
             }
         }
-        return book;
+        return null;
     }
 
+    /*
     public Booking getbyStuEmail(String stuEmail){
         Booking book = new Booking();
         for(Booking booking : list){
@@ -71,6 +71,27 @@ public class Bookings {
             }
         }
         return book;
+    }
+*/
+    
+    public ArrayList<Booking> getbyStudentEmail(String email) {
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        for(Booking booking : list) {
+            if (booking.getStudentEmail().equals(email)) {
+                bookings.add(booking);
+            }
+        }
+        return bookings;
+    }
+    
+    public ArrayList<Booking> getBySubject(String specialty) {
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        for (Booking booking : list) {            
+            if (booking.getSubjectName().value().equals(specialty)) {
+                bookings.add(booking);
+            }
+        }
+        return bookings;
     }
 
 }

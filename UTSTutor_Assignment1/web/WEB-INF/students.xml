@@ -1,41 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-< xml-stylesheet type="text/xsl" href="students.xsd"?>
-
 
 <students>
     <student>
-        <email>steve@uts.com</email>
-        <name>Steve Tru</name>
-        <password>blahblah</password>
-        <dateOfBirth>11/04/1993</dateOfBirth>
-        <usertype>student</usertype>
+        <name>Lisa Simpson </name>
+        <email>lisa.simpson@springfield.com</email>
+        <password>tr33hugger</password>
+        <dob>22/07/93</dob>
+        <userType>STUDENT</userType>
     </student>
-    <student>
-        <email>joe@uts.com</email>
-        <name>Joe Ret</name>
-        <password>foobar</password>
-        <dateOfBirth>09/09/1984</dateOfBirth>
-        <usertype>student</usertype>
-    </student>
-    <student>
-        <email>sara@uts.com</email>
-        <name>Sara Bluth</name>
-        <password>welcome</password>
-        <dateOfBirth>09/01/1964</dateOfBirth>
-        <usertype>student</usertype>
-    </student>
-    <student>
-        <email>jessie@uts.com</email>
-        <name>Jessie James</name>
-        <password>football</password>
-        <dateOfBirth>18/02/1999</dateOfBirth>
-        <usertype>student</usertype>
-    </student>
-    <student>
-        <email>will@uts.com</email>
-        <name>Will Williamson</name>
-        <password>soccer</password>
-        <dateOfBirth>22/02/1976</dateOfBirth>
-        <usertype>student</usertype>
-    </student>
-</students> 
+</students>
+
+

@@ -5,13 +5,19 @@
  */
 package uts.wsd;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Adam
  */
-public class Tutors extends Users {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "tutors")
+public class Tutors extends Users implements Serializable{
     
     //private ArrayList<Tutor> list = new ArrayList<Tutor>();
     
@@ -19,6 +25,16 @@ public class Tutors extends Users {
         for (User user : list) {
             Tutor tutor = (Tutor)user;
             if (tutor.getName().equals(name)) {
+                return tutor;
+            }
+        }
+        return null;
+    }
+    
+    public Tutor getTutorByEmail(String email) {
+        for (User user : list) {
+            Tutor tutor = (Tutor)user;
+            if (tutor.getEmail().equals(email)) {
                 return tutor;
             }
         }

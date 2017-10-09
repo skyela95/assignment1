@@ -5,24 +5,47 @@
  */
 package uts.wsd;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import static uts.wsd.Tutor.TutorSpecialty.valueOf;
+
 /**
  *
  * @author Adam
  */
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "user")
 public class User {
 
-    
+    @XmlType(name = "userTypeEnum")
+    @XmlEnum
     public enum UserType {
         STUDENT,
-        TUTOR
+        TUTOR;
+
+        public String value() {
+            return name();
+        }
+
+        public static UserType fromValue(String v) {
+            return valueOf(v);
+        }
     }
-   
+    
+    @XmlElement(name = "name")
     protected String name;
+    @XmlElement(name = "email")
     protected String email;
+    @XmlElement(name = "password")
     protected String password;
+    @XmlElement(name = "dateOfBirth")
     protected String dateOfBirth;
+    @XmlElement(name = "userType")
     protected UserType userType;
 
     public User(String name, String email, String password, String dateOfBirth, UserType userType) {
@@ -32,6 +55,8 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.userType = userType;
     }
+    
+    public User() {}
     
         /**
      * @return The users full name

@@ -9,7 +9,7 @@ and open the template in the editor.
 <bookings>
     <booking>
         <statusType>Available</statusType>
-        <bookingID>12345</bookingID>
+        <bookingID>1</bookingID>
         <tutorName>Steve Jobs</tutorName>
         <tutorEmail>steve.jobs@apple.com</tutorEmail>
         <subjectName>WSD</subjectName>
@@ -18,7 +18,7 @@ and open the template in the editor.
     </booking>
         <booking>
         <statusType>Available</statusType>
-        <bookingID>abcde</bookingID>
+        <bookingID>2</bookingID>
         <tutorName>Paul Depet</tutorName>
         <tutorEmail>Paul.Depet@wsd.com</tutorEmail>
         <subjectName>USP</subjectName>
@@ -27,7 +27,7 @@ and open the template in the editor.
     </booking>
         <booking>
         <statusType>Available</statusType>
-        <bookingID>ABCDE</bookingID>
+        <bookingID>3</bookingID>
         <tutorName>Seth Soap</tutorName>
         <tutorEmail>seth.soap@wsd.com</tutorEmail>
         <subjectName>AppProg</subjectName>
@@ -36,7 +36,7 @@ and open the template in the editor.
     </booking>
         <booking>
         <statusType>Available</statusType>
-        <bookingID>123ab</bookingID>
+        <bookingID>4</bookingID>
         <tutorName>Robert Felix</tutorName>
         <tutorEmail>robert.felix@wsd.com</tutorEmail>
         <subjectName>SEP</subjectName>
@@ -45,7 +45,7 @@ and open the template in the editor.
     </booking>
         <booking>
         <statusType>Available</statusType>
-        <bookingID>abc12</bookingID>
+        <bookingID>5</bookingID>
         <tutorName>Liam Walker</tutorName>
         <tutorEmail>liam.walker@wsd.com</tutorEmail>
         <subjectName>MobileApp</subjectName>
@@ -53,3 +53,4 @@ and open the template in the editor.
         <studentName>Bert Tyler</studentName>
     </booking>
 </bookings>
+

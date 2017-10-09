@@ -28,13 +28,15 @@ public class BookingApplication {
     private final String PATH_SUFFIX = "%1$sWEB-INF/%2$s.xml";
     private String filePath;
     
-    private String studentsFilePath;
-    private String tutorsFilePath;
-    private String bookingsFilePath;
+    private StringBuilder studentsFilePath = new StringBuilder("");
+    private StringBuilder tutorsFilePath = new StringBuilder("");
+    private StringBuilder bookingsFilePath = new StringBuilder("");
     
     private Students students;
     private Tutors tutors;
     private Bookings bookings;
+    
+    private User loggedUser;
 
     
     
@@ -49,54 +51,44 @@ public class BookingApplication {
     
     
     private void setPathsAndObjects() throws JAXBException, IOException {
-        //System.out.println("Initialising Students...");
-        //students = setPathAndObect(sc, studentsFilePath, Students.class);
-        System.out.println("Initialising Tutors...");
+        students = setPathAndObect(studentsFilePath, Students.class);
         tutors = setPathAndObect(tutorsFilePath, Tutors.class);
-        System.out.println("Initialising Bookings...");
         bookings = setPathAndObect(bookingsFilePath, Bookings.class);       
     }
     
-    private <T> T setPathAndObect(String realPath, Class<T> c) throws JAXBException, IOException {
+    private <T> T setPathAndObect(StringBuilder realPath, Class<T> c) throws JAXBException, IOException {
         JAXBContext jc = JAXBContext.newInstance(c);
         Unmarshaller u = jc.createUnmarshaller();
-        System.out.println("Test2: " + String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase()));
-        realPath = String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase());
-        FileInputStream fin = new FileInputStream(realPath);
+        //realPath = String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase());
+        realPath.append(String.format(PATH_SUFFIX, filePath, c.getSimpleName().toLowerCase()));
+        FileInputStream fin = new FileInputStream(realPath.toString());
         T t = (T)u.unmarshal(fin);                 
         fin.close();
         return t;
     }
 
     public User login(String username, String password) {
-        User user;
-        user = tutors.login(username, password);
-        if (user != null) {
-            System.out.println("Found user (Tutor)");
-            return user;
+        loggedUser = tutors.login(username, password);
+        if (loggedUser != null) {
+            return loggedUser;
         } else {
-            user = students.login(username, password);
-            return user;
+            loggedUser = students.login(username, password);
+            return loggedUser;
         }
     }
-
     
-
-    /*
-    public void setStudents(Students students) {
-        this.students = students;
+    
+    public void logout() {
+        loggedUser = null;
     }
-    */
     
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+   
     public ArrayList<Tutor> getTutorList() {
         return (ArrayList<Tutor>)(ArrayList<?>)tutors.getList();
     }
-    
-    /*
-    public void setTutors(Tutors tutors) {
-        this.tutors = tutors;
-    }
-    */
     
     public Tutors getTutorsObject() {
         return tutors;
@@ -117,30 +109,34 @@ public class BookingApplication {
     public ArrayList<Student> getStudentList() {
         return (ArrayList<Student>)(ArrayList<?>)students.getList();
     }
-    
-    /*
-    public void setBookings(Bookings bookings) {
-        this.bookings = bookings;
+
+    public void saveStudents() {
+
+        saveBookingObject(students, Students.class, studentsFilePath);
+
     }
-    */
-    
-    public void saveTutors() throws JAXBException, IOException {
+
+    public void saveTutors() {
         saveBookingObject(tutors, Tutors.class, tutorsFilePath);
+
     }
-    
-    public void saveBookings() throws JAXBException, IOException {
+
+    public void saveBookings() {
         saveBookingObject(bookings, Bookings.class, bookingsFilePath);
     }
-    
-    private <T> void saveBookingObject(T obj, Class<T> c, String path) throws JAXBException, IOException {
-        JAXBContext jc = JAXBContext.newInstance(c);
-        Marshaller m = jc.createMarshaller();
-        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        
-        FileOutputStream fout = new FileOutputStream(path);
-        m.marshal(obj, fout);
-        fout.close();
+
+    private <T> void saveBookingObject(T obj, Class<T> c, StringBuilder path) {
+        try {
+            JAXBContext jc = JAXBContext.newInstance(c);
+            Marshaller m = jc.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            FileOutputStream fout = new FileOutputStream(path.toString());
+            m.marshal((T) obj, fout);
+            fout.close();
+        } catch (JAXBException | IOException e) {
+            e.printStackTrace();
+        }
     }
-    
-    
+
 }
