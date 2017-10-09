@@ -35,7 +35,7 @@
             //only tutor can compelete a booking.
             //Tutor tutor = request.getParameter("tutor");
             User user = (User) session.getAttribute("user");
-            ArrayList<Booking> bookings = user.getBookings().getByStatus(Booking.StatusType.ACTIVE);
+            ArrayList<Booking> bookings = user.getBookings().getByStatus("ACTIVE");
             BookingService service = new BookingService();    
             Bookings bookings2 = bookingApp.getBookingsObject();
           %>
