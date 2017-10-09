@@ -6,6 +6,8 @@
         <email>lisa.simpson@springfield.com</email>
         <password>tr33hugger</password>
         <dob>22/07/93</dob>
-        <userType>Student</userType>
+        <userType>STUDENT</userType>
     </student>
 </students>
+
+

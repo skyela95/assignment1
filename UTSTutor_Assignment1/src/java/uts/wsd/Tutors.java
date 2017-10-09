@@ -5,13 +5,19 @@
  */
 package uts.wsd;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Adam
  */
-public class Tutors extends Users {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "tutors")
+public class Tutors extends Users implements Serializable{
     
     //private ArrayList<Tutor> list = new ArrayList<Tutor>();
     
@@ -47,6 +53,16 @@ public class Tutors extends Users {
             }
         }
         return tutors.isEmpty() ? null : tutors;
+    }
+    
+    public ArrayList<Tutor> getAll(){
+       ArrayList<Tutor> tutors = new ArrayList<Tutor>();
+       for (User user : list){
+           if (user.getUserType() == User.UserType.TUTOR){
+               tutors.add((Tutor)user);
+           }
+       }
+       return tutors;
     }
     
     //THIS METHOD TAKES A Boolean NOT boolean !! had to change so tha type could be null.

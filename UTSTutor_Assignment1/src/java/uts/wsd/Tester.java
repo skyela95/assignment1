@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * This is just a mock class to test random methods/functions
  */
 public class Tester {
-    
+    /*
     public static void main(String[] args) {
         Tutors tutors = new Tutors();
         
@@ -33,8 +33,8 @@ public class Tester {
         */
         
         //ArrayList<Tutor> aTutors = tutors.getTutorsByAvailability(true);
-        ArrayList<Tutor> aTutors = tutors.getTutorsBySpecialty(Tutor.TutorSpecialty.AppProg);
-        
+        //ArrayList<Tutor> aTutors = tutors.getTutorsBySpecialty(Tutor.TutorSpecialty.AppProg);
+        /*
         
         if (aTutors != null) {
             for (Tutor tutor : aTutors) {
@@ -44,4 +44,5 @@ public class Tester {
             System.out.println("No tutors found.");
         }
     }
+*/
 }

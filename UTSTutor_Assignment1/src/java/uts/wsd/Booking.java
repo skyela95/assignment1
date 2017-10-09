@@ -10,7 +10,8 @@ package uts.wsd;
  * @author Madeleine
  */
 public class Booking {
-    public enum StatusType{
+
+    public enum StatusType {
         ACTIVE,
         CANCELLED,
         COMPLETED

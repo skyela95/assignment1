@@ -8,6 +8,8 @@ and open the template in the editor.
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
+    
+    <xs:include schemaLocation="types.xsd"/>
 
     <xs:element name="tutors">
         <xs:complexType>
@@ -15,16 +17,17 @@ and open the template in the editor.
                 <xs:element name="tutor" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="name" type="nameType"/>
-                            <xs:element name="email" type="emailType"/>
+                            <xs:element name="name" type="name"/>
+                            <xs:element name="email" type="email"/>
                             <xs:element name="password" type="passwordType"/>
-                            <xs:element name="dob" type ="dobType"/>
-                            <xs:element name ="userType" type="string"/>
-                            <xs:element name="tutorSpecialty" type="string"/>
+                            <xs:element name="dob" type ="dateOfBirth"/>
+                            <xs:element name ="userType" type="userTypeEnum"/>
+                            <xs:element name="tutorSpecialty" type="tutorSpecialtyEnum"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    
 </xs:schema>
