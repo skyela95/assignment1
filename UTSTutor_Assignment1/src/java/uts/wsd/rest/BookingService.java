@@ -48,6 +48,8 @@ public class BookingService {
 
     
     
+    //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/ID?query=12345
+    @Path("/ID")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public Booking getBookingID(@QueryParam("ID") String ID) throws JAXBException, IOException, Exception{
@@ -56,6 +58,7 @@ public class BookingService {
 
 
     
+    //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/studEmail?query=lisa.simpson@springfield.com
     @Path("studEmail")
     @GET
     @Produces(MediaType.APPLICATION_XML)
