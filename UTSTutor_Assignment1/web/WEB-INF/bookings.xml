@@ -8,7 +8,7 @@ and open the template in the editor.
 
 <bookings>
     <booking>
-        <statusType>Available</statusType>
+        <statusType>CANCELLED</statusType>
         <bookingID>1</bookingID>
         <tutorName>Steve Jobs</tutorName>
         <tutorEmail>steve.jobs@apple.com</tutorEmail>
@@ -17,7 +17,7 @@ and open the template in the editor.
         <studentName>Lisa Simpson</studentName>
     </booking>
         <booking>
-        <statusType>Available</statusType>
+        <statusType>ACTIVE</statusType>
         <bookingID>2</bookingID>
         <tutorName>Paul Depet</tutorName>
         <tutorEmail>Paul.Depet@wsd.com</tutorEmail>
@@ -26,7 +26,7 @@ and open the template in the editor.
         <studentName>Oscar Helix</studentName>
     </booking>
         <booking>
-        <statusType>Available</statusType>
+        <statusType>ACTIVE</statusType>
         <bookingID>3</bookingID>
         <tutorName>Seth Soap</tutorName>
         <tutorEmail>seth.soap@wsd.com</tutorEmail>
@@ -35,7 +35,7 @@ and open the template in the editor.
         <studentName>Emily Heath</studentName>
     </booking>
         <booking>
-        <statusType>Available</statusType>
+        <statusType>COMPLETED</statusType>
         <bookingID>4</bookingID>
         <tutorName>Robert Felix</tutorName>
         <tutorEmail>robert.felix@wsd.com</tutorEmail>
@@ -44,7 +44,7 @@ and open the template in the editor.
         <studentName>Henry Watkins</studentName>
     </booking>
         <booking>
-        <statusType>Available</statusType>
+        <statusType>ACTIVE</statusType>
         <bookingID>5</bookingID>
         <tutorName>Liam Walker</tutorName>
         <tutorEmail>liam.walker@wsd.com</tutorEmail>
