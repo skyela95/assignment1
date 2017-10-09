@@ -8,6 +8,7 @@ package uts.wsd;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -20,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Bookings {
      protected ArrayList<Booking> list = new ArrayList<Booking>();
 
-
+    @XmlElement(name = "booking")
     public ArrayList<Booking> getBookings(){
         return list;
     }

@@ -16,4 +16,40 @@ and open the template in the editor.
         <studentEmail>lisa.simpson@springfield.com</studentEmail>
         <studentName>Lisa Simpson</studentName>
     </booking>
+        <booking>
+        <statusType>Available</statusType>
+        <bookingID>abcde</bookingID>
+        <tutorName>Paul Depet</tutorName>
+        <tutorEmail>Paul.Depet@wsd.com</tutorEmail>
+        <subjectName>USP</subjectName>
+        <studentEmail>oscar.helix@wsd.com</studentEmail>
+        <studentName>Oscar Helix</studentName>
+    </booking>
+        <booking>
+        <statusType>Available</statusType>
+        <bookingID>ABCDE</bookingID>
+        <tutorName>Seth Soap</tutorName>
+        <tutorEmail>seth.soap@wsd.com</tutorEmail>
+        <subjectName>AppProg</subjectName>
+        <studentEmail>emily.heath@swsd.com</studentEmail>
+        <studentName>Emily Heath</studentName>
+    </booking>
+        <booking>
+        <statusType>Available</statusType>
+        <bookingID>123ab</bookingID>
+        <tutorName>Robert Felix</tutorName>
+        <tutorEmail>robert.felix@wsd.com</tutorEmail>
+        <subjectName>SEP</subjectName>
+        <studentEmail>henry.watkins@wsd.com</studentEmail>
+        <studentName>Henry Watkins</studentName>
+    </booking>
+        <booking>
+        <statusType>Available</statusType>
+        <bookingID>abc12</bookingID>
+        <tutorName>Liam Walker</tutorName>
+        <tutorEmail>liam.walker@wsd.com</tutorEmail>
+        <subjectName>MobileApp</subjectName>
+        <studentEmail>bert.tyler@wsd.com</studentEmail>
+        <studentName>Bert Tyler</studentName>
+    </booking>
 </bookings>

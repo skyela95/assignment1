@@ -5,22 +5,17 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
 
-<!-- I don't really know what goes in the target namspace but this
-was in the lecture slides so...... -->
-<xs:schema 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://learnt.it.uts.edu.au/wsd"
-    xmlns="http://learnt.it.uts.edu.au/wsd"
-    elementFormDefault="qualified">
-
-    <xs:simpleType name="studentName">
+    <xs:simpleType name="tutorName">
         <xs:restriction base="xs:string">
             <xs:pattern value="(([A-Z][a-z]+)\s*)*([A-Z][a-z]*)"/>
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="studentEmail">
+    <xs:simpleType name="tutorEmail">
         <xs:restriction base="xs:string">
             <!-- Any number|letter followed by any special characters followed
             by any letter|number followed by an @ followed by any letters|characters 
@@ -30,11 +25,16 @@ was in the lecture slides so...... -->
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="dateOfBirth">
+    <xs:simpleType name="bookingID">
         <xs:restriction base="xs:string">
-            <!-- Very simple DoB -->
-            <xs:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+            <xs:pattern value="[0-9a-zA-Z]{5}"/>
         </xs:restriction>
     </xs:simpleType>
-    
+            
+    <xs:simpleType name="subjectName">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9a-zA-Z]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>
