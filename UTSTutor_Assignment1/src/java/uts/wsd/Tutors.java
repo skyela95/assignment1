@@ -31,6 +31,16 @@ public class Tutors extends Users implements Serializable{
         return null;
     }
     
+    public Tutor getTutorByEmail(String email) {
+        for (User user : list) {
+            Tutor tutor = (Tutor)user;
+            if (tutor.getEmail().equals(email)) {
+                return tutor;
+            }
+        }
+        return null;
+    }
+    
     public ArrayList<Tutor> getTutorsBySpecialty(Tutor.TutorSpecialty specialty) {
         ArrayList<Tutor> tutors = new ArrayList<Tutor>();
         

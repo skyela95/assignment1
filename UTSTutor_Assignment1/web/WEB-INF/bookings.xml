@@ -7,13 +7,4 @@ and open the template in the editor.
 
 
 <bookings>
-    <booking>
-        <statusType>Available</statusType>
-        <bookingID>12345</bookingID>
-        <tutorName>Steve Jobs</tutorName>
-        <tutorEmail>steve.jobs@apple.com</tutorEmail>
-        <subjectName>WSD</subjectName>
-        <studentEmail>lisa.simpson@springfield.com</studentEmail>
-        <studentName>Lisa Simpson</studentName>
-    </booking>
 </bookings>

@@ -16,6 +16,14 @@ and open the template in the editor.
         </xsd:restriction>
     </xsd:simpleType>
     
+    <xsd:simpleType name="userTypeEnum">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ACTIVE"/>
+            <xsd:enumeration value="CANCELLED"/>
+            <xsd:enumeration value="COMPLETED"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
     <xs:simpleType name="tutorSpecialtyEnum">
         <xs:restriction base="xsd:string">
             <xs:enumeration value="WSD"/>

@@ -21,6 +21,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "students")
 public class Students extends Users implements Serializable {
     
+        public Student getStudentByEmail(String email) {
+        for (User user : list) {
+            Student student = (Student)user;
+            if (student.getEmail().equals(email)) {
+                return student;
+            }
+        }
+        return null;
+    }
+    
     
     public Student getStudentByName(String name) {
         for (User user : list) {
