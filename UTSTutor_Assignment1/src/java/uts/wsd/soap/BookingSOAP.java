@@ -57,44 +57,25 @@ public class BookingSOAP {
     public void logout() {
         getBookingApp().logout();
     }
+    
+    @WebMethod
+    public User getLoggedUser() {
+        return getBookingApp().getLoggedUser();
+    }
+    
+    @WebMethod
+    public boolean authorizeUser(String user, String pass) {
+        return getBookingApp().authorizeUser(user, pass);
+    }
 
     @WebMethod(operationName = "createBooking")
     public Booking createBooking(Student student, Tutor tutor) {
-        BookingApplication bookingApp = getBookingApp();
-        Bookings bookings = getBookingApp().getBookingsObject();
-        ArrayList<Booking> list = bookings.getBookings();
-
-        int id = list.size() == 0 ? 0 : list.get(list.size() - 1).getBookingID();
-        Booking booking = new Booking(id + 1,
-                tutor.getEmail(), tutor.getName(),
-                tutor.getSpeciality(), student.getEmail(),
-                student.getName(), StatusType.ACTIVE);
-
-        tutor.setAvaliable(false);
-        bookingApp.saveTutors();
-
-        bookings.addBooking(booking);
-        bookingApp.saveBookings();
-
-        return booking;
+        return getBookingApp().createBooking(student, tutor);
     }
 
     @WebMethod(operationName = "createBookingString")
-    public Booking createBooking(String studentUser, String tutorUser) {
-        BookingApplication bookingApp = getBookingApp();
-        Student student;
-        Tutor tutor;
-        if ((student = bookingApp.getStudentsObject().getStudentByEmail(studentUser)) != null) {
-            System.out.println("Student Found");
-            if ((tutor = bookingApp.getTutorsObject().getTutorByEmail(tutorUser)) != null) {
-                System.out.println("Tutor Found");
-                if (tutor.isAvaliable()) {
-                    System.out.println("Tutor is avaliable");
-                    return createBooking(student, tutor);
-                }
-            }
-        }
-        return null;
+    public Booking createBooking(String studentEmail, String tutorEmail) {
+        return getBookingApp().createBookingByEmail(studentEmail, tutorEmail);
     }
     
     @WebMethod
@@ -111,6 +92,11 @@ public class BookingSOAP {
     public ArrayList<Booking> getBookingsByStudentEmail(String email) {
         return getBookingApp().getBookingsObject().getbyStudentEmail(email);
     }
+    
+    @WebMethod
+    public ArrayList<Booking> getBookingsByStudentName(String name) {
+        return getBookingApp().getBookingsObject().getByName(name);
+    }
 
     @WebMethod
     public ArrayList<Booking> getBookingsBySubject(String subject) {
@@ -123,55 +109,53 @@ public class BookingSOAP {
     }
 
     @WebMethod(operationName = "cancelBookingObject")
-    public void cancelBooking(Booking booking) {
-        BookingApplication bookingApp = getBookingApp();
-
-        if (booking != null) {
-            Tutor tutor = bookingApp.getTutorsObject().getTutorByEmail(booking.getTutorEmail());
-            tutor.setAvaliable(true);
-            booking.cancelBooking();
-        }
+    public boolean cancelBooking(Booking booking) {
+        return getBookingApp().completeBooking(booking);
     }
 
     @WebMethod(operationName = "cancelBookingID")
-    public void cancelBooking(int ID) {
-        BookingApplication bookingApp = getBookingApp();
-        Bookings bookings = getBookingApp().getBookingsObject();
-        Booking booking = bookings.getByID(ID);
-
-        cancelBooking(booking);
+    public boolean cancelBookingByID(int bookingId) {
+        return getBookingApp().completeBookingByID(bookingId);
     }
 
     @WebMethod(operationName = "completeBookingObject")
-    public void completeBooking(Booking booking) {
-        BookingApplication bookingApp = getBookingApp();
-
-        if (booking != null) {
-            Tutor tutor = bookingApp.getTutorsObject().getTutorByEmail(booking.getTutorEmail());
-            tutor.setAvaliable(true);
-            booking.completeBooking();
-        }
+    public boolean completeBooking(Booking booking) {
+        return getBookingApp().completeBooking(booking);
     }
 
     @WebMethod(operationName = "completeBookingID")
-    public void completeBooking(int bookingID) {
-        BookingApplication bookingApp = getBookingApp();
-        Bookings bookings = getBookingApp().getBookingsObject();
-        Booking booking = bookings.getByID(bookingID);
-
-        completeBooking(booking);
+    public boolean completeBookingByID(int bookingID) {
+        return getBookingApp().completeBookingByID(bookingID);
+    }
+    
+    @WebMethod
+    public boolean isBookingOwner(Booking booking) {
+        return getBookingApp().isBookingOwner(booking);
+    }
+    
+    @WebMethod
+    public boolean isBookingOwnerByID(int id) {
+        return getBookingApp().isBookingOwnerByID(id);
     }
 
     // BONUS
-    public void cancelUserAccount(User user) {
-
+    @WebMethod
+    public void cancelAccount() {
+        getBookingApp().cancelAccount();
+    }
+    
+    @WebMethod
+    public void editName(String name) {
+        getBookingApp().editName(name);
+    }
+    
+    @WebMethod
+    public void editDOB(String dob) {
+        getBookingApp().editDOB(dob);
     }
 
-    public void updateTutorAccount() {
-
-    }
-
-    public void updateStudentAccount() {
-
-    }
+    @WebMethod
+    public void editPassword(String password) {
+        getBookingApp().editPassword(password);
+    }    
 }

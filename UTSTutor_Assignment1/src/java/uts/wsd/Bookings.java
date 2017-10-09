@@ -40,7 +40,8 @@ public class Bookings implements Serializable {
     public ArrayList<Booking> getByStatus(String statType){
         ArrayList<Booking> bookings = new ArrayList<Booking>();
         for (Booking booking : list){
-            if (booking.getStatusType().value().equals(statType)){
+            if (booking.getStatusType().value().toLowerCase()
+                    .equals(statType.toLowerCase())){
                 bookings.add(booking);
             }
         }
@@ -58,21 +59,17 @@ public class Bookings implements Serializable {
         }
         return null;
     }
-
-    /*
-    public Booking getbyStuEmail(String stuEmail){
-        Booking book = new Booking();
-        for(Booking booking : list){
-            if(booking.getStudentEmail() == stuEmail){
-                book =  booking;
-            }
-            else{
-                book =  null;
+    
+    public ArrayList<Booking> getByName(String name) {
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        for (Booking booking : list) {
+            if (booking.getStudentName().contains(name)) {
+                bookings.add(booking);
             }
         }
-        return book;
+        return bookings;
     }
-*/
+
     
     public ArrayList<Booking> getbyStudentEmail(String email) {
         ArrayList<Booking> bookings = new ArrayList<Booking>();
