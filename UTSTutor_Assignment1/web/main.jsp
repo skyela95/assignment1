@@ -105,7 +105,7 @@
         <%
             if(searchStatus!=null || searchName !=null || searchSubject !=null){
                 Tutors tutorsObject = bookingApp.getTutorsObject();
-                ArrayList<Tutor> tutorSearch = tutorsObject.getTutors("Steve Jobs", Tutor.TutorSpecialty.WSD, true);
+                //ArrayList<Tutor> tutorSearch = tutorsObject.getTutors("Steve Jobs", Tutor.TutorSpecialty.WSD, true);
                 ArrayList<Tutor> tutorsXML = service.getAllTutors();
         %>
             <p>Hi the if statement works!</p>  

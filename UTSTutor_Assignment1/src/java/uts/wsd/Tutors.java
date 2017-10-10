@@ -108,11 +108,58 @@ public class Tutors extends Users implements Serializable {
         return names;
     }
     
+    public ArrayList<Tutor> getTutors(Tutor.TutorSpecialty specialty, Boolean status){
+        ArrayList<Tutor> tutors = new ArrayList<Tutor>();
+        for (User user : list){
+            Tutor tutor = (Tutor)user;
+            if(tutor.getSpecialty() == specialty){
+                if(tutor.isAvaliable() == status){
+                    tutors.add(tutor);
+                }
+            }
+        }
+        return tutors;
+    }
+    
+    public ArrayList<Tutor> getTutors(String name, Tutor.TutorSpecialty specialty){
+        ArrayList<Tutor> tutors = new ArrayList<Tutor>();
+        Tutor tutor = getTutorByName(name);
+        if(tutor!=null)
+        {
+            if(tutor.getSpecialty()==specialty)
+            {
+            tutors.add(tutor);
+            }
+        }
+        return tutors;
+    }
+    
+    public ArrayList<Tutor> getTutors(String name, Boolean status){
+        ArrayList<Tutor> tutors = new ArrayList<Tutor>();
+        Tutor tutor = getTutorByName(name);
+        if(tutor!=null)
+        {
+            if(tutor.isAvaliable()==status)
+            {
+            tutors.add(tutor);
+            }
+        }
+        return tutors;
+    }
+    
     //THIS METHOD TAKES A Boolean NOT boolean !! had to change so tha type could be null.
     public ArrayList<Tutor> getTutors(String name, Tutor.TutorSpecialty specialty, Boolean status){
         ArrayList<Tutor> tutors = new ArrayList<Tutor>();
-
-        if (name != null){
+        Tutor tutor = getTutorByName(name);
+        if(tutor!=null)
+        {
+            if(tutor.isAvaliable()==status && tutor.getSpecialty()==specialty)
+            {
+            tutors.add(tutor);
+            }
+        }
+        return tutors;
+       /* if (name != null){
            tutors.add(getTutorByName(name));
         }
         if (specialty != null){
@@ -126,7 +173,7 @@ public class Tutors extends Users implements Serializable {
                 tutors.add(tutor);
             }
         }
-        return tutors; 
+        return tutors; */
     }
     
     public ArrayList<Tutor> matchLists(ArrayList<Tutor> main, ArrayList<Tutor> sorting){
