@@ -24,7 +24,7 @@
                     }
                     th, td {
 			text-align:left;
-			padding: 5x;
+			padding: 10x;
                     }
                 </style>
             </head>
