@@ -8,7 +8,7 @@ and open the template in the editor.
 
 <bookings>
     <booking>
-        <statusType>CANCELLED</statusType>
+        <statusType>ACTIVE</statusType>
         <bookingID>1</bookingID>
         <tutorName>Steve Jobs</tutorName>
         <tutorEmail>steve.jobs@apple.com</tutorEmail>

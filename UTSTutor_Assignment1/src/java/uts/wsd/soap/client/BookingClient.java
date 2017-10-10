@@ -18,13 +18,12 @@ import uts.wsd.User.UserType;
  * @author Adam
  
  
-=======
+
  * The booking client used by a user to use the SOAP Service running on the
  * server. Students and Tutors have different permissions, just as it is on
  * the normal web-site.
- */
- 
-//>>>>>>> refs/remotes/origin/Adam_Dev
+ */ 
+
 public class BookingClient {
 
     // <editor-fold defaultstate="collapsed" desc=" ${Constants} ">
@@ -142,7 +141,10 @@ public class BookingClient {
     // Reader for user input
     static Scanner reader = new Scanner(System.in);
 
-    // Main java method that runs menu in a loop
+
+    // </editor-fold>
+    
+        // Main java method that runs menu in a loop
     public static void main(String[] args) {
         BookingApp locator = new BookingApp();
         booking = locator.getBookingSOAPPort();
@@ -152,7 +154,6 @@ public class BookingClient {
             printMainMenu("");
         }
     }
-    // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc=" ${Utilities} ">
     
@@ -271,7 +272,8 @@ public class BookingClient {
     /**
      * Decides what menu to display depending on the user's type
      * @param result The result to display on the selected menu
-     
+     */
+    
     private static void printMainMenu(String result) {
         if (type.equals(UserType.STUDENT.value())) {
             printStudentMenu(result);

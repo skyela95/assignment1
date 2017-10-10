@@ -4,10 +4,12 @@
     Author     : Skye
 --%>
 
+<%@page import="uts.wsd.soap.client.BookingApp"%>
+<%@page import="uts.wsd.soap.client.BookingSOAP"%>
 <%@page import="javax.xml.ws.handler.MessageContext"%>
 <%@page import="uts.wsd.BookingApplication"%>
 <%@page import="uts.wsd.User"%>
-<%@page import="uts.wsd.soap.*"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -16,6 +18,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Account</title>
     </head>
+    
+    <% 
+        BookingSOAP bookingApp = new BookingApp().getBookingSOAPPort();
+        %>
     <body>
         <%
             User user = (User) session.getAttribute("user");
@@ -71,9 +77,9 @@
             </table>
 
             <p>Return to the <a href="index.html">main page</a>.</p>
-<%--
-            <p>Cancel account <%BookingApplication.cancelAccount() %> </p>
---%>
+
+            <p>Cancel account <%booking.cancelAccount(); %> </p>
+
 
     </body>
 </body>

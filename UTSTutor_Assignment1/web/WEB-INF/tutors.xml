@@ -14,7 +14,7 @@ and open the template in the editor.
         <dob>27/03/78</dob>
         <tutorSpecialty>WSD</tutorSpecialty>
         <userType>TUTOR</userType>
-        <avaliable>true</avaliable>
+        <avaliable>false</avaliable>
     </tutor>
     <tutor>
         <name>Bill Gates</name>
@@ -23,6 +23,6 @@ and open the template in the editor.
         <dob>05/06/64</dob>
         <tutorSpecialty>MobileApp</tutorSpecialty>
         <userType>TUTOR</userType>
-        <avaliable>unavailable</avaliable>
+        <avaliable>false</avaliable>
     </tutor>
 </tutors>
