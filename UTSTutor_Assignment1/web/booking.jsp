@@ -25,6 +25,17 @@
         <jsp:useBean id ="bookingApp" class="uts.wsd.BookingApplication" scope="application">
             <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
+        
+        
+        <%!
+        
+        public void createNewBooking(Student student, Tutor tutor){
+            System.out.println("BUTTON CLICKED");
+            bookingApp.createBooking(student, tutor);
+        }
+
+        %>
+        
         <% 
             boolean allBookings = false;
             //check if a tutor has been passed in.
@@ -56,9 +67,7 @@
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
                     <tr><input type="button" value="create booking" 
-                               onClick="
-                               <%System.out.println("BUTTON CLICKED");
-                               bookingApp.createBooking((Student)user, tutor);%>"></tr>
+                               onClick="createNewBooking((Student)user, tutor)"></tr>
                 </table>
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
@@ -96,7 +105,6 @@
                <% }
                 else if(allBookings == false){%>
                 <p>active bookings returned.</p>  
-               <% }
-}               %>
+               <% }%>
     </body>
 </html>
