@@ -3,6 +3,7 @@
     Created on : 02/10/2017, 7:01:44 PM
     Author     : Madeleine
 --%>
+<%@page import="uts.wsd.rest.TutorService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@page import="uts.wsd.Tutor"%>
@@ -46,7 +47,6 @@
                 else{searchSubjectT = null;}
                 //get list of tutors, use as drop down data fill.
                 ArrayList<Tutor> tutors = bookingApp.getTutorList();
-                //ArrayList<String> tutorNames = new ArrayList<String>();
                 //for(Tutor tutor : tutors){
                   //  tutorNames.add(tutor.getName());
                 //}
@@ -56,9 +56,14 @@
                 <tr>
                     <td>
                         <select>
-                            <c:forEach var="name" items="${tutorsClass.names}">
+                            <%
+                                ArrayList<String> tutorNames = new ArrayList<String>();
+                                for(Tutor tutor : tutors){
+                                    tutorNames.add(tutor.getName());
+                                }
+                                for(String name : tutorNames){%>
                                 <option value="${name}">${name}</option>
-                             </c:forEach>
+                               <% } %>
                         </select>
                     </td>
                     <td>
@@ -82,7 +87,7 @@
         </form>
         <%
             //tutors = Tutors.getTutors(searchName, searchSubject, stat);
-            if (searchStatus!=null || searchName !=null || searchSubject!=null){
+            if (stat!=null || searchName !=null || searchSubjectT!=null){
                 //do search, return list of tutors
                 //marshall the list to xml, pass to inputDoc.
                 Tutors tutorsObj = bookingApp.getTutorsObject();
@@ -91,12 +96,14 @@
                 ArrayList<Tutor> tutorsListTest = tutorsObj.getAll();
                 //pass through REST to get XML.
                 //pass xml into inputDoc spot.
+                TutorService service = new TutorService();
+                //service.getAllTutors();
         %>
         <c:import url="/Users/Madeleine/Desktop/20172/WSD/Assi1/UTSTutor_Assignment1/build/web/WEB-INF/tutors.xml"
-                      var="inputDoc" />
-        <c:import url="/Users/Madeleine/Desktop/20172/WSD/Assi1/UTSTutor_Assignment1/src/java/stylesheets/tutors.xsl"
+                      var="inputDocsssssss" />
+        <c:import url="/Users/Madeleine/Desktop/20172/WSD/Assi1/UTSTutor_Assignment1/src/java/stylesheets/bookings.xsl"
                       var="stylesheet" />
-        <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/>
+        <x:transform xml  = "${service.getAllTutors()}" xslt = "${stylesheet}"/>
         <%}%>
         <%} else if(user.getUserType() == UserType.TUTOR){ %>
         <p> DELETE THIS:
