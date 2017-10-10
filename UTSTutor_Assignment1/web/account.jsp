@@ -32,6 +32,14 @@
             } else {
         %>
 
+        UTS Tutor
+        <div class="navigationBar">
+            <ul>
+                <li><a href="main.jsp">Main</a></li>
+                <li><a class="active" href="account.jsp">Account</a></li>
+                <li style="float:right"><a href="logout.jsp">Logout</a></li>
+            </ul>
+        </div>
 
 
         <h1>Current Details</h1>
@@ -39,13 +47,13 @@
         <p>Your Email: <%= user.getEmail()%></p> 
         <p>Your Date of Birth: <%= user.getDateOfBirth()%></p>
         <p>You are a: <%= user.getUserType()%></p>
-        
+
         <p><a href="accountEdit.jsp">Edit Details</a>
 
 
         <p><a href="cancelAccount.jsp"> CANCEL ACCOUNT </a>  </p>
 
-        <% 
+        <%
             }
         %>
     </body>
