@@ -39,8 +39,8 @@
             User user = (User) session.getAttribute("user");
            //ArrayList<Booking> bookings = user.getBookings().getByStatus("ACTIVE");
             //BookingService service = new BookingService();    
-            Bookings bookings2 = bookingApp.getBookingsObject();
-            String passedName = request.getParameter("useName");
+            //Bookings bookings2 = bookingApp.getBookingsObject();
+            //String passedName = request.getParameter("useName");
             
             //FOR STUDENT ONLY
             Tutor tutor = (Tutor)session.getAttribute("tut");
@@ -58,8 +58,7 @@
                     <tr><input type="button" value="create booking" 
                                onClick="
                                <%System.out.println("BUTTON CLICKED");
-                               bookingApp.createBooking((Student)user, tutor);%>
-                               "></tr>
+                               bookingApp.createBooking((Student)user, tutor);%>"></tr>
                 </table>
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
@@ -98,6 +97,6 @@
                 else if(allBookings == false){%>
                 <p>active bookings returned.</p>  
                <% }
-            %>
+}               %>
     </body>
 </html>

@@ -111,6 +111,8 @@
                 //ArrayList<Tutor> tutorSearch = tutorsObject.getTutors("Steve Jobs", Tutor.TutorSpecialty.WSD, true);
                 //ArrayList<Tutor> tutorsXML = service.getAllTutors();
                 ArrayList<Tutor> tutorSearch = tutorsObject.getTutorsByAvailability(true);
+                //if search is not returning null.
+                //if returns null, read error message.
         %>
             
             <form method="post" action="booking.jsp">
@@ -132,7 +134,11 @@
                                 session.setAttribute("tut", tutor);
                             %>
                             <tr>
-                                <td><input type="submit" value="Select"></td>
+                                <td>
+                                    <%if(tutor.isAvaliable()){%>
+                                    <input type="submit" value="Select">
+                                    <%}%>
+                                </td>
                                 <td><%=useName%></td>
                                 <td><%=useEmail%></td>
                                 <td><%=useSub%></td>
