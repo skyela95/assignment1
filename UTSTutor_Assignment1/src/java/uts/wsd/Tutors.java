@@ -186,12 +186,6 @@ public class Tutors extends Users implements Serializable {
                System.out.println("GetTutor Name:" + name);
             System.out.println("GetTutor Specialty:" +  specialty);
             System.out.println("GetTutor status:" +  status);
-            /*
-            if(tutor.isAvaliable()==status && tutor.getSpecialty().value()==specialty.trim())
-            {
-            tutors.add(tutor);
-            }
-            */
             ArrayList<Tutor> tutorName = new ArrayList<Tutor>();
             ArrayList<Tutor> tutorSpecialty = new ArrayList<Tutor>();
             ArrayList<Tutor> tutorStatus = new ArrayList<Tutor>();
@@ -212,21 +206,6 @@ public class Tutors extends Users implements Serializable {
             
         
         return tutors;
-       /* if (name != null){
-           tutors.add(getTutorByName(name));
-        }
-        if (specialty != null){
-            ArrayList<Tutor> toMatch = matchLists(tutors, getTutorsBySpecialty(specialty));
-            for (Tutor tutor : toMatch){
-                tutors.add(tutor);
-            }
-        }
-        if (status != null){
-            for (Tutor tutor : matchLists(tutors, getTutorsByAvailability(status))){
-                tutors.add(tutor);
-            }
-        }
-        return tutors; */
     }
     
     public ArrayList<Tutor> matchLists(ArrayList<Tutor> main, ArrayList<Tutor> sorting){
