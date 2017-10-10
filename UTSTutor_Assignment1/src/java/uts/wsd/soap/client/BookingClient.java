@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import uts.wsd.RegexHelper;
 import uts.wsd.User.UserType;
 
 /**
@@ -714,11 +715,13 @@ public class BookingClient {
         System.out.println(String.format(MENU_TITLE_EDIT_NAME, INPUT_QUIT));
         System.out.print(INPUT_NEW_NAME);
         String input = reader.nextLine().trim();
+        if (input.equals("")) {
+            input = reader.nextLine().trim();
+        }
         if (input.equals(INPUT_QUIT)) {
             printAccountMenu("");
         } else {
-            Matcher m = NAME_PATTERN.matcher(input);
-            if (m.matches()) {
+            if (RegexHelper.TestName(input)) {
                 booking.editName(input);
                 name = booking.getLoggedUser().getName();
                 printAccountMenu(String.format(ACCOUNT_EDIT_NAME_SUCCESS, input));
@@ -742,8 +745,7 @@ public class BookingClient {
         if (input.equals(INPUT_QUIT)) {
             printAccountMenu("");
         } else {
-            Matcher m = DOB_PATTERN.matcher(input);
-            if (m.matches()) {
+            if (RegexHelper.TestDOB(input)) {
                 booking.editDOB(input);
                 printAccountMenu(String.format(ACCOUNT_EDIT_DOB_SUCCESS, input));
             } else {

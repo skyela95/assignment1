@@ -27,7 +27,7 @@
         System.out.println("Login Action User: " + user == null);
 
         if (user != null) {
-            session.setAttribute("user", user);;
+            session.setAttribute("user", user);
             session.setAttribute("loginFailed", false);
             response.sendRedirect("main.jsp"); 
         } else {

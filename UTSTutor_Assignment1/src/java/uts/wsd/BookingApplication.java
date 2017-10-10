@@ -487,6 +487,11 @@ public class BookingApplication {
         saveUser();
     }
     
+    /**
+     * Edits the current users email to the String parameter
+     * This is primarily used internally, and not through services
+     * @param email The new email
+     */
     public void editEmail(String email) {
         loggedUser.setEmail(email);
         saveUser();
