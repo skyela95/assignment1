@@ -66,7 +66,8 @@ public class Tutors extends Users implements Serializable {
                 tutors.add(tutor);
             }
         }
-        return tutors.isEmpty() ? null : tutors;
+        return tutors;
+        //return tutors.isEmpty() ? null : tutors;
     }
 
     /**
@@ -84,7 +85,8 @@ public class Tutors extends Users implements Serializable {
                 tutors.add(tutor);
             }
         }
-        return tutors.isEmpty() ? null : tutors;
+        return tutors;
+        //return tutors.isEmpty() ? null : tutors;
     }
 // </editor-fold>  
 
