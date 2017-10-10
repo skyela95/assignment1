@@ -27,11 +27,7 @@
             User user = (User)session.getAttribute("user");
             if(user.getUserType() == UserType.STUDENT){  
                 
-                String searchStatus = request.getParameter("searchStatus");
-                Boolean stat;
-                if (searchStatus == "available"){stat = true;}
-                else if (searchStatus == "unavailable"){stat = false;}
-                else{stat = null;}
+                String searchStatus = request.getParameter("tutorStatus");
                 
                 String searchName = request.getParameter("tutorName");
 
@@ -54,8 +50,8 @@
             <table>
                 <tr>
                     <td>
-                        <select>
-                            <option value="any">Any</option>
+                        <select name="tutorName">
+                            <option value="Any">Any</option>
                             <%
                                 ArrayList<String> tutorNames = new ArrayList<String>();
                                 for(Tutor tutor : tutors){
@@ -69,7 +65,7 @@
                     </td>
                     <td>
                         <select name="tutorSubject">
-                            <option value ="any">Any</option>
+                            <option value ="Any">Any</option>
                             <option value ="WSD">WSD</option>
                             <option value="USP">USP</option>
                             <option value="SEP">SEP</option>
@@ -79,9 +75,9 @@
                     </td>
                     <td>
                         <select name="tutorStatus">
-                            <option value="any">Any</option>
-                            <option value="available">available</option>
-                            <option value="unavailable">unavailable</option>
+                            <option value="Any">Any</option>
+                            <option value="Available">Available</option>
+                            <option value="Unavailable">Unavailable</option>
                         </select>
                     </td>
                 </tr>
@@ -106,10 +102,14 @@
         <%//}%>
         <%
             if(searchStatus!=null || searchName !=null || searchSubject !=null){
+                 System.out.println("status " + searchStatus);
+                  System.out.println("name " + searchName);
+                   System.out.println("subject " + searchSubject);
                 Tutors tutorsObject = bookingApp.getTutorsObject();
-                //ArrayList<Tutor> tutorSearch = tutorsObject.getTutors("Steve Jobs", Tutor.TutorSpecialty.WSD, true);
+                ArrayList<Tutor> tutorSearch = tutorsObject.getTutors(searchName, searchSubject, searchStatus);
+                System.out.println("tutorsearch: " + tutorSearch.size());
                 //ArrayList<Tutor> tutorsXML = service.getAllTutors();
-                ArrayList<Tutor> tutorSearch = tutorsObject.getTutorsByAvailability(true);
+                //ArrayList<Tutor> tutorSearch = tutorsObject.getTutorsByAvailability(true);
                 //if search is not returning null.
                 //if returns null, read error message.
         %>
