@@ -106,16 +106,46 @@
             if(searchStatus!=null || searchName !=null || searchSubject !=null){
                 Tutors tutorsObject = bookingApp.getTutorsObject();
                 //ArrayList<Tutor> tutorSearch = tutorsObject.getTutors("Steve Jobs", Tutor.TutorSpecialty.WSD, true);
-                ArrayList<Tutor> tutorsXML = service.getAllTutors();
+                //ArrayList<Tutor> tutorsXML = service.getAllTutors();
+                ArrayList<Tutor> tutorSearch = tutorsObject.getTutorsByAvailability(true);
         %>
-            <p>Hi the if statement works!</p>  
+            <p>Hi the if statement works!
+            THIS NEEDS TO CHANGE TO SEARCH TUTORS, RETURN XML, PASS INTO THE INPUT DOC SECTION.</p>  
                 <c:import url="/WEB-INF/tutors.xml"
                       var="inputDoc" />
                 <c:import url="/WEB-INF/tutors.xsl"
                       var="stylesheet" />
-                <x:transform xml  = "<%=tutorsXML%>" xslt = "${stylesheet}"/>
-            <%}
-        %> 
+                <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/>
+            
+            <form method="post" action="booking.jsp">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Select</td><td>Name</td><td>Email</td><td>Subject</td><td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            for (Tutor tutor : tutorSearch){
+                                String useName = tutor.getName();
+                                String useEmail = tutor.getEmail();
+                                String useSub = tutor.getSpecialty().toString();
+                                String useStat = null;
+                                if(tutor.isAvaliable() == true){useStat = "available";}
+                                else if(tutor.isAvaliable() == false){useStat = "unavailable";}
+                            %>
+                            <tr>
+                                <td><input type="submit" value="Select"></td>
+                                <td><%=useName%></td>
+                                <td><%=useEmail%></td>
+                                <td><%=useSub%></td>
+                                <td><%=useStat%></td>
+                            </tr>   
+                            <%}%>
+                    </tbody>
+                </table>
+            </form>
+            <%}%> 
         <%} else if(user.getUserType() == UserType.TUTOR){ %>
         <p> DELETE THIS:
         TUTORS don't get access to search functionality.</p>

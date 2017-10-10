@@ -41,7 +41,7 @@
           %>
           <c:import url="http://localhost:8080/UTSTutor_Assignment1/rest/bookings/ID?query=12345"
                       var="inputDoc" />
-          <c:import url="/Users/Madeleine/Desktop/20172/WSD/Assi1/UTSTutor_Assignment1/src/java/stylesheets/bookings.xsl"
+          <c:import url="/WEB-INF/bookings.xsl"
                       var="stylesheet" />
         <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/>
     </body>
