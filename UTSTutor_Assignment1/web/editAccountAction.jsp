@@ -43,10 +43,6 @@
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim();
 
-        newName = request.getParameter("newname");
-        newPassword = request.getParameter("newpassword");
-        newDOB = request.getParameter("newdateOfBirth");
-
         if (newName.equals(user.getName())
                 && newPassword.equals(user.getPassword())
                 && newDOB.equals(user.getDateOfBirth())) {

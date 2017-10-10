@@ -26,55 +26,81 @@
             bookingApp.logout();
             return;
         }
-        String errors = (String) session.getAttribute("editAccountError");
-        String success = (String) session.getAttribute("editAccountSuccess");
-
-        if (errors != null) {
-            if (!errors.equals("")) {
-                out.print(errors);
-
-            }
-        } else if (success != null) {
-            if (!success.equals("")) {
-                out.print(success);
-
-            }
-        }
-        session.setAttribute("editAccountError", null);
-        session.setAttribute("editAccountSuccess", null);
     %>
     <body>
 
-        <h1>Change your account details here: </h1>
-        <form action="editAccountAction.jsp" method="POST">
-            <input type="hidden" value="submitEdit" name="submitted"> 
-            <table>
-                <tr>
-                    <td>Full name</td>
-                    <td><input type="string" value="<%= user.getName()%>" name="newname"></td>
-                </tr>
-                <tr>
-                    <td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="newpassword"></td>
-                </tr>
-                <tr>
-                    <td>Date of Birth</td>
-                    <td><input type="string" value="<%= user.getDateOfBirth()%>" name="newdateOfBirth"></td>
-                </tr>                
+        <div class ="title">
+            <h1>UTS Tutor</h1>
+        </div>
+        <div class="navigationBar">
+            <ul>
+                <li><a href="main.jsp">Main</a></li>
+                <li><a class="active" href="account.jsp">Account</a></li>
+                <li><a href="booking.jsp">Booking</a></li>
+                <li style="float:right"><a href="logoutAction.jsp">Logout</a></li>
+                <li style="float:right"><div class="user"> Logged in as: <%=user.getName()%> [<%=user.getUserType().value()%>]</div></li>
+            </ul>
+        </div>
 
-            </table>
+        <table align="center">
+            <div class="detailsTitle">
+                <h1>Change your account details here: </h1>
+            </div>
+            <form action="editAccountAction.jsp" method="POST">
+                <input type="hidden" value="submitEdit" name="submitted"> 
+                <div class="detailsContent">
+                    <tr><td><table>
+                                <tr>
+                                    <td>Full name</td>
+                                    <td><input type="string" value="<%= user.getName()%>" name="newname"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input type="password" value="<%= user.getPassword()%>" name="newpassword"></td>
+                                </tr>
+                                <tr>
+                                    <td>Date of Birth</td>
+                                    <td><input type="string" value="<%= user.getDateOfBirth()%>" name="newdateOfBirth"></td>
+                                </tr>               
 
-            <table>
-                <h2> Authentication </h2>
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="string" placeholder="Username" name="username"></td>
-                </tr>
-                <td>Password:</td>
-                <td><input type="password" placeholder="Password" name="password"</td>
-                </tr>
-            </table>
+                            </table></td></tr>
 
-            <tr><td></td><td><input type="submit" value="Save"></td></tr>
-        </form>
+                    <tr><td><table>
+                                <h2> Authentication </h2>
+                                <tr>
+                                    <td>Username:</td>
+                                    <td><input type="string" placeholder="Username" name="username"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td><input type="password" placeholder="Password" name="password"></td>
+                                </tr>
+
+                            </table></td></tr>
+                </div>
+                <tr><td><input type="submit" class="btn" value="Save"></td></tr>
+            </form>
+            <div class="errorpage">
+                <%
+                    String errors = (String) session.getAttribute("editAccountError");
+                    String success = (String) session.getAttribute("editAccountSuccess");
+
+                    if (errors != null) {
+                        if (!errors.equals("")) {
+                            out.print(errors);
+
+                        }
+                    } else if (success != null) {
+                        if (!success.equals("")) {
+                            out.print(success);
+
+                        }
+                    }
+                    session.setAttribute("editAccountError", null);
+                    session.setAttribute("editAccountSuccess", null);
+                %>
+            </div>
+        </table>
+
     </body>
 </html>

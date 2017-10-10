@@ -27,32 +27,57 @@
             bookingApp.logout();
             return;
         }
-        
-        String errors = (String) session.getAttribute("cancelAccountError");
-
-        if (errors != null) {
-            if (!errors.equals("")) {
-                out.print(errors);
-            }
-        } 
-        session.setAttribute("cancelAccountError", null);        
     %>
 
     <body>
-        <h1>Authorize your details to confirm 'Account Cancellation' </h1>
-        <form action="cancelAccountAction.jsp" method="POST">
-            <input type="hidden" value="submitEdit" name="submitted"> 
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="string" placeholder="Username" name="username"></td>
-                </tr>
-                    <td>Password:</td>
-                    <td><input type="password" placeholder="Password" name="password"</td>
-                </tr>
-            </table>
 
-            <tr><td></td><td><input type="submit" value="Cancel"></td></tr>
-        </form>
+        <div class ="title">
+            <h1>UTS Tutor</h1>
+        </div>
+        <div class="navigationBar">
+            <ul>
+                <li><a href="main.jsp">Main</a></li>
+                <li><a class="active" href="account.jsp">Account</a></li>
+                <li><a href="booking.jsp">Booking</a></li>
+                <li style="float:right"><a href="logoutAction.jsp">Logout</a></li>
+                <li style="float:right"><div class="user"> Logged in as: <%=user.getName()%> [<%=user.getUserType().value()%>]</div></li>
+            </ul>
+        </div>
+        <table align="center">
+            <div class="detailsTitle">
+                <h1>Authorization required to confirm 'Account Cancellation' </h1>
+            </div>
+            <form action="cancelAccountAction.jsp" method="POST">
+                <div class="detailsContent">
+                    <input type="hidden" value="submitEdit" name="submitted"> 
+                    <tr><td> <table>
+                                <tr>
+                                    <td>Username:</td>
+                                    <td><input type="string" placeholder="Username" name="username"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td><input type="password" placeholder="Password" name="password"></td>
+                                </tr>                
+
+                            </table> </td></tr>
+                    <tr><td><input type="submit" class="btn" value="Cancel Account"></td></tr>
+                </div>
+
+            </form>
+            <div class ="errorpage">
+                <%
+
+                    String errors = (String) session.getAttribute("cancelAccountError");
+
+                    if (errors != null) {
+                        if (!errors.equals("")) {
+                            out.print(errors);
+                        }
+                    }
+                    session.setAttribute("cancelAccountError", null);
+                %>
+            </div>
+        </table>
     </body>
 </html>

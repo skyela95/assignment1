@@ -32,27 +32,44 @@
             } else {
         %>
 
-        UTS Tutor
+        <div class ="title">
+            <h1>UTS Tutor</h1>
+        </div>
         <div class="navigationBar">
             <ul>
                 <li><a href="main.jsp">Main</a></li>
                 <li><a class="active" href="account.jsp">Account</a></li>
-                <li style="float:right"><a href="logout.jsp">Logout</a></li>
+                <li><a href="booking.jsp">Booking</a></li>
+                <li style="float:right"><a href="logoutAction.jsp">Logout</a></li>
+                <li style="float:right"><div class="user"> Logged in as: <%=user.getName()%> [<%=user.getUserType().value()%>]</div></li>
             </ul>
         </div>
 
 
-        <h1>Current Details</h1>
-        <p>Your Name: <%= user.getName()%></p>
-        <p>Your Email: <%= user.getEmail()%></p> 
-        <p>Your Date of Birth: <%= user.getDateOfBirth()%></p>
-        <p>You are a: <%= user.getUserType()%></p>
+        <table align="center" margin-top="15px"><tr><td>
+                    <div class="detailsTitle">
+                        <h1><u>Current Details</u></h1>
+                    </div>
 
-        <p><a href="accountEdit.jsp">Edit Details</a>
-
-
-        <p><a href="cancelAccount.jsp"> CANCEL ACCOUNT </a>  </p>
-
+                    <div class="detailsContent">
+                        <table>
+                            <tr>
+                                <td>Name: </td><td><%= user.getName()%></td>
+                            </tr>
+                            <tr>
+                                <td>Email: </td><td><%= user.getEmail()%> </td>
+                            </tr>
+                            <tr>
+                                <td>Date of Birth: </td><td><%= user.getDateOfBirth()%></td>
+                            </tr>
+                            <tr>
+                                <td>You are a: </td><td><%= user.getUserType()%></td>
+                            </tr>
+                        </table>
+                </td></tr><tr></tr>
+            <tr><td><form action="accountEdit.jsp"><input type="submit" class="btn" value="Edit Details"></form></td></tr>
+            <tr><td><form action="cancelAccount.jsp"><input type="submit" class="btn" value="CANCEL ACCOUNT"></form></td></tr>
+        </table>
         <%
             }
         %>
