@@ -78,7 +78,7 @@
 
             <p>Return to the <a href="index.html">main page</a>.</p>
 
-            <p>Cancel account <%booking.cancelAccount(); %> </p>
+            <p>Cancel account <%bookingApp.cancelAccount(); %> </p>
 
 
     </body>

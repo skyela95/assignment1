@@ -426,7 +426,7 @@ public class BookingApplication {
      * files are updated. Logs the user out at the end
      */
     private void cancelStudentAccount() {
-        for (Booking booking : bookings.getBookings()) {
+        for (Booking booking : bookings.getbyStudentEmail(loggedUser.getEmail())) {
             Tutor tutor = tutors.getTutorByEmail(booking.getTutorEmail());
             tutor.setAvaliable(true);
             booking.cancelBooking();
