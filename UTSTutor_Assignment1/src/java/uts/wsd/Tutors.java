@@ -129,15 +129,12 @@ public class Tutors extends Users implements Serializable {
     }
     
     public ArrayList<Tutor> matchLists(ArrayList<Tutor> main, ArrayList<Tutor> sorting){
-        //int i;
-        for(int i=0; i<sorting.size(); i++){
-            for (Tutor tutor : main){
-                if (sorting.get(i) != tutor){
-                    main.add(sorting.get(i));
-                    break;
-                }
+        ArrayList<Tutor> returning = main;
+        for(Tutor tutor : sorting){
+            if(!main.contains(tutor)){
+                returning.add(tutor);
             }
         }
-        return main;
+        return returning;
     }
 }
