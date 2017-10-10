@@ -116,7 +116,8 @@ public class Tutors extends Users implements Serializable {
            tutors.add(getTutorByName(name));
         }
         if (specialty != null){
-            for (Tutor tutor : matchLists(tutors, getTutorsBySpecialty(specialty))){
+            ArrayList<Tutor> toMatch = matchLists(tutors, getTutorsBySpecialty(specialty));
+            for (Tutor tutor : toMatch){
                 tutors.add(tutor);
             }
         }
