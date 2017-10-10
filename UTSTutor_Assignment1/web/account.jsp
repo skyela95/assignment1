@@ -57,20 +57,20 @@
             <table>
                 <tr>
                     <td>Email</td>
-                    <td><input type="string" value="<%= user.getEmail()%>" name="email"></td>
+                 <%--   <td><input type="string" value="<%= bookingApp.editEmail(user.getEmail()) %>" name="email"></td> --%>
                 </tr>
                 <tr>
                     <td>Full name</td>
-                    <td><input type="string" value="<%= user.getName()%>" name="name"></td>
+                    <td><input type="string" value="<%= bookingApp.editName(user.getName()) %>" name="name"></td>
                 </tr>
                 <tr>
-                    <td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password">
+                    <td>Password</td><td><input type="password" value="<%= bookingApp.editPassword(user.getPassword())%>" name="password">
                     </td>
                 </tr>
                 <tr>
                     <td>Date of Birth</td>
                     <td>
-                        <input type="string" value="<%= user.getDateOfBirth()%>" name="dateOfBirth">
+                        <input type="string" value="<%= bookingApp.editDOB(user.getDateOfBirth())%>" name="dateOfBirth">
                     </td>
                 </tr>                
                 <tr><td></td><td><input type="submit" value="Save"></td></tr>
@@ -78,7 +78,7 @@
 
             <p>Return to the <a href="index.html">main page</a>.</p>
 
-            <p>Cancel account <%bookingApp.cancelAccount(); %> </p>
+            <p><a href="register.jsp" <%bookingApp.cancelAccount(); %> > Cancel account </a>  </p>
 
 
     </body>

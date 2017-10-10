@@ -486,5 +486,10 @@ public class BookingApplication {
         loggedUser.setPassword(password);
         saveUser();
     }
+    
+    public void editEmail(String email) {
+        loggedUser.setEmail(email);
+        saveUser();
+    }
 }
 // </editor-fold>}

@@ -8,6 +8,12 @@
         <dateOfBirth>22/07/93</dateOfBirth>
         <userType>STUDENT</userType>
     </student>
+    
+    <student>
+        <name>Bart Simpson </name>
+        <email>bart.simpson@springfield.com</email>
+        <password>tr33hugger</password>
+        <dateOfBirth>22/07/93</dateOfBirth>
+        <userType>STUDENT</userType>
+    </student>
 </students>
-
-
