@@ -41,7 +41,7 @@ public class BookingService {
         }
     }
   
-    
+    //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/
     @Path("booking")
     @GET
     @Produces(MediaType.APPLICATION_XML)
@@ -50,7 +50,7 @@ public class BookingService {
     
     }
     
-    // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/bookingID?ID=1
+    // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/bookingID?ID=1
     @Path("booking/bookingID")
     @GET
     @Produces(MediaType.APPLICATION_XML)
@@ -61,7 +61,7 @@ public class BookingService {
 
 
     
-    // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/studEmail?email=lisa.simpson@springfield.com
+    // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/studEmail?email=lisa.simpson@springfield.com
     @Path("booking/studEmail")
     @GET
     @Produces(MediaType.APPLICATION_XML)
@@ -69,7 +69,7 @@ public class BookingService {
         return getBookingApp().getBookingsObject().getbyStudentEmail(email);
     }    
     
-    //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/subjectName?subjectName=AppProg
+    //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/subjectName?subjectName=AppProg
     @Path("booking/subjectName")
     @GET
     @Produces(MediaType.APPLICATION_XML)
@@ -78,7 +78,7 @@ public class BookingService {
     }    
     
     
-     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/status?status=ACTIVE
+     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/status?status=ACTIVE
     @Path("booking/status")
     @GET
     @Produces(MediaType.APPLICATION_XML)

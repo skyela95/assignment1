@@ -23,6 +23,6 @@ and open the template in the editor.
         <dob>05/06/64</dob>
         <tutorSpecialty>MobileApp</tutorSpecialty>
         <userType>TUTOR</userType>
-        <avaliable>true</avaliable>
+        <avaliable>unavailable</avaliable>
     </tutor>
 </tutors>

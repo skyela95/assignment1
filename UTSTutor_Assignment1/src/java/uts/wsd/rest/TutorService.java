@@ -53,7 +53,7 @@ public class TutorService {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Tutor> getAllTutors() throws JAXBException, IOException, Exception {
-        return getBookingApp().getTutorsObject().getTutors();
+        return getBookingApp().getTutorsObject().getAll();
 }
 
     // http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/tutEmail?email=steve.jobs@apple.com
