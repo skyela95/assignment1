@@ -62,5 +62,22 @@
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
             <%}}%>
+            <%
+                //if there's a booking selected.
+                Booking booking;
+                //booking = request.getParameter("booking");
+                BookingService service = new BookingService();
+                //service.getBookingID(1);
+            %>
+            <c:import url="/WEB-INF/bookings.xml"
+                      var="inputDoc" />
+            <c:import url="/WEB-INF/bookings.xsl"
+                      var="stylesheet" />
+            <x:transform xml  = "<%=service.getBookingID(1)%>" xslt = "${stylesheet}"/>
+            
+            <%
+                
+            %>
+
     </body>
 </html>
