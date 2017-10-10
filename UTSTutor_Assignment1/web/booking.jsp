@@ -37,7 +37,7 @@
         %>
         
         <% 
-            boolean allBookings = false;
+            boolean allBookings;
             //check if a tutor has been passed in.
             //if yes - display selected tutor.
             //same with booking - only one, not both.
@@ -53,6 +53,8 @@
             //Bookings bookings2 = bookingApp.getBookingsObject();
             //String passedName = request.getParameter("useName");
             
+            //onClick: onClick="createNewBooking((Student)user, tutor)
+            
             //FOR STUDENT ONLY
             Tutor tutor = (Tutor)session.getAttribute("tut");
             String availability = null;
@@ -66,38 +68,16 @@
                     <tr><td>Name: </td><td><%=tutor.getName()%></td></tr>
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
-                    <tr><input type="button" value="create booking" 
-                               onClick="createNewBooking((Student)user, tutor)"></tr>
+                    <tr><td><input type="button" value="create booking"></td></tr>
                 </table>
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
             <%}}%>
-            <%//FOR BOTH
-                //if there's a booking selected.
-                Booking booking = null;
-                booking = (Booking)request.getAttribute("booking");
-                BookingService service = new BookingService();
-                //service.getBookingID(1);
-                String pathName = "http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/bookingID?ID=" + booking.getBookingID();
-                
-            %>
-            <c:import url="${pathName}"
-                      var="inputDoc" />
-            <c:import url="/WEB-INF/bookings.xsl"
-                      var="stylesheet" />
-            <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/>
-            <form method="post" action="booking.jsp">
-                <input type="submit" value="cancel booking"onclick="
-                       <%
-                           //request.setAttribute("booking", booking);
-                           System.out.println("cancelling booking");
-                           bookingApp.cancelBookingByID(booking.getBookingID());                           
-                       %>">
-            </form>
-            
             <!--<form method="post" action="booking.jsp"> -->
-            <input type="button" value="View All Bookings" onClick="<%allBookings = true;%>">
-            <input type="button" value="View Active Bookings" onClick="<%allBookings = false;%>">
+            <form method="post" action="booking.jsp">
+                <input type="button" value="View All Bookings" onClick="<%allBookings = true;%>">
+                <input type="button" value="View Active Bookings" onClick="<%allBookings = false;%>">
+            </form>
 
             <%
                 if(allBookings == true){%>
@@ -141,6 +121,6 @@
                                 <td><%=stat%></td></tr>
                         </table>
                   <%}%>
-               <% }%>
+               <% }else{%><p>Please press a button above.</p><% }%>
     </body>
 </html>
