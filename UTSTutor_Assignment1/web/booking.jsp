@@ -102,9 +102,45 @@
             <%
                 if(allBookings == true){%>
                 <p>All bookings returned</p> 
+                <%
+                    ArrayList<Booking> bookings2 = bookingApp.getBookingsObject().getbyStudentEmail(user.getEmail());
+                %>
+                
+                <table>
+                    <tr><td>Bookings</td></tr>
+                    <tr>
+                        <%
+                            for(Booking bookings : bookings2){
+                                int bookID = bookings.getBookingID();
+                                String subname = bookings.getSubjectName().toString();
+                                String tutName = bookings.getTutorName();
+                                String stat = bookings.getStatusType().toString();
+                        %>
+                            <td>ID: <%=bookID%></td>
+                            <td>Subject: <%=subname%></td>
+                            <td>Tutor: <%=tutName%></td>
+                            <td>Status: <%=stat%></td>
+                          <%  } %>
+                    </tr>
+                </table>
+                
                <% }
                 else if(allBookings == false){%>
-                <p>active bookings returned.</p>  
+                <p>active bookings returned.</p> 
+                <%
+                    ArrayList<Booking> actBook = bookingApp.getBookingsObject().getbyStudentEmail(user.getEmail());
+                    for (Booking books : actBook){
+                        int ID = books.getBookingID();
+                        String subName = books.getSubjectName().toString();
+                        String tutName = books.getTutorName();
+                        String stat = books.getStatusType().toString(); %>
+                        
+                        <table>
+                            <tr><td>Bookings</td></tr>
+                            <tr><td><%=ID%></td><td><%=subName%></td><td><%=tutName%></td>
+                                <td><%=stat%></td></tr>
+                        </table>
+                  <%}%>
                <% }%>
     </body>
 </html>

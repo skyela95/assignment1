@@ -23,7 +23,6 @@
         <jsp:useBean id ="bookingApp" class="uts.wsd.BookingApplication" scope="application">
             <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
-         <jsp:useBean id="tutorsClass" class="uts.wsd.Tutors" scope="page"/>
         <%
             User user = (User)session.getAttribute("user");
             if(user.getUserType() == UserType.STUDENT){  
