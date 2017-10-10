@@ -20,7 +20,7 @@ and open the template in the editor.
                             <xs:element name="name" type="name"/>
                             <xs:element name="email" type="email"/>
                             <xs:element name="password" type="passwordType"/>
-                            <xs:element name="dob" type ="dateOfBirth"/>
+                            <xs:element name="dateOfBirth" type ="dateOfBirth"/>
                             <xs:element name ="userType" type="userTypeEnum"/>
                             <xs:element name="tutorSpecialty" type="tutorSpecialtyEnum"/>
                         </xs:sequence>

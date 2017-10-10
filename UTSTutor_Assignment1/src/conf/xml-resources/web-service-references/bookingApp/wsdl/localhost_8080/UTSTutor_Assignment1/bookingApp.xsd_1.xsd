@@ -178,18 +178,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="isBookingOwnerByID">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="isBookingOwnerByIDResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="authorizeUser">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -198,6 +186,18 @@
 </xs:complexType>
 
 <xs:complexType name="authorizeUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isBookingOwnerByID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isBookingOwnerByIDResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
@@ -319,18 +319,6 @@
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="cancelBookingID">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="cancelBookingIDResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="isBookingOwner">
 <xs:sequence>
 <xs:element name="arg0" type="tns:booking" minOccurs="0"/>
@@ -338,6 +326,18 @@
 </xs:complexType>
 
 <xs:complexType name="isBookingOwnerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelBookingID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelBookingIDResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>

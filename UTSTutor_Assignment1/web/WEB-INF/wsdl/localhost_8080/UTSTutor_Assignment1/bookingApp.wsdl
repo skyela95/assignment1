@@ -16,11 +16,23 @@
 <message name="logoutResponse">
 <part name="parameters" element="tns:logoutResponse"/>
 </message>
-<message name="isBookingOwnerByID">
-<part name="parameters" element="tns:isBookingOwnerByID"/>
+<message name="getBookings">
+<part name="parameters" element="tns:getBookings"/>
 </message>
-<message name="isBookingOwnerByIDResponse">
-<part name="parameters" element="tns:isBookingOwnerByIDResponse"/>
+<message name="getBookingsResponse">
+<part name="parameters" element="tns:getBookingsResponse"/>
+</message>
+<message name="getBookingByID">
+<part name="parameters" element="tns:getBookingByID"/>
+</message>
+<message name="getBookingByIDResponse">
+<part name="parameters" element="tns:getBookingByIDResponse"/>
+</message>
+<message name="getTutors">
+<part name="parameters" element="tns:getTutors"/>
+</message>
+<message name="getTutorsResponse">
+<part name="parameters" element="tns:getTutorsResponse"/>
 </message>
 <message name="getLoggedUser">
 <part name="parameters" element="tns:getLoggedUser"/>
@@ -28,23 +40,35 @@
 <message name="getLoggedUserResponse">
 <part name="parameters" element="tns:getLoggedUserResponse"/>
 </message>
-<message name="getBookings">
-<part name="parameters" element="tns:getBookings"/>
+<message name="editName">
+<part name="parameters" element="tns:editName"/>
 </message>
-<message name="getBookingsResponse">
-<part name="parameters" element="tns:getBookingsResponse"/>
+<message name="editNameResponse">
+<part name="parameters" element="tns:editNameResponse"/>
+</message>
+<message name="cancelAccount">
+<part name="parameters" element="tns:cancelAccount"/>
+</message>
+<message name="cancelAccountResponse">
+<part name="parameters" element="tns:cancelAccountResponse"/>
+</message>
+<message name="isBookingOwner">
+<part name="parameters" element="tns:isBookingOwner"/>
+</message>
+<message name="isBookingOwnerResponse">
+<part name="parameters" element="tns:isBookingOwnerResponse"/>
+</message>
+<message name="editPassword">
+<part name="parameters" element="tns:editPassword"/>
+</message>
+<message name="editPasswordResponse">
+<part name="parameters" element="tns:editPasswordResponse"/>
 </message>
 <message name="editDOB">
 <part name="parameters" element="tns:editDOB"/>
 </message>
 <message name="editDOBResponse">
 <part name="parameters" element="tns:editDOBResponse"/>
-</message>
-<message name="completeBookingObject">
-<part name="parameters" element="tns:completeBookingObject"/>
-</message>
-<message name="completeBookingObjectResponse">
-<part name="parameters" element="tns:completeBookingObjectResponse"/>
 </message>
 <message name="createBookingString">
 <part name="parameters" element="tns:createBookingString"/>
@@ -58,41 +82,17 @@
 <message name="createBookingResponse">
 <part name="parameters" element="tns:createBookingResponse"/>
 </message>
-<message name="getTutors">
-<part name="parameters" element="tns:getTutors"/>
-</message>
-<message name="getTutorsResponse">
-<part name="parameters" element="tns:getTutorsResponse"/>
-</message>
-<message name="getBookingByID">
-<part name="parameters" element="tns:getBookingByID"/>
-</message>
-<message name="getBookingByIDResponse">
-<part name="parameters" element="tns:getBookingByIDResponse"/>
-</message>
-<message name="cancelAccount">
-<part name="parameters" element="tns:cancelAccount"/>
-</message>
-<message name="cancelAccountResponse">
-<part name="parameters" element="tns:cancelAccountResponse"/>
-</message>
-<message name="editName">
-<part name="parameters" element="tns:editName"/>
-</message>
-<message name="editNameResponse">
-<part name="parameters" element="tns:editNameResponse"/>
-</message>
 <message name="cancelBookingObject">
 <part name="parameters" element="tns:cancelBookingObject"/>
 </message>
 <message name="cancelBookingObjectResponse">
 <part name="parameters" element="tns:cancelBookingObjectResponse"/>
 </message>
-<message name="editPassword">
-<part name="parameters" element="tns:editPassword"/>
+<message name="completeBookingObject">
+<part name="parameters" element="tns:completeBookingObject"/>
 </message>
-<message name="editPasswordResponse">
-<part name="parameters" element="tns:editPasswordResponse"/>
+<message name="completeBookingObjectResponse">
+<part name="parameters" element="tns:completeBookingObjectResponse"/>
 </message>
 <message name="authorizeUser">
 <part name="parameters" element="tns:authorizeUser"/>
@@ -100,23 +100,11 @@
 <message name="authorizeUserResponse">
 <part name="parameters" element="tns:authorizeUserResponse"/>
 </message>
-<message name="getBookingsByStudentName">
-<part name="parameters" element="tns:getBookingsByStudentName"/>
+<message name="getBookingsByStatus">
+<part name="parameters" element="tns:getBookingsByStatus"/>
 </message>
-<message name="getBookingsByStudentNameResponse">
-<part name="parameters" element="tns:getBookingsByStudentNameResponse"/>
-</message>
-<message name="getBookingsBySubject">
-<part name="parameters" element="tns:getBookingsBySubject"/>
-</message>
-<message name="getBookingsBySubjectResponse">
-<part name="parameters" element="tns:getBookingsBySubjectResponse"/>
-</message>
-<message name="cancelBookingID">
-<part name="parameters" element="tns:cancelBookingID"/>
-</message>
-<message name="cancelBookingIDResponse">
-<part name="parameters" element="tns:cancelBookingIDResponse"/>
+<message name="getBookingsByStatusResponse">
+<part name="parameters" element="tns:getBookingsByStatusResponse"/>
 </message>
 <message name="completeBookingID">
 <part name="parameters" element="tns:completeBookingID"/>
@@ -124,23 +112,35 @@
 <message name="completeBookingIDResponse">
 <part name="parameters" element="tns:completeBookingIDResponse"/>
 </message>
+<message name="getBookingsByStudentName">
+<part name="parameters" element="tns:getBookingsByStudentName"/>
+</message>
+<message name="getBookingsByStudentNameResponse">
+<part name="parameters" element="tns:getBookingsByStudentNameResponse"/>
+</message>
+<message name="cancelBookingID">
+<part name="parameters" element="tns:cancelBookingID"/>
+</message>
+<message name="cancelBookingIDResponse">
+<part name="parameters" element="tns:cancelBookingIDResponse"/>
+</message>
+<message name="getBookingsBySubject">
+<part name="parameters" element="tns:getBookingsBySubject"/>
+</message>
+<message name="getBookingsBySubjectResponse">
+<part name="parameters" element="tns:getBookingsBySubjectResponse"/>
+</message>
+<message name="isBookingOwnerByID">
+<part name="parameters" element="tns:isBookingOwnerByID"/>
+</message>
+<message name="isBookingOwnerByIDResponse">
+<part name="parameters" element="tns:isBookingOwnerByIDResponse"/>
+</message>
 <message name="getBookingsByStudentEmail">
 <part name="parameters" element="tns:getBookingsByStudentEmail"/>
 </message>
 <message name="getBookingsByStudentEmailResponse">
 <part name="parameters" element="tns:getBookingsByStudentEmailResponse"/>
-</message>
-<message name="getBookingsByStatus">
-<part name="parameters" element="tns:getBookingsByStatus"/>
-</message>
-<message name="getBookingsByStatusResponse">
-<part name="parameters" element="tns:getBookingsByStatusResponse"/>
-</message>
-<message name="isBookingOwner">
-<part name="parameters" element="tns:isBookingOwner"/>
-</message>
-<message name="isBookingOwnerResponse">
-<part name="parameters" element="tns:isBookingOwnerResponse"/>
 </message>
 <portType name="BookingSOAP">
 <operation name="login">
@@ -151,25 +151,41 @@
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/logoutRequest" message="tns:logout"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/logoutResponse" message="tns:logoutResponse"/>
 </operation>
-<operation name="isBookingOwnerByID">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerByIDRequest" message="tns:isBookingOwnerByID"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerByIDResponse" message="tns:isBookingOwnerByIDResponse"/>
+<operation name="getBookings">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsRequest" message="tns:getBookings"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsResponse" message="tns:getBookingsResponse"/>
+</operation>
+<operation name="getBookingByID">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingByIDRequest" message="tns:getBookingByID"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingByIDResponse" message="tns:getBookingByIDResponse"/>
+</operation>
+<operation name="getTutors">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getTutorsRequest" message="tns:getTutors"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getTutorsResponse" message="tns:getTutorsResponse"/>
 </operation>
 <operation name="getLoggedUser">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/getLoggedUserRequest" message="tns:getLoggedUser"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/getLoggedUserResponse" message="tns:getLoggedUserResponse"/>
 </operation>
-<operation name="getBookings">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsRequest" message="tns:getBookings"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsResponse" message="tns:getBookingsResponse"/>
+<operation name="editName">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/editNameRequest" message="tns:editName"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/editNameResponse" message="tns:editNameResponse"/>
+</operation>
+<operation name="cancelAccount">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelAccountRequest" message="tns:cancelAccount"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelAccountResponse" message="tns:cancelAccountResponse"/>
+</operation>
+<operation name="isBookingOwner">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerRequest" message="tns:isBookingOwner"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerResponse" message="tns:isBookingOwnerResponse"/>
+</operation>
+<operation name="editPassword">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/editPasswordRequest" message="tns:editPassword"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/editPasswordResponse" message="tns:editPasswordResponse"/>
 </operation>
 <operation name="editDOB">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/editDOBRequest" message="tns:editDOB"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/editDOBResponse" message="tns:editDOBResponse"/>
-</operation>
-<operation name="completeBookingObject">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/completeBookingObjectRequest" message="tns:completeBookingObject"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/completeBookingObjectResponse" message="tns:completeBookingObjectResponse"/>
 </operation>
 <operation name="createBookingString">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/createBookingStringRequest" message="tns:createBookingString"/>
@@ -179,61 +195,45 @@
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/createBookingRequest" message="tns:createBooking"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/createBookingResponse" message="tns:createBookingResponse"/>
 </operation>
-<operation name="getTutors">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getTutorsRequest" message="tns:getTutors"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getTutorsResponse" message="tns:getTutorsResponse"/>
-</operation>
-<operation name="getBookingByID">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingByIDRequest" message="tns:getBookingByID"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingByIDResponse" message="tns:getBookingByIDResponse"/>
-</operation>
-<operation name="cancelAccount">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelAccountRequest" message="tns:cancelAccount"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelAccountResponse" message="tns:cancelAccountResponse"/>
-</operation>
-<operation name="editName">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/editNameRequest" message="tns:editName"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/editNameResponse" message="tns:editNameResponse"/>
-</operation>
 <operation name="cancelBookingObject">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelBookingObjectRequest" message="tns:cancelBookingObject"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelBookingObjectResponse" message="tns:cancelBookingObjectResponse"/>
 </operation>
-<operation name="editPassword">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/editPasswordRequest" message="tns:editPassword"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/editPasswordResponse" message="tns:editPasswordResponse"/>
+<operation name="completeBookingObject">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/completeBookingObjectRequest" message="tns:completeBookingObject"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/completeBookingObjectResponse" message="tns:completeBookingObjectResponse"/>
 </operation>
 <operation name="authorizeUser">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/authorizeUserRequest" message="tns:authorizeUser"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/authorizeUserResponse" message="tns:authorizeUserResponse"/>
 </operation>
-<operation name="getBookingsByStudentName">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStudentNameRequest" message="tns:getBookingsByStudentName"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStudentNameResponse" message="tns:getBookingsByStudentNameResponse"/>
-</operation>
-<operation name="getBookingsBySubject">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsBySubjectRequest" message="tns:getBookingsBySubject"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsBySubjectResponse" message="tns:getBookingsBySubjectResponse"/>
-</operation>
-<operation name="cancelBookingID">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelBookingIDRequest" message="tns:cancelBookingID"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelBookingIDResponse" message="tns:cancelBookingIDResponse"/>
+<operation name="getBookingsByStatus">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStatusRequest" message="tns:getBookingsByStatus"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStatusResponse" message="tns:getBookingsByStatusResponse"/>
 </operation>
 <operation name="completeBookingID">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/completeBookingIDRequest" message="tns:completeBookingID"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/completeBookingIDResponse" message="tns:completeBookingIDResponse"/>
 </operation>
+<operation name="getBookingsByStudentName">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStudentNameRequest" message="tns:getBookingsByStudentName"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStudentNameResponse" message="tns:getBookingsByStudentNameResponse"/>
+</operation>
+<operation name="cancelBookingID">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelBookingIDRequest" message="tns:cancelBookingID"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/cancelBookingIDResponse" message="tns:cancelBookingIDResponse"/>
+</operation>
+<operation name="getBookingsBySubject">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsBySubjectRequest" message="tns:getBookingsBySubject"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsBySubjectResponse" message="tns:getBookingsBySubjectResponse"/>
+</operation>
+<operation name="isBookingOwnerByID">
+<input wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerByIDRequest" message="tns:isBookingOwnerByID"/>
+<output wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerByIDResponse" message="tns:isBookingOwnerByIDResponse"/>
+</operation>
 <operation name="getBookingsByStudentEmail">
 <input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStudentEmailRequest" message="tns:getBookingsByStudentEmail"/>
 <output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStudentEmailResponse" message="tns:getBookingsByStudentEmailResponse"/>
-</operation>
-<operation name="getBookingsByStatus">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStatusRequest" message="tns:getBookingsByStatus"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/getBookingsByStatusResponse" message="tns:getBookingsByStatusResponse"/>
-</operation>
-<operation name="isBookingOwner">
-<input wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerRequest" message="tns:isBookingOwner"/>
-<output wsam:Action="http://soap.wsd.uts/BookingSOAP/isBookingOwnerResponse" message="tns:isBookingOwnerResponse"/>
 </operation>
 </portType>
 <binding name="BookingSOAPPortBinding" type="tns:BookingSOAP">
@@ -256,7 +256,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="isBookingOwnerByID">
+<operation name="getBookings">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getBookingByID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getTutors">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -274,7 +292,34 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getBookings">
+<operation name="editName">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="cancelAccount">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="isBookingOwner">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="editPassword">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -284,15 +329,6 @@
 </output>
 </operation>
 <operation name="editDOB">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="completeBookingObject">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -319,42 +355,6 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getTutors">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getBookingByID">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="cancelAccount">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="editName">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="cancelBookingObject">
 <soap:operation soapAction=""/>
 <input>
@@ -364,7 +364,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="editPassword">
+<operation name="completeBookingObject">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -382,25 +382,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getBookingsByStudentName">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getBookingsBySubject">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="cancelBookingID">
+<operation name="getBookingsByStatus">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -418,25 +400,43 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="getBookingsByStudentName">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="cancelBookingID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getBookingsBySubject">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="isBookingOwnerByID">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="getBookingsByStudentEmail">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="getBookingsByStatus">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="isBookingOwner">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
