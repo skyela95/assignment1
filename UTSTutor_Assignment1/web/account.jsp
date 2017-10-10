@@ -4,13 +4,13 @@
     Author     : Skye
 --%>
 
-<%@page import="com.sun.faces.facelets.util.Path.context(String)"%>
 <%@page import="javax.xml.ws.handler.MessageContext"%>
 <%@page import="uts.wsd.BookingApplication"%>
 <%@page import="uts.wsd.User"%>
 <%@page import="uts.wsd.soap.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,9 +42,9 @@
         <p>Your Email: <%= user.getEmail()%></p> 
         <p>Your birthday: <%= user.getDateOfBirth()%></p>
         <p>You are a: <%= user.getUserType()%></p>
-        
-        
-        
+
+
+
         <h1>Change your account details here: </h1>
         <form action="account.jsp" method="POST">
 
@@ -71,9 +71,9 @@
             </table>
 
             <p>Return to the <a href="index.html">main page</a>.</p>
-            <%-- 
-            <p>Cancel Account <%= BookingSOAP.cancelAccount()%></p>
-            --%>
+<%--
+            <p>Cancel account <%BookingApplication.cancelAccount() %> </p>
+--%>
 
     </body>
 </body>
