@@ -21,7 +21,7 @@
 
     <%
         User user = (User) session.getAttribute("user");
-        if (user == null) {
+        if (user == null || bookingApp.getLoggedUser() == null) {
             response.sendRedirect("login.jsp");
             bookingApp.logout();
             return;
@@ -55,6 +55,7 @@
                 if (RegexHelper.TestDOB(newDOB)) {
                     errors += "Date of Birth is not in a valid format [01/02/03]\n";
                 }
+                System.out.println("Before test: " + newName);
                 if (RegexHelper.TestName(newName)) {
                     errors += "Name is not in a valid format [John Smith]\n";
                 }

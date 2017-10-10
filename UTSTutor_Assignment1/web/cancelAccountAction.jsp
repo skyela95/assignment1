@@ -20,7 +20,7 @@
 
     <%
         User user = (User) session.getAttribute("user");
-        if (user == null) {
+        if (user == null || bookingApp.getLoggedUser() == null) {
             response.sendRedirect("login.jsp");
             bookingApp.logout();
             return;
