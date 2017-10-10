@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ */
 
 package uts.wsd.soap.client;
 
@@ -16,10 +17,12 @@ import uts.wsd.User.UserType;
  *
  * @author Adam
  
+ 
 =======
  * The booking client used by a user to use the SOAP Service running on the
  * server. Students and Tutors have different permissions, just as it is on
  * the normal web-site.
+ */
  
 //>>>>>>> refs/remotes/origin/Adam_Dev
 public class BookingClient {
@@ -27,6 +30,7 @@ public class BookingClient {
     // <editor-fold defaultstate="collapsed" desc=" ${Constants} ">
     /**
      * Patterns use for RegEx matching
+     */
      
     private static final Pattern EMAIL_PATTERN = Pattern.compile(
             "([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])+@([0-9a-zA-Z]"
@@ -40,6 +44,7 @@ public class BookingClient {
 
     /**
      * Constants for console actions
+     */
      
     // General
     private static final String INPUT_QUIT = "quit";
@@ -107,6 +112,7 @@ public class BookingClient {
 
     /**
      * Menu Titles
+     */
      
     private static final String MENU_TITLE_BOOKING_DETAIL = "- Booking details - '%1$s' to exit";
     private static final String MENU_TITLE_BOOKING_BY_ID = "- Print by booking ID - '%1$s' to exit";
@@ -153,6 +159,7 @@ public class BookingClient {
     /**
      * Clears the console artificially by printing X lines
      * @param lines X amount of lines to print
+     */
      
     private static void clearConsole(int lines) {
         for (int i = 0; i < lines; i++) {
@@ -164,6 +171,7 @@ public class BookingClient {
     /**
      * Prints the top of the user menu, with user name and results
      * @param result Prints any result from other menu actions e.g. success
+     */
      
     private static void printMenuTop(String result) {
         clearConsole(20);
@@ -182,6 +190,7 @@ public class BookingClient {
     /**
      * Used to print the result underneath the top menu item
      * @param result Prints the passed result e.g. Success
+     */
      
     private static void printResult(String result) {
         System.out.println(result);
@@ -193,6 +202,7 @@ public class BookingClient {
      * Prints the given booking object using a formatted string
      * @param booking The booking object to print
      * @return The booking object in a neat string format
+     */
      
     private static String printBooking(Booking booking) {
         String result = String.format(BOOKING_FORMAT, booking.getBookingID(),
@@ -206,6 +216,7 @@ public class BookingClient {
     /**
      * Attempts to authorize the user details through the SOAP Service
      * @return True/False if the details were correct
+     */
      
     private static boolean authorizeUser() {
         System.out.println(AUTHORIZE_REQUIRE);
@@ -225,6 +236,7 @@ public class BookingClient {
     /**
      * Attempts to log in the user with provided details through the SOAP service
      * @param result The result message to print below the menu
+     */
      
     private static void attemptLogin(String result) {
         printMenuTop(result);
@@ -244,7 +256,8 @@ public class BookingClient {
 
     /**
      * Attempts to log the user out of the system through SOAP
-     
+     */
+
     private static void attemptLogout() {
         name = "";
         type = null;
@@ -270,6 +283,7 @@ public class BookingClient {
     /**
      * Prints the STUDENT menu with their options
      * @param result The result to display underneath the menu
+     */
      
     private static void printStudentMenu(String result) {
         printMenuTop(result);
@@ -306,6 +320,7 @@ public class BookingClient {
     /**
      * Prints the TUTOR menu with their options
      * @param result The result to display underneath the menu
+     */
      
     private static void printTutorMenu(String result) {
         printMenuTop(result);
@@ -346,6 +361,7 @@ public class BookingClient {
     /**
      * Prints the Booking View menu with possible view parameters
      * @param result The result to display underneath the menu
+     */
      
     private static void printViewBookings(String result) {
         printMenuTop(result);
@@ -386,6 +402,7 @@ public class BookingClient {
 
     /**
      * Retrieves bookings through the SOAP service, and prints them neatly
+     */
      
     private static void printAllBookings() {
         String result = "";
@@ -404,6 +421,7 @@ public class BookingClient {
     /**
      * Retrieves a specific booking through ID using SOAP and prints it
      * @param result The result to display underneath the menu
+     */
      
     private static void printBookingByID(String result) {
         printMenuTop(result);
@@ -436,6 +454,7 @@ public class BookingClient {
      * Retrieves bookings based on the provided student email, and prints them
      * if successful
      * @param result The result to display underneath the menu 
+     */
      
     private static void printBookingByStudentEmail(String result) {
         printMenuTop(result);
@@ -464,6 +483,7 @@ public class BookingClient {
      * Retrieves bookings based on the provided student name, and prints them 
      * if successful
      * @param result The result to display underneath the menu
+     */
      
     private static void printBookingByStudentName(String result) {
         printMenuTop(result);
@@ -492,6 +512,7 @@ public class BookingClient {
      * Retrieves bookings based on the provided status, and prints them
      * if successful
      * @param result The result to display underneath the menu
+     */
      
     private static void printBookingByStatus(String result) {
         printMenuTop(result);
@@ -525,6 +546,7 @@ public class BookingClient {
      * booking by providing a tutors email. The user is required to 
      * enter their details to authorize themselves before a booking is created
      * @param result The result to display underneath the menu
+     */
      
     private static void printCreateBooking(String result) {
         printMenuTop(result);
@@ -560,6 +582,7 @@ public class BookingClient {
      * a booking. They are required to enter their details to authorize themselves
      * before a booking is completed
      * @param result 
+     */
      
     private static void printCompleteBooking(String result) {
         printMenuTop(result);
@@ -599,6 +622,7 @@ public class BookingClient {
      * cancel a booking. They are required to authorize themselves, as they can
      * only cancel a booking they own/are a part of.
      * @param result The result to dispaly underneath the menu
+     */
      
     private static void printCancelBooking(String result) {
         printMenuTop(result);
@@ -641,6 +665,7 @@ public class BookingClient {
     /**
      * Displays the Account Settings menu, with the user's given options
      * @param result The result to display underneath the menu
+     */
      
     private static void printAccountMenu(String result) {
         printMenuTop(result);
@@ -680,6 +705,7 @@ public class BookingClient {
      * Allows the user to edit their name, provided it meets the 
      * naming convention
      * @param result The result to display underneath the menu
+     */
      
     private static void printEditName(String result) {
         printMenuTop(result);
@@ -704,6 +730,7 @@ public class BookingClient {
      * Allows the user to edit their date of birth, provided it meets the 
      * date of birth convention
      * @param result The result to display underneath the menu
+     */
      
     private static void printEditDOB(String result) {
         printMenuTop(result);
@@ -727,6 +754,7 @@ public class BookingClient {
      * Allows the user to edit their password, provided they are able to 
      * authorize their account with the details they provide
      * @param result The result to display underneath the menu
+     */
      
     private static void printEditPassword(String result) {
         printMenuTop(result);
@@ -750,7 +778,7 @@ public class BookingClient {
      * requires them to not only confirm the action, but authorize their account
      * a final time
      * @param result The result to display underneath the menu
-     *
+     */
     private static void printCancelAccount(String result) {
         printMenuTop(result);
         System.out.println(String.format(MENU_TITLE_CANCEL_ACCOUNT, INPUT_QUIT));
@@ -775,4 +803,3 @@ public class BookingClient {
     }
     // </editor-fold>
 }
- */

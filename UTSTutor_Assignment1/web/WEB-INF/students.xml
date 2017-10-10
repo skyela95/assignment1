@@ -5,7 +5,7 @@
         <name>Lisa Simpson </name>
         <email>lisa.simpson@springfield.com</email>
         <password>tr33hugger</password>
-        <dob>22/07/93</dob>
+        <dateOfBirth>22/07/93</dateOfBirth>
         <userType>STUDENT</userType>
     </student>
 </students>
