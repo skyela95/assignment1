@@ -38,11 +38,29 @@
            //ArrayList<Booking> bookings = user.getBookings().getByStatus("ACTIVE");
             BookingService service = new BookingService();    
             Bookings bookings2 = bookingApp.getBookingsObject();
-          %>
-          <c:import url="http://localhost:8080/UTSTutor_Assignment1/rest/bookings/ID?query=12345"
+            String passedName = request.getParameter("useName");
+            Tutor tutor = null;
+            String availability = null;
+            if(bookingApp.getTutorsObject().getTutorByName(passedName)!=null){
+                tutor = bookingApp.getTutorsObject().getTutorByName(passedName);
+                if(tutor.isAvaliable() == true){availability = "available";}
+                else if (tutor.isAvaliable()==false){availability = "unavailable";}
+                %>
+                <p>Selected Tutor: </p>
+                <table>
+                    <tr><td>Name: </td><td><%=tutor.getName()%></td></tr>
+                    <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
+                    <tr><td>Status: </td><td><%=availability%></td></tr>
+                    <tr><input type="button" value="create booking" 
+                               onClick="<%System.out.println("BUTTON CLICKED");%>"></tr>
+                </table>
+                
+            <%}%>
+            
+          <!--<c:import url="http://localhost:8080/UTSTutor_Assignment1/rest/bookings/ID?query=12345"
                       var="inputDoc" />
           <c:import url="/WEB-INF/bookings.xsl"
                       var="stylesheet" />
-        <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/>
+        <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/> -->
     </body>
 </html>

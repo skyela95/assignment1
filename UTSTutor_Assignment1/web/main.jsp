@@ -56,6 +56,7 @@
                 <tr>
                     <td>
                         <select>
+                            <option value="any">Any</option>
                             <%
                                 ArrayList<String> tutorNames = new ArrayList<String>();
                                 for(Tutor tutor : tutors){
@@ -69,6 +70,7 @@
                     </td>
                     <td>
                         <select name="tutorSubject">
+                            <option value ="any">Any</option>
                             <option value ="WSD">WSD</option>
                             <option value="USP">USP</option>
                             <option value="SEP">SEP</option>
@@ -78,6 +80,7 @@
                     </td>
                     <td>
                         <select name="tutorStatus">
+                            <option value="any">Any</option>
                             <option value="available">available</option>
                             <option value="unavailable">unavailable</option>
                         </select>
@@ -109,13 +112,12 @@
                 //ArrayList<Tutor> tutorsXML = service.getAllTutors();
                 ArrayList<Tutor> tutorSearch = tutorsObject.getTutorsByAvailability(true);
         %>
-            <p>Hi the if statement works!
-            THIS NEEDS TO CHANGE TO SEARCH TUTORS, RETURN XML, PASS INTO THE INPUT DOC SECTION.</p>  
-                <c:import url="/WEB-INF/tutors.xml"
+ 
+               <!-- <c:import url="/WEB-INF/tutors.xml"
                       var="inputDoc" />
                 <c:import url="/WEB-INF/tutors.xsl"
                       var="stylesheet" />
-                <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/>
+                <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/> -->
             
             <form method="post" action="booking.jsp">
                 <table>
