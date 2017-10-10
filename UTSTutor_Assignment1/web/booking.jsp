@@ -3,6 +3,7 @@
     Created on : 08/10/2017, 7:14:46 PM
     Author     : Madeleine
 --%>
+<%@page import="uts.wsd.Student"%>
 <%@page import="uts.wsd.Bookings"%>
 <%@page import="uts.wsd.Tutor"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -36,15 +37,16 @@
             //Tutor tutor = request.getParameter("tutor");
             User user = (User) session.getAttribute("user");
            //ArrayList<Booking> bookings = user.getBookings().getByStatus("ACTIVE");
-            BookingService service = new BookingService();    
+            //BookingService service = new BookingService();    
             Bookings bookings2 = bookingApp.getBookingsObject();
             String passedName = request.getParameter("useName");
-            Tutor tutor = null;
+            
+            Tutor tutor = (Tutor)session.getAttribute("tut");
             String availability = null;
-            if(bookingApp.getTutorsObject().getTutorByName(passedName)!=null){
-                tutor = bookingApp.getTutorsObject().getTutorByName(passedName);
+            if(tutor!=null){
                 if(tutor.isAvaliable() == true){availability = "available";}
                 else if (tutor.isAvaliable()==false){availability = "unavailable";}
+                if(tutor.isAvaliable()){
                 %>
                 <p>Selected Tutor: </p>
                 <table>
@@ -52,15 +54,13 @@
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
                     <tr><input type="button" value="create booking" 
-                               onClick="<%System.out.println("BUTTON CLICKED");%>"></tr>
+                               onClick="
+                               <%System.out.println("BUTTON CLICKED");
+                               bookingApp.createBooking((Student)user, tutor);%>
+                               "></tr>
                 </table>
-                
-            <%}%>
-            
-          <!--<c:import url="http://localhost:8080/UTSTutor_Assignment1/rest/bookings/ID?query=12345"
-                      var="inputDoc" />
-          <c:import url="/WEB-INF/bookings.xsl"
-                      var="stylesheet" />
-        <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/> -->
+            <%}else{%>
+            <p>The tutor is not available. Please go back to main.</p>
+            <%}}%>
     </body>
 </html>

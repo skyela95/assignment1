@@ -112,12 +112,6 @@
                 //ArrayList<Tutor> tutorsXML = service.getAllTutors();
                 ArrayList<Tutor> tutorSearch = tutorsObject.getTutorsByAvailability(true);
         %>
- 
-               <!-- <c:import url="/WEB-INF/tutors.xml"
-                      var="inputDoc" />
-                <c:import url="/WEB-INF/tutors.xsl"
-                      var="stylesheet" />
-                <x:transform xml  = "${inputDoc}" xslt = "${stylesheet}"/> -->
             
             <form method="post" action="booking.jsp">
                 <table>
@@ -135,6 +129,7 @@
                                 String useStat = null;
                                 if(tutor.isAvaliable() == true){useStat = "available";}
                                 else if(tutor.isAvaliable() == false){useStat = "unavailable";}
+                                session.setAttribute("tut", tutor);
                             %>
                             <tr>
                                 <td><input type="submit" value="Select"></td>
