@@ -61,8 +61,9 @@
                                 for(Tutor tutor : tutors){
                                     tutorNames.add(tutor.getName());
                                 }
-                                for(String name : tutorNames){%>
-                                <option value="${name}">${name}</option>
+                                for(String name : tutorNames){
+                                    String using = name;%>
+                                <option value="<%=using%>"><%=using%></option>
                                <% } %>
                         </select>
                     </td>
@@ -87,7 +88,7 @@
         </form>
         <%
             //tutors = Tutors.getTutors(searchName, searchSubject, stat);
-            if (stat!=null || searchName !=null || searchSubjectT!=null){
+            //if (stat!=null || searchName !=null || searchSubjectT!=null){
                 //do search, return list of tutors
                 //marshall the list to xml, pass to inputDoc.
                 Tutors tutorsObj = bookingApp.getTutorsObject();
@@ -99,12 +100,22 @@
                 TutorService service = new TutorService();
                 //service.getAllTutors();
         %>
-        <c:import url="/Users/Madeleine/Desktop/20172/WSD/Assi1/UTSTutor_Assignment1/build/web/WEB-INF/tutors.xml"
-                      var="inputDocsssssss" />
-        <c:import url="/Users/Madeleine/Desktop/20172/WSD/Assi1/UTSTutor_Assignment1/src/java/stylesheets/bookings.xsl"
+      
+        <%//}%>
+        <%
+            if(searchStatus!=null || searchName !=null || searchSubject !=null){
+                Tutors tutorsObject = bookingApp.getTutorsObject();
+                ArrayList<Tutor> tutorSearch = tutorsObject.getTutors("Steve Jobs", Tutor.TutorSpecialty.WSD, true);
+                ArrayList<Tutor> tutorsXML = service.getAllTutors();
+        %>
+            <p>Hi the if statement works!</p>  
+                <c:import url="/WEB-INF/tutors.xml"
+                      var="inputDoc" />
+                <c:import url="/WEB-INF/tutors.xsl"
                       var="stylesheet" />
-        <x:transform xml  = "${service.getAllTutors()}" xslt = "${stylesheet}"/>
-        <%}%>
+                <x:transform xml  = "<%=tutorsXML%>" xslt = "${stylesheet}"/>
+            <%}
+        %> 
         <%} else if(user.getUserType() == UserType.TUTOR){ %>
         <p> DELETE THIS:
         TUTORS don't get access to search functionality.</p>
