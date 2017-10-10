@@ -31,7 +31,7 @@
                 String password = request.getParameter("password");
                 String dateOfBirth = request.getParameter("dateOfBirth");
                 String userType = request.getParameter("userType");
-                user.setName(name);
+                user.editName(name);
                 user.setEmail(email);
                 user.setPassword(password);
                 user.setDateOfBirth(dateOfBirth);
