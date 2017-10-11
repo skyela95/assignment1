@@ -173,8 +173,14 @@
                         
                         <table>
                             <tr><td>Bookings</td></tr>
-                            <tr><td>ID: <%=ID%></td><td>Subject: <%=subName%></td><td>Tutor: <%=tutName%></td>
+                            <tr><td>ID: <%=ID%></td>
+                                <td>Subject: <%=subName%></td>
+                                <td>Tutor: <%=tutName%></td>
                                 <td>Status: <%=stat%></td></tr>
+                                <td><form method="post" action="booking.jsp">
+                                <input type="submit" value="select booking" name="form"/>
+                                <input type="hidden" value="<%=ID%>" name="selectedID"/>
+                                </form></td>
                         </table>
                   <%}%>
                <% }else{%><p>Please press a button above.</p><% }%>
