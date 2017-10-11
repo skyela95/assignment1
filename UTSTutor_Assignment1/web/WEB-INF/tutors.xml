@@ -14,7 +14,7 @@ and open the template in the editor.
         <dob>27/03/78</dob>
         <tutorSpecialty>WSD</tutorSpecialty>
         <userType>TUTOR</userType>
-        <avaliable>false</avaliable>
+        <avaliable>true</avaliable>
     </tutor>
     <tutor>
         <name>Bill Gates</name>
@@ -24,5 +24,14 @@ and open the template in the editor.
         <tutorSpecialty>MobileApp</tutorSpecialty>
         <userType>TUTOR</userType>
         <avaliable>false</avaliable>
+    </tutor>
+    <tutor>
+        <name>Tweety Bird</name>
+        <email>tweet@bird.com</email>
+        <password>tweetTWEET</password>
+        <dob>07/08/84</dob>
+        <tutorSpecialty>SEP</tutorSpecialty>
+        <userType>TUTOR</userType>
+        <available>true</available>
     </tutor>
 </tutors>
