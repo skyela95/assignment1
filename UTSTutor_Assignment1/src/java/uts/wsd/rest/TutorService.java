@@ -36,8 +36,7 @@ public class TutorService {
         // The "synchronized" keyword is used to lock the application object while
         // we're manpulating it.
         
-         //Since the BookingApplication has a getTutorsObject() I'll just use
-         //that one
+        //Since the BookingApplication has a getTutorsObject() we use that
         synchronized (application) {
             BookingApplication bookingApp = (BookingApplication) application.getAttribute("bookingApp");
             if (bookingApp == null) {
@@ -49,13 +48,18 @@ public class TutorService {
         }
     }
     
+    
+    //this method retrieves the entire list of tutors and presents it 
+    //as XML to the browser
+    //http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/
     @Path("tutor")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Tutor> getAllTutors() throws JAXBException, IOException, Exception {
         return getBookingApp().getTutorsObject().getAll();
 }
-
+    //this method retrieves the entire list of tutors and then querys it by 
+    //the tutEmail provided in the URI and presents it as XML to the browser
     // http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/tutEmail?email=steve.jobs@apple.com
     @Path("tutor/tutEmail")
     @GET
@@ -64,7 +68,9 @@ public class TutorService {
         return getBookingApp().getTutorsObject().getTutorByEmail(email);
     }    
     
-     //http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/status?status=true
+    //this method retrieves the entire list of tutors and then querys it by 
+    //the tutorStatus provided in the URI and presents it as XML to the browser
+    //http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/status?status=true
     @Path("tutor/status")
     @GET
     @Produces(MediaType.APPLICATION_XML)

@@ -13,12 +13,14 @@ import javax.ws.rs.core.*;
 import javax.xml.bind.JAXBException;
 import uts.wsd.*;
 
+//the path for the REST request
 @Path("/bookings")
 public class BookingService {
 
     @Context
     private ServletContext application;
 
+    //got example from lab demos    
     private BookingApplication getBookingApp() throws JAXBException, IOException {
         // The web server can handle requests from different clients in parallel.
         // These are called "threads".
@@ -29,7 +31,6 @@ public class BookingService {
         // The "synchronized" keyword is used to lock the application object while
         // we're manpulating it.
         
-       
         synchronized (application) {
             BookingApplication bookingApp = (BookingApplication) application.getAttribute("bookingApp");
             if (bookingApp == null) {
@@ -40,16 +41,20 @@ public class BookingService {
             return bookingApp;
         }
     }
-  
+    
+    
+    //this method retrieves the entire list of bookings and presents it as XML
+    //to the browser. Without any query parameters
     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/
     @Path("booking")
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public ArrayList<Booking> getAllBookings() throws JAXBException, IOException, Exception{
+    public ArrayList<Booking> getAllBookings() throws JAXBException, IOException, Exception {
         return getBookingApp().getBookingsObject().getBookings();
-    
     }
     
+    //this method retrieves the entire list of bookings and then querys it by 
+    //the ID provided  in the URI and presents it as XML to the browser
     // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/bookingID?ID=1
     @Path("booking/bookingID")
     @GET
@@ -60,7 +65,8 @@ public class BookingService {
     }    
 
 
-    
+    //this method retrieves the entire list of bookings and then querys it by 
+    //the studentEmail provided in the URI and presents it as XML to the browser
     // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/studEmail?email=lisa.simpson@springfield.com
     @Path("booking/studEmail")
     @GET
@@ -69,6 +75,8 @@ public class BookingService {
         return getBookingApp().getBookingsObject().getbyStudentEmail(email);
     }    
     
+    //this method retrieves the entire list of bookings and then querys it by 
+    //the booking Subject provided in the URI and presents it as XML to the browser
     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/subjectName?subjectName=AppProg
     @Path("booking/subjectName")
     @GET
@@ -77,7 +85,9 @@ public class BookingService {
         return getBookingApp().getBookingsObject().getBySubject(subjectName);
     }    
     
-    
+    //this method retrieves the entire list of bookings and then querys it by 
+    //the booking status provided in the URI and presents 
+    //it as XML to the browser
      //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/status?status=ACTIVE
     @Path("booking/status")
     @GET

@@ -87,7 +87,8 @@ public class Tutors extends Users implements Serializable {
                 tutors.add(tutor);
             }
         }
-        return tutors.isEmpty() ? null : tutors;
+        //return tutors.isEmpty() ? null : tutors;
+        return tutors;
     }
 
     public ArrayList<Tutor> getTutors(String name, Tutor.TutorSpecialty specialty, Boolean status) {
