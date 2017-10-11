@@ -62,6 +62,7 @@ details {
 	margin: -150px 0 0 -125px;
         text-align: center;
 }
+
 .detailsTitle h1 {    
     color: #fff; 
     text-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -77,9 +78,10 @@ details {
 .detailsContent table {
 margin-left: auto;
 margin-rigt: auto;
+color: white;
 }
 
-.detailsContent td {
+.detailsContent td, thead  {
     background: rgba(0,0,0,0.3);
     box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -88,6 +90,19 @@ margin-rigt: auto;
         padding: 10px;
         color: white;
 }
+
+tbody td {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        padding: 10px;
+        color: white;
+        text-align: center;
+}
+
+.tutorrow {
+    background: rgba(0,0,0,0.3);
+}
+
+
 
 .subscript {
     font-size: 12px;
