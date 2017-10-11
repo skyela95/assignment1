@@ -181,7 +181,11 @@
         </table>
         <%}%> 
         <%} else if (user.getUserType() == UserType.TUTOR) {%>
-        <p> Welcome <%=user.getName()%>!</p>
+        <table align ="center">
+        <div class="detailsTitle">
+            <tr><td><h1> Welcome <%=user.getName()%>!</h1></td></tr>
+        </div>
+        </table>
         <%}%>     
     </body>
 </html>

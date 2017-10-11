@@ -46,7 +46,6 @@ public class BookingApplication {
     private User loggedUser = null;
 
     // </editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc=" ${Initialization} ">
     /**
      * Sets the context/application filepath and calls a method to initialize
@@ -99,7 +98,6 @@ public class BookingApplication {
     }
 
     // </editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc=" ${Saving} ">
     /**
      * Takes any storage object (e.g. Students) and saves it to its relevant XML
@@ -160,7 +158,6 @@ public class BookingApplication {
     }
 
     // </editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc=" ${Get Methods} ">
     /**
      * Logs the current user out of the application
@@ -253,7 +250,6 @@ public class BookingApplication {
     }
 
     // </editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc=" ${Authorize Methods} ">
     /**
      * Attempts to authorize the current user, checking the provided username
@@ -291,7 +287,6 @@ public class BookingApplication {
     }
 
     // </editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc=" ${Booking Methods} ">
     /**
      * Creates a new booking with the provided Student and Tutor objects, makes
@@ -406,8 +401,43 @@ public class BookingApplication {
     }
 
     // </editor-fold>
-    
     // <editor-fold defaultstate="collapsed" desc=" ${Account Methods} ">
+    /**
+     * Creates a new student from the provided parameters, and saves to XMLL
+     *
+     * @param name Students name
+     * @param email Students email
+     * @param password Students password
+     * @param dob Students date of birth
+     * @param specialty Students specialty
+     */
+    public User createStudent(String name, String email, String password,
+            String dob) {
+        Student student = new Student(name, email, password, dob);
+        students.addUser(student);
+        saveStudents();
+        
+        return student;
+    }
+
+    /**
+     * Creates a new tutor from the provided parameters, and saves to XMLL
+     *
+     * @param name Tutors name
+     * @param email Tutors email
+     * @param password Tutors password
+     * @param dob Tutors date of birth
+     * @param specialty Tutors specialty
+     */
+    public User createTutor(String name, String email, String password,
+            String dob, Tutor.TutorSpecialty specialty) {
+        Tutor tutor = new Tutor(name, email, password, dob, specialty);
+        tutors.addUser(tutor);
+        saveTutors();
+        
+        return tutor;
+    }
+
     /**
      * Calls to cancel account, checking the users UserType to see which method
      * to run
@@ -486,10 +516,11 @@ public class BookingApplication {
         loggedUser.setPassword(password);
         saveUser();
     }
-    
+
     /**
-     * Edits the current users email to the String parameter
-     * This is primarily used internally, and not through services
+     * Edits the current users email to the String parameter This is primarily
+     * used internally, and not through services
+     *
      * @param email The new email
      */
     public void editEmail(String email) {

@@ -10,25 +10,25 @@ and open the template in the editor.
            elementFormDefault="qualified">
     
     <!-- Schema for UserType in Users class and sub-classes -->
-    <xsd:simpleType name="userTypeEnum">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="STUDENT"/>
-            <xsd:enumeration value="TUTOR"/>
-        </xsd:restriction>
-    </xsd:simpleType>
+    <xs:simpleType name="userTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STUDENT"/>
+            <xs:enumeration value="TUTOR"/>
+        </xs:restriction>
+    </xs:simpleType>
     
     <!-- Schema for StatusType in Booking class -->
-    <xsd:simpleType name="statusTypeEnum">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="ACTIVE"/>
-            <xsd:enumeration value="CANCELLED"/>
-            <xsd:enumeration value="COMPLETED"/>
-        </xsd:restriction>
-    </xsd:simpleType>
+    <xs:simpleType name="statusTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ACTIVE"/>
+            <xs:enumeration value="CANCELLED"/>
+            <xs:enumeration value="COMPLETED"/>
+        </xs:restriction>
+    </xs:simpleType>
     
     <!-- Schema for TutorSpecialty Enum in Tutors class -->
     <xs:simpleType name="tutorSpecialtyEnum">
-        <xs:restriction base="xsd:string">
+        <xs:restriction base="xs:string">
             <xs:enumeration value="WSD"/>
             <xs:enumeration value="USP"/>
             <xs:enumeration value="SEP"/>
@@ -47,11 +47,13 @@ and open the template in the editor.
     <!-- Schema for a valid email for Users -->
     <xs:simpleType name="email">
         <xs:restriction base="xs:string">
-            <!-- Any number|letter followed by any special characters followed
-            by any letter|number followed by an @ followed by any letters|characters 
-            followed by a dot and then any character -->
-            <xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])+@([0-9a-zA-Z]
-            [-\w]*[0-9a-zA-Z]\.)+[a-zA-Z])"/>
+            <!-- General Email Regex (RFC 5322 Official Standard) -->
+            <xs:pattern value="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'
+*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-
+\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-
+z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2
+[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21
+-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"/>
         </xs:restriction>
     </xs:simpleType>
     
@@ -59,7 +61,7 @@ and open the template in the editor.
     <xs:simpleType name="dateOfBirth">
         <xs:restriction base="xs:string">
             <!-- Very simple DoB -->
-            <xs:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+            <xs:pattern value="^([012]\\d|30|31)\\/(0\\d|10|11|12)\\/\\d{4}$"/>
         </xs:restriction>
     </xs:simpleType>
 

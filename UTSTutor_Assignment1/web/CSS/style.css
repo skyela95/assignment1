@@ -102,6 +102,14 @@ tbody td {
     background: rgba(0,0,0,0.3);
 }
 
+hr {
+    width: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
 
 
 .subscript {

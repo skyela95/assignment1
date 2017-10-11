@@ -30,7 +30,7 @@
         String submit = request.getParameter("submitted");
 
         if (submit == null || !submit.equals("submitEdit")) {
-            errors += "Error processing request";
+            errors += "Error processing request\n";
             response.sendRedirect("cancelAccount.jsp");
             return;
         }
@@ -39,7 +39,7 @@
         String password = request.getParameter("password").trim();
 
         if (!bookingApp.authorizeUser(username, password)) {
-            errors += "Unable to authorize user";
+            errors += "Unable to authorize user\n";
         }
 
         if (errors.equals("")) {

@@ -11,7 +11,7 @@ and open the template in the editor.
         <name>Steve Jobs</name>
         <email>steve.jobs@apple.com</email>
         <password>iamgod</password>
-        <dob>27/03/78</dob>
+        <dob>27/03/1978</dob>
         <tutorSpecialty>WSD</tutorSpecialty>
         <userType>TUTOR</userType>
         <avaliable>true</avaliable>
@@ -20,16 +20,16 @@ and open the template in the editor.
         <name>Bill Gates</name>
         <email>bill.gates@microsoft.com</email>
         <password>money</password>
-        <dob>05/06/64</dob>
+        <dob>05/06/1964</dob>
         <tutorSpecialty>MobileApp</tutorSpecialty>
         <userType>TUTOR</userType>
-        <avaliable>false</avaliable>
+        <avaliable>true</avaliable>
     </tutor>
     <tutor>
         <name>Tweety Bird</name>
         <email>tweet@bird.com</email>
         <password>tweetTWEET</password>
-        <dob>07/08/84</dob>
+        <dob>07/08/1984</dob>
         <tutorSpecialty>SEP</tutorSpecialty>
         <userType>TUTOR</userType>
         <available>true</available>

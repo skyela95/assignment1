@@ -125,6 +125,16 @@ public class Bookings implements Serializable {
         }
         return bookings;
     }
+    
+        public ArrayList<Booking> getbyTutorEmail(String email) {
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        for (Booking booking : list) {
+            if (booking.getTutorEmail().equals(email)) {
+                bookings.add(booking);
+            }
+        }
+        return bookings;
+    }
 
     /**
      * Retrieves a list of Booking with the provided subject/tutor specialty

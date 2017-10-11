@@ -7,8 +7,7 @@
         <password>tr33hugger</password>
         <dateOfBirth>22/07/1993</dateOfBirth>
         <userType>STUDENT</userType>
-    </student>
-    
+    </student>    
     <student>
         <name>Bart Simpson </name>
         <email>bart.simpson@springfield.com</email>
