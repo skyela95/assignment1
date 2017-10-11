@@ -41,20 +41,20 @@
             
             //HANDLE ALL FUNCTIONS HERE AFTER GETTING THE USER.
             //create a booking, if create was clicked:
-            if(request.getParameter("createBooking")!=null){
+            if(request.getParameter("createName")!=null){
                 String createName = request.getParameter("createName");
                 Tutor createTutor = bookingApp.getTutorsObject().getTutorByName(createName);
                 bookingApp.createBooking((Student)user, createTutor);
             }
             
-            if(request.getParameter("cancelBooking")!=null){
+            if(request.getParameter("cancelID")!=null){
                 int cancelID = Integer.parseInt(request.getParameter("cancelID"));
                 //Booking cancelBooking = bookingApp.getBookingsObject().getByID(cancelID);
                 //bookingApp.cancelBooking(cancelBooking);
                 bookingApp.cancelBookingByID(cancelID);
             }
             
-            if(request.getParameter("completeBooking")!=null){
+            if(request.getParameter("completeID")!=null){
                 int completeID = Integer.parseInt(request.getParameter("completeID"));
                 bookingApp.completeBookingByID(completeID);
                 //Booking completeBooking = bookingApp.getBookingsObject().getbyID(completeID);
@@ -82,7 +82,7 @@
                     <tr><td>Name: </td><td><%=tutor.getName()%></td></tr>
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
-                    <tr><td><input type="hidden" value="<%=tutor.getName()%>" name="createName"/></td></tr>>
+                    <tr><td><input type="hidden" value="<%=tutor.getName()%>" name="createName"/></td></tr>
                     <tr><td><input type="button" value="create booking" name="createBooking"/></td></tr>
                 </table>
                 </form>
@@ -112,10 +112,10 @@
                     <td>Subject: <%=selectedSub%></td>
                     <td>Tutor: <%=selectedTut%></td>
                     <td>Status: <%=selectedStat%></td>
-                    <tr><td><input type="hidden" value="<%=selectedID%>" name="cancelID"/></td></tr>>
+                    <tr><td><input type="hidden" value="<%=selectedID%>" name="cancelID"/></td></tr>
                     <tr><td><input type="button" value="cancel booking" name="cancelBooking"/></td></tr>
                     <%if(user.getUserType() == User.UserType.TUTOR){%>
-                    <tr><td><input type="hidden" value="<%=selectedID%>" name="completeID"/></td></tr>>
+                    <tr><td><input type="hidden" value="<%=selectedID%>" name="completeID"/></td></tr>
                     <tr><td><input type="button" value="complete booking" name="completeBooking"/></td></tr>
                     <%}%>
                 </table>
@@ -152,7 +152,7 @@
                             <td>Tutor: <%=tutName%></td>
                             <td>Status: <%=stat%></td>
                             <td><form method="post" action="booking.jsp">
-                            <input type="submit" value="select booking" name="form"/>
+                            <input type="submit" value="select booking" name="selectBooking"/>
                             <input type="hidden" value="<%=bookID%>" name="selectedID"/>
                             </form></td>
                           <%}%>
@@ -178,7 +178,7 @@
                                 <td>Tutor: <%=tutName%></td>
                                 <td>Status: <%=stat%></td></tr>
                                 <td><form method="post" action="booking.jsp">
-                                <input type="submit" value="select booking" name="form"/>
+                                <input type="submit" value="select booking" name="selectBooking"/>
                                 <input type="hidden" value="<%=ID%>" name="selectedID"/>
                                 </form></td>
                         </table>
