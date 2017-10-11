@@ -306,11 +306,5 @@ public class BookingSOAP {
     public void editPassword(String password) {
         getBookingApp().editPassword(password);
     }
-    
-    
-    @WebMethod
-    public void editEmail(String email) {
-        getBookingApp().editEmail(email);
-    }
 }    
     // </editor-fold>
