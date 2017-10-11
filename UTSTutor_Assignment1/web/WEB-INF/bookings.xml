@@ -16,7 +16,7 @@ and open the template in the editor.
         <studentEmail>lisa.simpson@springfield.com</studentEmail>
         <studentName>Lisa Simpson</studentName>
     </booking>
-        <booking>
+    <booking>
         <statusType>ACTIVE</statusType>
         <bookingID>2</bookingID>
         <tutorName>Paul Depet</tutorName>
@@ -25,7 +25,7 @@ and open the template in the editor.
         <studentEmail>oscar.helix@wsd.com</studentEmail>
         <studentName>Oscar Helix</studentName>
     </booking>
-        <booking>
+    <booking>
         <statusType>ACTIVE</statusType>
         <bookingID>3</bookingID>
         <tutorName>Seth Soap</tutorName>
@@ -34,7 +34,7 @@ and open the template in the editor.
         <studentEmail>emily.heath@swsd.com</studentEmail>
         <studentName>Emily Heath</studentName>
     </booking>
-        <booking>
+    <booking>
         <statusType>COMPLETED</statusType>
         <bookingID>4</bookingID>
         <tutorName>Robert Felix</tutorName>
@@ -43,7 +43,7 @@ and open the template in the editor.
         <studentEmail>henry.watkins@wsd.com</studentEmail>
         <studentName>Henry Watkins</studentName>
     </booking>
-        <booking>
+    <booking>
         <statusType>ACTIVE</statusType>
         <bookingID>5</bookingID>
         <tutorName>Liam Walker</tutorName>
@@ -51,6 +51,15 @@ and open the template in the editor.
         <subjectName>MobileApp</subjectName>
         <studentEmail>bert.tyler@wsd.com</studentEmail>
         <studentName>Bert Tyler</studentName>
+    </booking>
+    <booking>
+        <statusType>ACTIVE</statusType>
+        <bookingID>6</bookingID>
+        <tutorName>Bill Gates</tutorName>
+        <tutorEmail>bill.gates@microsoft.com</tutorEmail>
+        <subjectName>MobileApp</subjectName>
+        <studentEmail>oscar.helix@wsd.com</studentEmail>
+        <studentName>Lisa Simpson</studentName>
     </booking>
 </bookings>
 
