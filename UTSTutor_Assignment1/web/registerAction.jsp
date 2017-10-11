@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registering../title>
+        <title>Registering..</title>
     </head>
         <% String filePath = application.getRealPath("\\");%>
         <jsp:useBean id ="bookingApp" class="uts.wsd.BookingApplication" scope="application">
