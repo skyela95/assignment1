@@ -27,10 +27,7 @@
         </jsp:useBean>
         
         <% 
-            boolean allBookings = true;
-            if(request.getParameter("viewAll") != null){ allBookings = true; }
-            else if(request.getParameter("viewActive") != null){allBookings = false;}
-            else{allBookings = true;}
+           
         
             //only tutor can compelete a booking.
             //Tutor tutor = request.getParameter("tutor");
@@ -41,6 +38,33 @@
             //String passedName = request.getParameter("useName");
             
             //onClick: onClick="createNewBooking((Student)user, tutor)
+            
+            //HANDLE ALL FUNCTIONS HERE AFTER GETTING THE USER.
+            //create a booking, if create was clicked:
+            if(request.getParameter("createBooking")!=null){
+                String createName = request.getParameter("createName");
+                Tutor createTutor = bookingApp.getTutorsObject().getTutorByName(createName);
+                bookingApp.createBooking((Student)user, createTutor);
+            }
+            
+            if(request.getParameter("cancelBooking")!=null){
+                int cancelID = Integer.parseInt(request.getParameter("cancelID"));
+                //Booking cancelBooking = bookingApp.getBookingsObject().getByID(cancelID);
+                //bookingApp.cancelBooking(cancelBooking);
+                bookingApp.cancelBookingByID(cancelID);
+            }
+            
+            if(request.getParameter("completeBooking")!=null){
+                int completeID = Integer.parseInt(request.getParameter("completeID"));
+                bookingApp.completeBookingByID(completeID);
+                //Booking completeBooking = bookingApp.getBookingsObject().getbyID(completeID);
+                //bookingApp.completeBooking(completeBooking);
+            }
+            
+            boolean allBookings = true;
+            if(request.getParameter("viewAll") != null){ allBookings = true; }
+            else if(request.getParameter("viewActive") != null){allBookings = false;}
+            else{allBookings = true;}
             
             //FOR STUDENT ONLY
             //if can get createBooking in request, session tut to create booking, don't show again.
@@ -53,12 +77,15 @@
                 if(tutor.isAvaliable()){
                 %>
                 <p>Selected Tutor: </p>
+                <form method="post" action="booking.jsp">
                 <table>
                     <tr><td>Name: </td><td><%=tutor.getName()%></td></tr>
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
+                    <tr><td><input type="hidden" value="<%=tutor.getName()%>" name="createName"/></td></tr>>
                     <tr><td><input type="button" value="create booking" name="createBooking"/></td></tr>
                 </table>
+                </form>
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
             <%}}}%>
@@ -76,14 +103,23 @@
                     String selectedSub = selectedBooking.getSubjectName().toString();
                     String selectedTut = selectedBooking.getTutorName();
                     String selectedStat = selectedBooking.getStatusType().toString();
+                    //all users have cance, only TUTORS have complete.
                 %>
+                <form method="post" action="booking.jsp">
                 <table>
                     <tr><td>Selected Booking</td></tr>
                     <td>ID: <%=selectedID%></td>
                     <td>Subject: <%=selectedSub%></td>
                     <td>Tutor: <%=selectedTut%></td>
                     <td>Status: <%=selectedStat%></td>
+                    <tr><td><input type="hidden" value="<%=selectedID%>" name="cancelID"/></td></tr>>
+                    <tr><td><input type="button" value="cancel booking" name="cancelBooking"/></td></tr>
+                    <%if(user.getUserType() == User.UserType.TUTOR){%>
+                    <tr><td><input type="hidden" value="<%=selectedID%>" name="completeID"/></td></tr>>
+                    <tr><td><input type="button" value="complete booking" name="completeBooking"/></td></tr>
+                    <%}%>
                 </table>
+                </form>
                 <%}%>
             
             <!--<form method="post" action="booking.jsp"> 
