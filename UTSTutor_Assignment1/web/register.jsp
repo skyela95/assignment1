@@ -20,7 +20,7 @@
                 <tr><td>Password:</td><td><input type="password" name="password"></td></tr>
                 <tr><td>DOB:</td><td><input type = "date" name="dob"></td></tr>
                 <tr><td>User Type:</td><td>
-                        <select>
+                        <select name="userType">
                             <option value="Student">Student</option>
                             <option value="Tutor">Tutor</option>
                         </select>

@@ -27,17 +27,7 @@
         </jsp:useBean>
         
         <% 
-           
-        
-            //only tutor can compelete a booking.
-            //Tutor tutor = request.getParameter("tutor");
             User user = (User) session.getAttribute("user");
-           //ArrayList<Booking> bookings = user.getBookings().getByStatus("ACTIVE");
-            //BookingService service = new BookingService();    
-            //Bookings bookings2 = bookingApp.getBookingsObject();
-            //String passedName = request.getParameter("useName");
-            
-            //onClick: onClick="createNewBooking((Student)user, tutor)
             
             //HANDLE ALL FUNCTIONS HERE AFTER GETTING THE USER.
             //create a booking, if create was clicked:
@@ -49,16 +39,12 @@
             
             if(request.getParameter("cancelID")!=null){
                 int cancelID = Integer.parseInt(request.getParameter("cancelID"));
-                //Booking cancelBooking = bookingApp.getBookingsObject().getByID(cancelID);
-                //bookingApp.cancelBooking(cancelBooking);
                 bookingApp.cancelBookingByID(cancelID);
             }
             
             if(request.getParameter("completeID")!=null){
                 int completeID = Integer.parseInt(request.getParameter("completeID"));
                 bookingApp.completeBookingByID(completeID);
-                //Booking completeBooking = bookingApp.getBookingsObject().getbyID(completeID);
-                //bookingApp.completeBooking(completeBooking);
             }
             
             boolean allBookings = true;
@@ -67,7 +53,7 @@
             else{allBookings = true;}
             
             //FOR STUDENT ONLY
-            //if can get createBooking in request, session tut to create booking, don't show again.
+            //TODO: if can get createBooking in request, session tut to create booking, don't show again.
             if(user.getUserType() == User.UserType.STUDENT){
             Tutor tutor = (Tutor)session.getAttribute("tut");
             String availability = null;
@@ -86,7 +72,7 @@
                     <tr><td><input type="submit" value="create booking" name="createBooking"/></td></tr>
                 </table>
                 </form>
-            <%}else{%>
+            <%}else{//TODO: only if something was passed in but not available, not just else.%>
             <p>The tutor is not available. Please go back to main.</p>
             <%}}}%>
             
@@ -103,7 +89,7 @@
                     String selectedSub = selectedBooking.getSubjectName().toString();
                     String selectedTut = selectedBooking.getTutorName();
                     String selectedStat = selectedBooking.getStatusType().toString();
-                    //all users have cance, only TUTORS have complete.
+                    //TODO: all users have cance, only TUTORS have complete.
                 %>
                 <form method="post" action="booking.jsp">
                 <table>
@@ -166,10 +152,12 @@
                 <%
                     ArrayList<Booking> actBook = bookingApp.getBookingsObject().getbyStudentEmail(user.getEmail());
                     for (Booking books : actBook){
+                        //TODO: CHECK IF ACTIVE CURRENTLY RETURNING ALL.
                         int ID = books.getBookingID();
                         String subName = books.getSubjectName().toString();
                         String tutName = books.getTutorName();
-                        String stat = books.getStatusType().toString(); %>
+                        String stat = books.getStatusType().toString(); 
+                //TODO: table starts after for loop, needs to start BEFORE. %>
                         
                         <table>
                             <tr><td>Bookings</td></tr>
