@@ -1,7 +1,5 @@
 <%-- 
-    Document   : accountEdit
-    Created on : 10/10/2017, 5:16:50 PM
-    Author     : Adam
+ Edit account page to change all user details, after providing authentication
 --%>
 
 <%@page import="uts.wsd.User"%>

@@ -1,7 +1,6 @@
 <%-- 
-    Document   : booking
-    Created on : 08/10/2017, 7:14:46 PM
-    Author     : Madeleine
+ The booking page where users can view all bookings, active bookings and book 
+tutors if redirected from the main page from search results
 --%>
 <%@page import="uts.wsd.User.UserType"%>
 <%@page import="uts.wsd.Student"%>

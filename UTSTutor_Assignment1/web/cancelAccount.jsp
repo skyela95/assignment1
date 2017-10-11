@@ -1,7 +1,5 @@
 <%-- 
-    Document   : cancelAccount
-    Created on : 10/10/2017, 7:37:12 PM
-    Author     : Adam
+ Cancel page, which upon authentication will delete the user from the system
 --%>
 
 <%@page import="uts.wsd.User"%>

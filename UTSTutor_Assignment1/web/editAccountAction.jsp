@@ -1,7 +1,6 @@
 <%-- 
-    Document   : editAccountAction
-    Created on : 10/10/2017, 5:17:09 PM
-    Author     : Adam
+ Action page that handles all the information from EditAccount. Validates 
+and performs actions to edit successfully or present errors
 --%>
 
 <%@page import="uts.wsd.RegexHelper"%>

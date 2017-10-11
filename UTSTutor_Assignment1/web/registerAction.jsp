@@ -1,5 +1,5 @@
 <%-- 
-    Handles the register request
+    Handles all the validation required for registering a user
 --%>
 
 <%@page import="uts.wsd.Tutor"%>

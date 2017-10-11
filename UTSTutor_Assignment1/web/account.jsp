@@ -1,7 +1,5 @@
 <%-- 
-    Document   : account
-    Created on : 09/10/2017, 7:42:05 PM
-    Author     : Skye
+The main account page for the user - Can proceed to edit and canel
 --%>
 
 <%@page import="uts.wsd.soap.client.BookingApp"%>

@@ -1,7 +1,5 @@
 <%-- 
-    Document   : login
-    Created on : 02/10/2017, 8:12:06 PM
-    Author     : Madeleine
+    The main login page - User and pass to authenticate user
 --%>
 
 <%@page import="uts.wsd.User"%>

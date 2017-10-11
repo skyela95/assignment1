@@ -34,4 +34,22 @@ and open the template in the editor.
         <userType>TUTOR</userType>
         <available>true</available>
     </tutor>
+    <tutor>
+        <name>Tyrion Lannister</name>
+        <email>wine@winenot.com</email>
+        <password>wine</password>
+        <dob>08/04/1977</dob>
+        <tutorSpecialty>USP</tutorSpecialty>
+        <userType>TUTOR</userType>
+        <available>true</available>
+    </tutor>
+    <tutor>
+        <name>Ned Stark</name>
+        <email>winter@coming.com</email>
+        <password>headless</password>
+        <dob>05/03/1959</dob>
+        <tutorSpecialty>WSD</tutorSpecialty>
+        <userType>TUTOR</userType>
+        <available>true</available>
+    </tutor>
 </tutors>

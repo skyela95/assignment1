@@ -18,26 +18,24 @@ import javax.xml.bind.JAXBException;
 import uts.wsd.*;
 
 /**
- *
- * @author Skye
+ * Provides a service to access Tutor related searches using REST
  */
 @Path("/tutors")
 public class TutorService {
+
     @Context
     private ServletContext application;
-    
+
+    /**
+     * Returns the BookingApplication using the REST service, for tutor related
+     * searches
+     *
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     */
     private BookingApplication getBookingApp() throws JAXBException, IOException {
-        // The web server can handle requests from different clients in parallel.
-        // These are called "threads".
-        //
-        // We do NOT want other threads to manipulate the application object at the same
-        // time that we are manipulating it, otherwise bad things could happen.
-        //
-        // The "synchronized" keyword is used to lock the application object while
-        // we're manpulating it.
-        
-         //Since the BookingApplication has a getTutorsObject() I'll just use
-         //that one
+
         synchronized (application) {
             BookingApplication bookingApp = (BookingApplication) application.getAttribute("bookingApp");
             if (bookingApp == null) {
@@ -48,27 +46,51 @@ public class TutorService {
             return bookingApp;
         }
     }
-    
+
+    /**
+     * Returns all tutors in XML format
+     *
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception
+     */
     @Path("tutor")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Tutor> getAllTutors() throws JAXBException, IOException, Exception {
         return getBookingApp().getTutorsObject().getAll();
-}
+    }
 
+    /**
+     * Returns a Tutor in XML format based on the given email
+     * @param email
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
     // http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/tutEmail?email=steve.jobs@apple.com
     @Path("tutor/tutEmail")
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public Tutor getTutorByEmail(@QueryParam("email") String email) throws JAXBException, IOException, Exception{
+    public Tutor getTutorByEmail(@QueryParam("email") String email) throws JAXBException, IOException, Exception {
         return getBookingApp().getTutorsObject().getTutorByEmail(email);
-    }    
-    
-     //http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/status?status=true
+    }
+
+    /**
+     * Returns a Tutor in XML based on the given status
+     * @param status
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
+    //http://localhost:8080/UTSTutor_Assignment1/rest/tutors/tutor/status?status=true
     @Path("tutor/status")
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public ArrayList<Tutor> getTutorsByAvailability(@QueryParam("status") Boolean status) throws JAXBException, IOException, Exception{
+    public ArrayList<Tutor> getTutorsByAvailability(@QueryParam("status") Boolean status) throws JAXBException, IOException, Exception {
         return getBookingApp().getTutorsObject().getTutorsByStatus(status);
     }
-}    
+}

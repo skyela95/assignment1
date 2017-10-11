@@ -1,7 +1,6 @@
 <%-- 
-    Document   : loginAction
-    Created on : 08/10/2017, 4:11:26 PM
-    Author     : Adam
+    LoginAction page handles the login details and authenticates them with the
+    system, logging the user in
 --%>
 
 <%@page import="uts.wsd.User"%>
@@ -29,7 +28,7 @@
         if (user != null) {
             session.setAttribute("user", user);
             session.setAttribute("loginFailed", false);
-            response.sendRedirect("main.jsp"); 
+            response.sendRedirect("main.jsp");
         } else {
             session.setAttribute("loginFailed", true);
             response.sendRedirect("login.jsp");

@@ -1,7 +1,6 @@
 <%-- 
-    Document   : cancelAccountAction
-    Created on : 10/10/2017, 7:40:32 PM
-    Author     : Adam
+ The action page that handles all the data given by the CancelAccount page
+i.e. decision page
 --%>
 
 <%@page import="uts.wsd.User"%>

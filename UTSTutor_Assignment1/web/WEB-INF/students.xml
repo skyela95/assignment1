@@ -15,4 +15,25 @@
         <dateOfBirth>22/07/1993</dateOfBirth>
         <userType>STUDENT</userType>
     </student>
+    <student>
+        <name>John Snow </name>
+        <email>king@north.com</email>
+        <password>thewall</password>
+        <dateOfBirth>30/05/1973</dateOfBirth>
+        <userType>STUDENT</userType>
+    </student>
+    <student>
+        <name>Jamie Lannister </name>
+        <email>debts@paid.com</email>
+        <password>cersei</password>
+        <dateOfBirth>14/03/1975</dateOfBirth>
+        <userType>STUDENT</userType>
+    </student>
+    <student>
+        <name>Bob Jane </name>
+        <email>bob@jane.com</email>
+        <password>tyres</password>
+        <dateOfBirth>14/01/1974</dateOfBirth>
+        <userType>STUDENT</userType>
+    </student>
 </students>

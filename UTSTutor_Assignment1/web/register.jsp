@@ -1,7 +1,6 @@
 <%-- 
-    Document   : register
-    Created on : 02/10/2017, 7:02:35 PM
-    Author     : Madeleine
+    Registration page allowing users to register an account, processed through
+    the registerAction page
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

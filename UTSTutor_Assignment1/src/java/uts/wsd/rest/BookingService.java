@@ -13,23 +13,22 @@ import javax.ws.rs.core.*;
 import javax.xml.bind.JAXBException;
 import uts.wsd.*;
 
+/**
+ *  The main REST service for the  Booking Application
+ */
 @Path("/bookings")
 public class BookingService {
 
     @Context
     private ServletContext application;
 
+    /**
+     * Retrieves the BookingApplication through the REST context
+     * @return ^^
+     * @throws JAXBException
+     * @throws IOException 
+     */
     private BookingApplication getBookingApp() throws JAXBException, IOException {
-        // The web server can handle requests from different clients in parallel.
-        // These are called "threads".
-        //
-        // We do NOT want other threads to manipulate the application object at the same
-        // time that we are manipulating it, otherwise bad things could happen.
-        //
-        // The "synchronized" keyword is used to lock the application object while
-        // we're manpulating it.
-        
-       
         synchronized (application) {
             BookingApplication bookingApp = (BookingApplication) application.getAttribute("bookingApp");
             if (bookingApp == null) {
@@ -41,6 +40,13 @@ public class BookingService {
         }
     }
   
+    /**
+     * Returns all bookings in XML format
+     * @return ^^
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/
     @Path("booking")
     @GET
@@ -50,6 +56,14 @@ public class BookingService {
     
     }
     
+    /**
+     * Returns a specific Booking in XML format
+     * @param ID The booking ID to return
+     * @return ^^
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
     // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/bookingID?ID=1
     @Path("booking/bookingID")
     @GET
@@ -60,7 +74,14 @@ public class BookingService {
     }    
 
 
-    
+    /**
+     * Returns a specific Booking with a student Email
+     * @param email The email of the booking
+     * @return ^^
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
     // http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/studEmail?email=lisa.simpson@springfield.com
     @Path("booking/studEmail")
     @GET
@@ -69,6 +90,14 @@ public class BookingService {
         return getBookingApp().getBookingsObject().getbyStudentEmail(email);
     }    
     
+    /**
+     * Returns a specific Booking with a subject name
+     * @param subjectName The subject name
+     * @return ^^
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
     //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/subjectName?subjectName=AppProg
     @Path("booking/subjectName")
     @GET
@@ -78,6 +107,14 @@ public class BookingService {
     }    
     
     
+    /**
+     * Returns a specific booking with a status
+     * @param status the status
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     * @throws Exception 
+     */
      //http://localhost:8080/UTSTutor_Assignment1/rest/bookings/booking/status?status=ACTIVE
     @Path("booking/status")
     @GET

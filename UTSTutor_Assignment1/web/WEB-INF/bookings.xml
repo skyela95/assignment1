@@ -7,59 +7,5 @@ and open the template in the editor.
 
 
 <bookings>
-    <booking>
-        <statusType>ACTIVE</statusType>
-        <bookingID>1</bookingID>
-        <tutorName>Steve Jobs</tutorName>
-        <tutorEmail>steve.jobs@apple.com</tutorEmail>
-        <subjectName>WSD</subjectName>
-        <studentEmail>lisa.simpson@springfield.com</studentEmail>
-        <studentName>Lisa Simpson</studentName>
-    </booking>
-    <booking>
-        <statusType>ACTIVE</statusType>
-        <bookingID>2</bookingID>
-        <tutorName>Paul Depet</tutorName>
-        <tutorEmail>Paul.Depet@wsd.com</tutorEmail>
-        <subjectName>USP</subjectName>
-        <studentEmail>oscar.helix@wsd.com</studentEmail>
-        <studentName>Oscar Helix</studentName>
-    </booking>
-    <booking>
-        <statusType>ACTIVE</statusType>
-        <bookingID>3</bookingID>
-        <tutorName>Seth Soap</tutorName>
-        <tutorEmail>seth.soap@wsd.com</tutorEmail>
-        <subjectName>AppProg</subjectName>
-        <studentEmail>emily.heath@swsd.com</studentEmail>
-        <studentName>Emily Heath</studentName>
-    </booking>
-    <booking>
-        <statusType>COMPLETED</statusType>
-        <bookingID>4</bookingID>
-        <tutorName>Robert Felix</tutorName>
-        <tutorEmail>robert.felix@wsd.com</tutorEmail>
-        <subjectName>SEP</subjectName>
-        <studentEmail>henry.watkins@wsd.com</studentEmail>
-        <studentName>Henry Watkins</studentName>
-    </booking>
-    <booking>
-        <statusType>ACTIVE</statusType>
-        <bookingID>5</bookingID>
-        <tutorName>Liam Walker</tutorName>
-        <tutorEmail>liam.walker@wsd.com</tutorEmail>
-        <subjectName>MobileApp</subjectName>
-        <studentEmail>bert.tyler@wsd.com</studentEmail>
-        <studentName>Bert Tyler</studentName>
-    </booking>
-    <booking>
-        <statusType>ACTIVE</statusType>
-        <bookingID>6</bookingID>
-        <tutorName>Bill Gates</tutorName>
-        <tutorEmail>bill.gates@microsoft.com</tutorEmail>
-        <subjectName>MobileApp</subjectName>
-        <studentEmail>oscar.helix@wsd.com</studentEmail>
-        <studentName>Lisa Simpson</studentName>
-    </booking>
 </bookings>
 

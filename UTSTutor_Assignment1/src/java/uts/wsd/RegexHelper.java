@@ -9,8 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
- * @author Adam
+ * Helper class to parse string into regular expressions
  */
 public class RegexHelper {
 
@@ -25,28 +24,37 @@ public class RegexHelper {
                     + "f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e"
                     + "-\\x7f])+)\\])");
 
-    /*
-    private static final Pattern DOB_PATTERN = Pattern.compile(
-            "[0-9]{2}/[0-9]{2}/[0-9]{4}");
-*/
-    
     private static final Pattern DOB_PATTERN = Pattern.compile(
             "[0-3]{1}[0-9]{1}\\/[0-1]{1}[0-9]{1}\\/[0-9]{4}");
     
     private static final Pattern NAME_PATTERN = Pattern.compile(
             "(([A-Z][a-z]+)\\s*)*([A-Z][a-z]*)");
 
+    /**
+     * Test string against a name pattern
+     * @param name String to test
+     * @return true or false on text
+     */
     public static boolean TestName(String name) {
-
         Matcher m = NAME_PATTERN.matcher(name);
         return m.matches();
     }
 
+    /**
+     * Test string against email pattern
+     * @param name String to test
+     * @return true or false on text
+     */
     public static boolean TestEmail(String name) {
         Matcher m = EMAIL_PATTERN.matcher(name);
         return m.matches();
     }
 
+    /**
+     * Test string against date of birth
+     * @param name String to test
+     * @return true or false on text
+     */
     public static boolean TestDOB(String name) {
         Matcher m = DOB_PATTERN.matcher(name);
         return m.matches();

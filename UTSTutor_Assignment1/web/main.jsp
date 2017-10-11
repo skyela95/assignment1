@@ -1,7 +1,6 @@
 <%-- 
-    Document   : Main
-    Created on : 02/10/2017, 7:01:44 PM
-    Author     : Madeleine
+    The Main page - Allows students to search for tutors, and tutors get
+    greeted as they have no functionality on the main page
 --%>
 <%@page import="uts.wsd.rest.TutorService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
