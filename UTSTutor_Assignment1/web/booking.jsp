@@ -52,15 +52,17 @@
             else if(request.getParameter("viewActive") != null){allBookings = false;}
             else{allBookings = true;}
             
+            boolean done;
             //FOR STUDENT ONLY
-            //TODO: if can get createBooking in request, session tut to create booking, don't show again.
             if(user.getUserType() == User.UserType.STUDENT){
+            if(done = false){
             Tutor tutor = (Tutor)session.getAttribute("tut");
             String availability = null;
             if(tutor!=null){
                 if(tutor.isAvaliable() == true){availability = "available";}
                 else if (tutor.isAvaliable()==false){availability = "unavailable";}
                 if(tutor.isAvaliable()){
+                    done = true;
                 %>
                 <p>Selected Tutor: </p>
                 <form method="post" action="booking.jsp">
@@ -72,9 +74,9 @@
                     <tr><td><input type="submit" value="create booking" name="createBooking"/></td></tr>
                 </table>
                 </form>
-            <%}else{//TODO: only if something was passed in but not available, not just else.%>
+            <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
-            <%}}}%>
+            <%} } } }%>
             
             <%
                 //if session has a selected booking, show that booking and give options.
@@ -89,7 +91,6 @@
                     String selectedSub = selectedBooking.getSubjectName().toString();
                     String selectedTut = selectedBooking.getTutorName();
                     String selectedStat = selectedBooking.getStatusType().toString();
-                    //TODO: all users have cance, only TUTORS have complete.
                 %>
                 <form method="post" action="booking.jsp">
                 <table>
@@ -149,17 +150,16 @@
                <% }
                 else if(allBookings == false){%>
                 <p>active bookings returned.</p> 
+                <table>
                 <%
                     ArrayList<Booking> actBook = bookingApp.getBookingsObject().getbyStudentEmail(user.getEmail());
                     for (Booking books : actBook){
-                        //TODO: CHECK IF ACTIVE CURRENTLY RETURNING ALL.
+                        if(books.getStatusType() == Booking.StatusType.ACTIVE){
                         int ID = books.getBookingID();
                         String subName = books.getSubjectName().toString();
                         String tutName = books.getTutorName();
                         String stat = books.getStatusType().toString(); 
-                //TODO: table starts after for loop, needs to start BEFORE. %>
-                        
-                        <table>
+                //DONE: table now starts before the for loop, not after.. %>
                             <tr><td>Bookings</td></tr>
                             <tr><td>ID: <%=ID%></td>
                                 <td>Subject: <%=subName%></td>
@@ -169,8 +169,8 @@
                                 <input type="submit" value="select booking" name="selectBooking"/>
                                 <input type="hidden" value="<%=ID%>" name="selectedID"/>
                                 </form></td>
-                        </table>
-                  <%}%>
-               <% }else{%><p>Please press a button above.</p><% }%>
+                <%}else{%><p>No Active Bookings.</p> <%}%>
+                  </table>
+               <% }}else{%><p>Please press a button above.</p><% }%>
     </body>
 </html>
