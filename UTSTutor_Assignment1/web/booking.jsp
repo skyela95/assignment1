@@ -66,8 +66,9 @@
             <%
                 //if session has a selected booking, show that booking and give options.
                 Booking selectedBooking = null;
-                if(session.getAttribute("selectedBooking") != null){
-                    selectedBooking = (Booking)session.getAttribute("selectedBooking");
+                String selectID = request.getParameter("selectedID");
+                if(request.getParameter("selectedID") != null){
+                    selectedBooking = bookingApp.getBookingsObject().getByID(Integer.parseInt(selectID));
                 }
                 //display selected booking.
                 if (selectedBooking!=null){ 
@@ -100,26 +101,27 @@
                 <%
                     ArrayList<Booking> bookings2 = bookingApp.getBookingsObject().getbyStudentEmail(user.getEmail());
                 %>
-                
                 <table>
                     <tr><td>Bookings</td></tr>
-                    <tr>
-                        <%
+                      <%
                             for(Booking bookings : bookings2){
                                 int bookID = bookings.getBookingID();
                                 String subname = bookings.getSubjectName().toString();
                                 String tutName = bookings.getTutorName();
                                 String stat = bookings.getStatusType().toString();
                         %>
+                    <tr>
                             <td>ID: <%=bookID%></td>
                             <td>Subject: <%=subname%></td>
                             <td>Tutor: <%=tutName%></td>
                             <td>Status: <%=stat%></td>
-                                    <td><form method="post" action="booking.jsp">
-                                        <input type="submit" value="select booking" onClick="<%session.setAttribute("selectedBooking", bookings);%>"/>
-                                </form></td>
+                            <td><form method="post" action="booking.jsp">
+                            <input type="submit" value="select booking" name="form"/>
+                            <input type="hidden" value="<%=bookID%>" name="selectedID"/>
+                            </form></td>
                           <%}%>
                     </tr>
+                    
                 </table>
                 
                <% }
@@ -135,8 +137,8 @@
                         
                         <table>
                             <tr><td>Bookings</td></tr>
-                            <tr><td><%=ID%></td><td><%=subName%></td><td><%=tutName%></td>
-                                <td><%=stat%></td></tr>
+                            <tr><td>ID: <%=ID%></td><td>Subject: <%=subName%></td><td>Tutor: <%=tutName%></td>
+                                <td>Status: <%=stat%></td></tr>
                         </table>
                   <%}%>
                <% }else{%><p>Please press a button above.</p><% }%>

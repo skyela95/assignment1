@@ -16,6 +16,15 @@ and open the template in the editor.
         <studentEmail>lisa.simpson@springfield.com</studentEmail>
         <studentName>Lisa Simpson</studentName>
     </booking>
+    <booking>
+        <statusType>ACTIVE</statusType>
+        <bookingID>6</bookingID>
+        <tutorName>Bill Gates</tutorName>
+        <tutorEmail>bill.gates@microsoft.com</tutorEmail>
+        <subjectName>MobileApp</subjectName>
+        <studentEmail>lisa.simpson@springfield.com</studentEmail>
+        <studentName>Lisa Simpson</studentName>
+    </booking>
         <booking>
         <statusType>ACTIVE</statusType>
         <bookingID>2</bookingID>
