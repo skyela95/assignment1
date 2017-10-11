@@ -52,13 +52,11 @@
             else if(request.getParameter("viewActive") != null){allBookings = false;}
             else{allBookings = true;}
             
-            boolean done;
             //FOR STUDENT ONLY
             if(user.getUserType() == User.UserType.STUDENT){
-            if(done = false){
+            
             //Tutor tutor = (Tutor)session.getAttribute("tut");
             if(request.getParameter("mainSelectName")!=null){
-                
             //}
             Tutor tutor = bookingApp.getTutorsObject().getTutorByName(request.getParameter("mainSelectName"));
             String availability = null;
@@ -66,7 +64,6 @@
                 if(tutor.isAvaliable() == true){availability = "available";}
                 else if (tutor.isAvaliable()==false){availability = "unavailable";}
                 if(tutor.isAvaliable()){
-                    done = true;
                 %>
                 <p>Selected Tutor: </p>
                 <form method="post" action="booking.jsp">
@@ -80,7 +77,7 @@
                 </form>
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
-            <%} } } } }%>
+            <%} } } }%>
             
             <%
                 //if session has a selected booking, show that booking and give options.
