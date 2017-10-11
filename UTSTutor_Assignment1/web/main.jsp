@@ -133,11 +133,12 @@
                                 session.setAttribute("tut", tutor);
                             %>
                             <tr>
-                                
                                 <%if(tutor.isAvaliable()){%>
                                 <td><input type="hidden" value="<%=useName%>" name="mainSelectName"/></td>
                                 <td><input type="submit" value="create booking" name="mainSelect"/></td>
                                 <%}%>
+                            </tr>
+                            <tr>
                                 <td><%=useName%></td>
                                 <td><%=useEmail%></td>
                                 <td><%=useSub%></td>
