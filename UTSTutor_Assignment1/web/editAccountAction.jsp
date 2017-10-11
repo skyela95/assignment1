@@ -52,11 +52,11 @@
             if (!bookingApp.authorizeUser(username, password)) {
                 errors += "Unable to authorize user";
             } else {
-                if (RegexHelper.TestDOB(newDOB)) {
-                    errors += "Date of Birth is not in a valid format [01/02/03]\n";
+                if (!RegexHelper.TestDOB(newDOB)) {
+                    errors += "Date of Birth is not in a valid format [01/01/1990]\n";
                 }
                 System.out.println("Before test: " + newName);
-                if (RegexHelper.TestName(newName)) {
+                if (!RegexHelper.TestName(newName)) {
                     errors += "Name is not in a valid format [John Smith]\n";
                 }
 

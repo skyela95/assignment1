@@ -25,7 +25,7 @@ public class RegexHelper {
             "(([A-Z][a-z]+)\\s*)*([A-Z][a-z]*)");
 
     public static boolean TestName(String name) {
-        System.out.println("Test Name: " + name);
+
         Matcher m = NAME_PATTERN.matcher(name);
         return m.matches();
     }
