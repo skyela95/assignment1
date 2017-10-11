@@ -13,7 +13,7 @@
     </head>
     <body>
         <h2>Please Register with your details below:</h2>
-        <form method="post" action="main.jsp">
+        <form method="post" action="registerAction.jsp">
             <table>
                 <tr><td>Full Name:</td><td><input type="text" name="name"></td></tr>
                 <tr><td>Email:</td><td><input type="text" name="email"></td></tr>
