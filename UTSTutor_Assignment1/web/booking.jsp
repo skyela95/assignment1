@@ -26,25 +26,12 @@
             <jsp:setProperty name="bookingApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
         
-        
-        <%!
-        
-        public void createNewBooking(Student student, Tutor tutor){
-            System.out.println("BUTTON CLICKED");
-            bookingApp.createBooking(student, tutor);
-        }
-
-        %>
-        
         <% 
-            boolean allBookings;
-            //check if a tutor has been passed in.
-            //if yes - display selected tutor.
-            //same with booking - only one, not both.
-            //if no - skip this.
-            //display all bookings active for user in xslt 
-            //selected booking - shows options with it.
-            //view all booking history for user.
+            boolean allBookings = true;
+            if(request.getParameter("viewAll") != null){ allBookings = true; }
+            else if(request.getParameter("viewActive") != null){allBookings = false;}
+            else{allBookings = true;}
+        
             //only tutor can compelete a booking.
             //Tutor tutor = request.getParameter("tutor");
             User user = (User) session.getAttribute("user");
@@ -56,6 +43,8 @@
             //onClick: onClick="createNewBooking((Student)user, tutor)
             
             //FOR STUDENT ONLY
+            //if can get createBooking in request, session tut to create booking, don't show again.
+            if(user.getUserType() == User.UserType.STUDENT){
             Tutor tutor = (Tutor)session.getAttribute("tut");
             String availability = null;
             if(tutor!=null){
@@ -68,15 +57,41 @@
                     <tr><td>Name: </td><td><%=tutor.getName()%></td></tr>
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
-                    <tr><td><input type="button" value="create booking"></td></tr>
+                    <tr><td><input type="button" value="create booking" name="createBooking"/></td></tr>
                 </table>
             <%}else{%>
             <p>The tutor is not available. Please go back to main.</p>
-            <%}}%>
-            <!--<form method="post" action="booking.jsp"> -->
+            <%}}}%>
+            
+            <%
+                //if session has a selected booking, show that booking and give options.
+                Booking selectedBooking = null;
+                if(session.getAttribute("selectedBooking") != null){
+                    selectedBooking = (Booking)session.getAttribute("selectedBooking");
+                }
+                //display selected booking.
+                if (selectedBooking!=null){ 
+                    int selectedID = selectedBooking.getBookingID();
+                    String selectedSub = selectedBooking.getSubjectName().toString();
+                    String selectedTut = selectedBooking.getTutorName();
+                    String selectedStat = selectedBooking.getStatusType().toString();
+                %>
+                <table>
+                    <tr><td>Selected Booking</td></tr>
+                    <td>ID: <%=selectedID%></td>
+                    <td>Subject: <%=selectedSub%></td>
+                    <td>Tutor: <%=selectedTut%></td>
+                    <td>Status: <%=selectedStat%></td>
+                </table>
+                <%}%>
+            
+            <!--<form method="post" action="booking.jsp"> 
+            Can change to get if implement loggedin check. -->
             <form method="post" action="booking.jsp">
-                <input type="button" value="View All Bookings" onClick="<%allBookings = true;%>">
-                <input type="button" value="View Active Bookings" onClick="<%allBookings = false;%>">
+                <input type="submit" value="View All Bookings" name="viewAll">
+            </form>
+            <form method="post" action="booking.jsp">
+                 <input type="submit" value="View Active Bookings" name="viewActive">
             </form>
 
             <%
@@ -100,7 +115,10 @@
                             <td>Subject: <%=subname%></td>
                             <td>Tutor: <%=tutName%></td>
                             <td>Status: <%=stat%></td>
-                          <%  } %>
+                                    <td><form method="post" action="booking.jsp">
+                                        <input type="submit" value="select booking" onClick="<%session.setAttribute("selectedBooking", bookings);%>"/>
+                                </form></td>
+                          <%}%>
                     </tr>
                 </table>
                 
