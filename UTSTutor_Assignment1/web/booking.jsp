@@ -83,7 +83,7 @@
                     <tr><td>Subject: </td><td><%=tutor.getSpecialty()%></td></tr>
                     <tr><td>Status: </td><td><%=availability%></td></tr>
                     <tr><td><input type="hidden" value="<%=tutor.getName()%>" name="createName"/></td></tr>
-                    <tr><td><input type="button" value="create booking" name="createBooking"/></td></tr>
+                    <tr><td><input type="submit" value="create booking" name="createBooking"/></td></tr>
                 </table>
                 </form>
             <%}else{%>
@@ -113,10 +113,10 @@
                     <td>Tutor: <%=selectedTut%></td>
                     <td>Status: <%=selectedStat%></td>
                     <tr><td><input type="hidden" value="<%=selectedID%>" name="cancelID"/></td></tr>
-                    <tr><td><input type="button" value="cancel booking" name="cancelBooking"/></td></tr>
+                    <tr><td><input type="submit" value="cancel booking" name="cancelBooking"/></td></tr>
                     <%if(user.getUserType() == User.UserType.TUTOR){%>
                     <tr><td><input type="hidden" value="<%=selectedID%>" name="completeID"/></td></tr>
-                    <tr><td><input type="button" value="complete booking" name="completeBooking"/></td></tr>
+                    <tr><td><input type="submit" value="complete booking" name="completeBooking"/></td></tr>
                     <%}%>
                 </table>
                 </form>
