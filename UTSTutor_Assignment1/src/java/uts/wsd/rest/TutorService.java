@@ -69,6 +69,6 @@ public class TutorService {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Tutor> getTutorsByAvailability(@QueryParam("status") Boolean status) throws JAXBException, IOException, Exception{
-        return getBookingApp().getTutorsObject().getTutorsByAvailability(status);
+        return getBookingApp().getTutorsObject().getTutorsByStatus(status);
     }
 }    
