@@ -118,7 +118,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>Select</td><td>Name</td><td>Email</td><td>Subject</td><td>Status</td>
+                            <td></td><td>Select</td><td>Name</td><td>Email</td><td>Subject</td><td>Status</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,12 +133,13 @@
                                 session.setAttribute("tut", tutor);
                             %>
                             <tr>
+                                <td>
                                 <%if(tutor.isAvaliable()){%>
-                                <td><input type="hidden" value="<%=useName%>" name="mainSelectName"/></td>
-                                <td><input type="submit" value="create booking" name="mainSelect"/></td>
-                                <%}%>
-                            </tr>
-                            <tr>
+                                <input type="hidden" value="<%=useName%>" name="mainSelectName"/>
+                                <input type="submit" value="create booking" name="mainSelect"/>
+                                <%}%> 
+                                </td>
+                                
                                 <td><%=useName%></td>
                                 <td><%=useEmail%></td>
                                 <td><%=useSub%></td>
